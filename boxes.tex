@@ -1,0 +1,65 @@
+\documentclass[12pt]{amsart}
+
+\newcommand{\bsl}{\texttt{\symbol{92}}}
+
+\begin{document}
+\hrulefill\footnote{this is not going to be pretty}\\
+\makebox[2in]{Short title.}End\\
+\makebox[3\width][l]{Short title.}End\\
+\makebox[2in][c]{Short title.}End\\
+\makebox[2in][r]{Short title.}End\\
+\makebox[2in][r]{Short title.}End\\
+\makebox[2in][s]{Short title.}End\\
+\text{Short title.}End
+
+\hrulefill\\
+
+\fbox{Do not touch!}\\
+
+
+\fbox{
+    \parbox{3in}{
+        Boxed text cannot be broken,
+        so if you want to frame more than one line
+        of text, place it in the argument of a
+        \bsl\texttt{parbox} command or within a
+        \texttt{minipage} environment.
+    }
+}\\
+
+\fbox{\makebox[\totalheight]{1}}
+\framebox[\totalheight]{1}\\
+
+\textbf{This is funny}: \fbox{\parbox[t][1in][c]{3in}{Fred Wehrung's new result shows
+the limitations of E.\,T. Schmidt's construction,
+especially for large lattices. It's difficult to ignore.
+}}\\
+
+\textbf{Attempt}:
+\fbox{
+    \begin{minipage}[t]{2.5in}
+        HMI Module Alpha Humana\footnote{So much fun, really}
+        on Approach to Space Station Mercury
+        
+        \[
+            \int_{-\infty}^\infty \zeta(x)\,dx
+        \]
+    \end{minipage}
+}\\
+\newpage
+\marginpar{Author's sometimes overuse this}
+\texttt{\bsl marginpar\{Author's sometimes overuse this\}}\\
+
+end of proof symbol: \rule{1.6ex}{1.6ex}\\
+end of proof symbol: \rule[-.23ex]{1.6ex}{1.6ex}\\
+
+1 inch:\quad\makebox[1in]{%
+    \rule{0.4pt}{4pt}\hrulefill\rule{0.4pt}{4pt}%
+}\\
+
+\fbox{ab} and \fbox{$\mathstrut$ab} and \fbox{\strut ab}\\
+
+fine-\raisebox{.5ex}{tun}\raisebox{-.5ex}{ing}
+
+fine-\raisebox{0ex}[1.5ex][0.75ex]{tun}\raisebox{-.5ex}{ing}
+\end{document}

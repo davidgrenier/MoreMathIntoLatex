@@ -1,0 +1,85 @@
+\documentclass[draft,12pt,twocolumn]{article}
+\usepackage{amsmath}
+\usepackage{setspace}
+
+%\renewcommand{\baselinestretch}{1.5}
+\onehalfspace
+
+\begin{document}
+
+\begin{titlepage}
+    \onecolumn
+
+    \centerline{Resignation}
+
+    \vfill
+
+    I'm through.
+
+    \vfill
+
+    \hfill David Grenier
+\end{titlepage}
+
+\twocolumn
+
+2. Boxes\dotfill34\\
+3. Names\hfill39\\
+4. Age\hrulefill54\\
+5. Power\hrulefill59\hrulefill32
+
+Baseline Skip: \the\baselineskip
+
+And text\\
+And text\\
+\qquad After quad\\
+\hspace*{2em}After hspace\par
+After paragraph
+
+\medskip
+
+Hello Friend\par
+Hello\quad{}Friend\par
+Hello\quad Friend\par
+Hello\hspace{1em}Friend\par
+Hello\qquad Friend\par
+Hello\hspace{2em}Friend\par
+Hello\hspace{12pt}Friend\par
+Hello\hspace{.5in}Friend\par
+Hello\hspace{1.5cm}Friend\par
+Hello\hspace{-50pt}Friend
+
+\medskip
+
+\textbar need space\textbar\par
+\textbar\phantom{need space}\textbar
+
+\medskip
+
+\setlength{\hangindent}{30pt}
+\setlength{\hangafter}{2}
+\noindent
+\textbf{sentence} a group of words terminated by
+a period, exclamation point, or question mark.
+and it is quite unclear what the result would be
+in such a situation that we describe here:
+
+\setlength{\hangindent}{30pt}
+\noindent
+\textbf{paragraph} a group of sentences terminated by a
+blank line or by the new paragraph commad.
+\medskip
+
+\begin{setlength}{\hfuzz}{2pt}
+Having a very long line is very fun but if you have a longest
+\text{hamiltonian-tester} it'll fail horribly\\[15pt]
+\end{setlength}
+
+There are two forms of the line breaking command:
+
+There are two forms\\ of the line breaking command:
+
+There are two forms \newline of the line breaking command:
+
+There are two forms \linebreak of the line breaking command:
+\end{document}

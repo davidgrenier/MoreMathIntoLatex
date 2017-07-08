@@ -1,0 +1,43 @@
+\documentclass{sample}
+\newcommand{\bsl}{\texttt{\symbol{92}}}
+\begin{document}
+    `subdirectory irreducible' and ``subdirectory irreducible''
+
+    ``she replied, `No.'\,''
+
+    Mean-Value Theorem, see pages~23--45 in Schmidt--Freid
+    and the full name P.~Neukomm
+
+    A long dash---called an \emph{em dash}---is used
+
+    \begin{align}
+        \phi(x) = 2^x\label{T:main}\\
+        \zeta(x) = x^2\label{S:intro}
+    \end{align}
+
+    Theorem~\ref{T:main} in Section~\pageref{S:intro}. Donald~E. Knuth.  
+    assume that $f(x)$ is (a)~continuous, (b)~bounded the lattice~$L$.
+    Peter~G.~Neukomm.
+
+    Test \textbackslash\ and \texttt{\textbackslash} and \bsl\ and \texttt{\bsl}
+
+    The | (vertical bar) shouldn't be used
+    instead use \bsl\texttt{textbar} (\textbar) in text
+    and \texttt{\bsl mid} in formulae as in $\{ x \mid x > 3\}$
+
+    The \^\ is invalid by itself, you must type in \bsl\texttt{\^}.
+    Obviously, so is the \$ sign, which requires \bsl\texttt{\$}.
+    \{ and \}, beign used in command arguments also require to
+    be prefixed with \bsl. The \#, \% and \~\ all require \bsl.
+    However \texttt{@} typesets as @.
+
+    The * is high up on the line in text, however centered in formula
+    such as $2 * 3$. You can get a centered * with \bsl\texttt{textasteriskcentered}.
+    Such as \textasteriskcentered.
+
+    You should never use \texttt{"}, perhaps except in code:
+
+    \texttt{print("Hello!")}
+
+    While the \bsl\texttt{"} will create the umlaut: Gr\"atzer.
+\end{document}

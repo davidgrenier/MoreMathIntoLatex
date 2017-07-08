@@ -1,0 +1,50 @@
+\documentclass[leqno]{sample}
+\numberwithin{equation}{section}
+\usepackage{amsmath}
+
+\begin{document}
+
+\begin{equation}
+    \label{E:firstIntegral}
+    \int_0^{\pi} \sin x\,dx = 2
+\end{equation}
+
+\begin{equation}
+    \tag{Int}
+    \int_0^{\pi} \sin x\, dx = 2
+\end{equation}
+
+\begin{align}
+    r^2 &= s^2 + t^2, \label{E:Pyth}\\
+    2u + 1 &= v + w^{\alpha}, \label{E:alpha}\\
+    x &= \frac{y+z}{\sqrt{s+2u}}; \label{E:frac}
+\end{align}
+
+\begin{align}
+    h(x) &= \int \left(
+                    \frac{f(x) + g(x)}{1+f^2(x)} +
+                    \frac{1 + f(x)g(x)}{\sqrt{1 - \sin x}}
+                        \right)\,dx\\
+    &= \int \frac{1 + f(x)}{1 + g(x)}\,dx - 2 \tan^{-1}(x-2) \notag
+\end{align}
+
+\clearpage
+
+See~\eqref{E:firstIntegral} on page~\pageref{E:firstIntegral}
+
+\begin{align}
+    x &= x \wedge (y \vee z) && \text{(by distributivity)}\\
+    &= (x \wedge y) \vee (x \wedge z) && \text{(by condition (M))} \notag\\
+    &= y \vee z \notag
+\end{align}
+
+\[
+    f(x) =
+    \begin{cases}
+        -x^2,       &\text{if $x < 0$;}\\
+        \alpha + x, &\text{if $0 \leq x \leq 1$;}\\
+        x^2,        &\text{otherwise.}
+    \end{cases}
+\]
+
+\end{document}

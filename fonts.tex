@@ -1,0 +1,70 @@
+\documentclass[12pt,twocolumn]{amsart}
+
+\newcommand{\bsl}{\texttt{\symbol{92}}}
+
+\begin{document}
+\begin{itemize}
+    \item[] mmmmmm
+    \item[] iiiiii 
+{\ttfamily
+    \item[] mmmmmm
+    \item[] iiiiii
+}
+    \item[] \textnormal{normal weight and width}
+    \item[] \textrm{normal weight and width}
+    \item[] \textmd{normal weight and width}
+    \item[] \textup{normal weight and width}
+    \item[] \textsf{sans serif}
+    \item[] \texttt{typewriter style}
+    \item[] \emph{emphasis}
+    \item[] \textit{emphasis}
+    \item[] \textsl{slanted shape}
+    \item[] \textsc{small capitals}
+    \item[] \textbf{bold}
+\end{itemize}
+
+\textit{The space satisfies all three conditions, a so-called
+\emph{Rubin space} that \dots}
+
+Only the lowercase in \textsc{Tug} are printed as small caps
+
+To get italic correct you use the \bsl\texttt{/} italic correction:
+\begin{itemize}
+    \item[] {\itshape M}M
+    \item[] {\itshape M\/}M
+    \item[] {\itshape M}\,M \texttt{\%\bsl,} seems to do just the same
+\end{itemize}
+
+when using a {\itshape serif} font\par
+when using a {\itshape serif\/} font\par
+when using a {\itshape serif\,} font\par
+when using a {\itshape serif}\, font\par
+
+{\itshape Do not forget.} My party is on Monday.\par
+\textit{Do not forget.} My party is on Monday.\par
+{\itshape Do not forget.\/} My party is on Monday.
+
+when using a {\em environment\/} font\par
+when using a {\em environment} font\par
+when using a \emph{environment} font\par
+
+{\Tiny sample text}\par
+{\tiny sample text}\par
+{\SMALL sample text}\par
+{\Small sample text}\par
+{\small sample text}\par
+{\normalsize sample text}\par
+{\large sample text}\par
+{\Large sample text}\par
+{\LARGE sample text}\par
+{\huge sample text}\par
+{\Huge sample text}\par
+sample text\par
+{\smaller[1]sample text}\par
+sample text\par
+\medskip
+sample\par
+{\slshape\bfseries sample\par}
+{\sl\bf sample\par}
+{\bf\sl sample\par}
+\end{document}
