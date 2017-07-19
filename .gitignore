@@ -1,3 +1,7 @@
-*
-!*.tex
-!*.cls
+*.aux
+*.log
+*.pdf
+*.nav
+*.toc
+*.out
+*.snm

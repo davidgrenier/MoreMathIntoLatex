@@ -1,0 +1,58 @@
+\documentclass{amsart}
+
+\newtheorem{definition}{Definition}
+\theoremstyle{definition}
+\newtheorem{lemma}{Lemma}[section]
+\swapnumbers
+\newtheorem{proposition}[lemma]{Proposition}
+\theoremstyle{remark}
+\newtheorem*{note}{Note}
+
+\begin{document}
+\begin{definition}[The Fuchs-Schmidt Theorem]
+    The statement of the theorem
+\end{definition}
+
+\begin{definition}\label{D:prime}
+    \hfill
+    \begin{enumerate}
+        \item $u$ is \emph{bold} if $u = x^2$.\label{mi1}
+        \item $u$ is \emph{thin} if $u = \sqrt{x}$.\label{mi2}
+    \end{enumerate}
+\end{definition}
+
+\begin{lemma}
+    This is a fun topic
+\end{lemma}
+
+\section{}
+
+\begin{lemma}
+    Let us restate: this is a fun topic
+\end{lemma}
+
+\begin{proposition}\label{P:fun}
+    This is a much more fun topic
+\end{proposition}
+
+\begin{note}
+    Some people fuck things up for others
+\end{note}
+
+\begin{proof}[Proof of Proposition~\ref{P:fun}]
+    \hfill
+    \begin{description}
+        \item[$\alpha$] A little
+        \item[$\beta$] quick brown
+    \end{description}
+
+    This is a proof, delimited by the q.e.d.\ symbol.
+\end{proof}
+
+\begin{proof}
+    Now the proof follows from the equation
+    \[
+        a^2 = b^2 + c^2.\qedhere
+    \]
+\end{proof}
+\end{document}
