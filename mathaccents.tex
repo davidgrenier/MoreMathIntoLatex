@@ -1,4 +1,78 @@
-\documentclass{sample}
+\documentclass{amsart}
+\usepackage{amsxtra}
 \begin{document}
-$\bar{a}$, $\hat{a}$, $\tilde{a}$, $\vec{a}$
+
+Stretchable arrow
+\[
+    A \xrightarrow{\text{1-1}} B \xleftarrow[\alpha \to \beta]{\text{onto}}
+    C \xleftarrow[\gamma]{} D \xleftarrow{} E
+\]
+
+Arrows
+\begin{gather*}
+    \overleftarrow a \quad \overrightarrow{aa} \quad
+    \overleftrightarrow{aaa} \quad \underleftarrow{aaaa} \quad
+    \underrightarrow{aaaaa} \quad \underleftrightarrow{aaaaaa}
+\end{gather*}
+
+Display
+\[
+    \mathfrak{Scrapbooking}
+\]
+
+Display
+\begin{align*}
+    \overbrace{a + b + \dots + z}^n\\
+    \underbrace{a+b+\dots+z}_\alpha\\
+    \underbrace{
+        \overbrace{a+\dots+a}^{(m-n)/2}
+        + \underbrace{b + \dots + b}_n
+        + \overbrace{a + \dots + a}^{(m-n)/2}
+    }_m\\
+    \overline{\overline X \cup \overline{\overline X}} = \overline{\overline X}
+\end{align*}
+
+Inline $\bar a \overline a$
+
+Inline $\hat{\hat a}$ $\vec{\vec{\vec a}}$
+Display
+\[
+    \hat{\hat a} \quad \dot{\ddot a} \quad
+    \widetilde{\mathfrak{Castlevania}} \quad
+\]
+Display
+\[
+    \widehat{\text{\scshape abcde}} \quad
+    \widehat{ABCDE}
+\]
+Display
+\[
+    \check a \quad a^{\spcheck}b
+\]
+
+\begin{table}[h]
+    \begin{center}
+        \begin{tabular}{lclc}
+            \hline
+            & &\texttt{amsxtra}\\\hline
+            Type &Typeset &Type &Typeset\\\hline
+            \verb+\acute a+ &$\acute a$\\
+            \verb+\bar a+ &$\bar a$\\
+            \verb+\breve a+ &$\breve a$ &\verb+\spbreve+ &$\spbreve$\\
+            \verb+\check a+ &$\check a$ &\verb+\spcheck+ &$\spcheck$\\
+            \verb+\dot a+ &$\dot a$ &\verb+\spdot+ &$\spdot$\\
+            \verb+\ddot a+ &$\ddot a$ &\verb+\spddot+ &$\spddot$\\
+            \verb+\dddot a+ &$\dddot a$ &\verb+\spdddot+ &$\spdddot$\\
+            \verb+\ddddot a+ &$\ddddot a$\\
+            \verb+\grave a+ &$\grave a$\\
+            \verb+\hat a+ &$\hat a$\\
+            \verb+\widehat a+ &$\widehat a$ &\verb+\sphat+ &$\sphat$\\
+            \verb+\mathring a+ &$\mathring a$\\
+            \verb+\tilde a+ &$\tilde a$\\
+            \verb+\widetilde a+ &$\widetilde a$ &\verb+\sptilde+ &$\sptilde$\\
+            \verb+\vec a+ &$\vec a$\\
+        \end{tabular}
+        \caption{Math accents}
+    \end{center}
+\end{table}
 \end{document}

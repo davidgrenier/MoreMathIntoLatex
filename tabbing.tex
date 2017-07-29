@@ -1,0 +1,88 @@
+\documentclass{amsart}
+
+\begin{document}
+\begin{ttfamily}
+    \begin{tabbing}
+        Print\=Time\\
+        \>Block\=[timing],\\
+        \>\>timing = Timing[expr];\\
+        (careful with initialization)\kill
+        \>\>Print[ timing[[1]] ];\\
+        \>]\\
+        End[]
+    \end{tabbing}
+\end{ttfamily}
+
+\begin{ttfamily}
+    \begin{tabbing}
+        \hspace*{.25in}\=\hspace{2ex}\=\hspace{2ex}\=\hspace{2ex}\kill
+        \> $k := 1$\\
+        \> $l_k := 0$; $r_k := 1$\\
+        \> loop\\
+        \>\> $m_k := (l_k + r_k)/2$\\
+        \>\> if $w < m_k$ then\\
+        \>\>\> $b_k := 0$; $r_k := m_k$\\
+        \>\> else if $w >m_k$ then\\
+        \>\>\> $b_k := 1$; $l_k := m_k$\\
+        \>\> end if\\
+        \>\> $k := k+1$\\
+        \> end loop
+    \end{tabbing}
+\end{ttfamily}
+
+\begin{ttfamily}
+    \begin{tabbing}
+        This is short.\=\\
+        This is much longer,\> and jumps back.
+    \end{tabbing}
+\end{ttfamily}
+
+\clearpage
+
+It's not that I'm afraid to die. I just don't
+want to be there when it happens.
+\emph{Woody Allen}
+
+Literature is news that STAYS news.
+\emph{Ezra Pound}
+
+\begin{quote}
+    It's not that I'm afraid to die. I just don't
+    want to be there when it happens.
+    \emph{Woody Allen}
+
+    Literature is news that STAYS news.
+    \emph{Ezra Pound}
+\end{quote}
+
+\begin{quotation}
+    KATH: Can he be present at the birth of his child?
+
+    ED: It's all any reasonable child can expect
+    if the dad is present at the conception.
+    \begin{flushright}\emph{Joe Orton}\end{flushright}
+\end{quotation}
+
+\begin{verse}
+    I think that I shall never see\\
+    A poem lovely as a tree.
+
+    Poems are made by fools like me,\\
+    But only God can make a tree.
+    \begin{flushright}
+        \emph{Joyce Kilmer}
+    \end{flushright}
+\end{verse}
+
+Formula (2) in Section 3 should be typed as follows:
+\begin{verbatim}
+\begin{equation}
+    D = \{ x_0 \mid x_0 \Rightarrow a_1 \} \tag{2}
+\end{equation}
+\end{verbatim}
+please make the necessary corrections.
+
+Some European e-mail addresses contain \%;
+recall that you have to type \verb+\%+ to get \%.
+\verb*!$\sin(\pi/2 + \alpha)$!
+\end{document}

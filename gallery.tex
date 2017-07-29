@@ -1,0 +1,168 @@
+\documentclass{amsart}
+\usepackage{amssymb,latexsym,amsxtra}
+\newcommand\cc[1]{\texttt{\symbol{92}#1}}
+
+\newtheorem{f}{Formula}
+
+\begin{document}
+\begin{f}
+\newcommand\ve[1]{\varepsilon\sb{#1}}
+\newcommand\vp\varphi
+\newcommand\df\dfrac
+\newcommand\tim[2]{\vp\sb#1\times\ve{#2}}
+\newcommand\xx[1]{\vp\cdot X\sb{n,#1}}
+\[
+    \mathbf A =
+    \begin{pmatrix}
+        \df{\xx1}{\tim11} &(x+\ve2)^2
+        &\cdots &(x+\ve{n-1})^{n-1} &(x +\ve n)^n
+        \\[10pt]
+        \df{\xx1}{\tim21} &\df{\xx2}{\tim22}
+        &\cdots &(x+\ve{n-1})^{n-1} &(x+\ve n)^n
+        \\
+        \hdotsfor{5}
+        \\
+        \df{\xx1}{\tim{n}1} &\df{\xx2}{\tim{n}2}
+        &\cdots
+        &\df{\xx{n-1}}{\tim{n}{n-1}} &\df{\xx n}{\tim{n}{n}}
+    \end{pmatrix}
+    + \mathbf I_n
+\]
+\end{f}
+
+\begin{f}
+    A set-valued function
+\[
+    x \mapsto \{ c \in C \mid c \leq x \}
+\]
+\end{f}
+\begin{f}
+    \[
+        \left| \bigcup(I_j \mid j \in J)\right| < \mathfrak m
+    \]
+\end{f}
+\begin{f}
+    \[
+        \mathbf A = \{ x \in X \mid x \in X_i, \text{ for some } i \in I \}
+    \]
+\end{f}
+\begin{f}
+    Space to show logical structure:
+    \[
+        \langle a_1,a_2\rangle \leq \langle a_1', a_2'\rangle
+        \text{\quad iff \quad} a_1 < a_1' \text{\quad or \quad}
+        a_1 = a_1' \text{ and } a_2 \leq a_2'
+    \]
+\end{f}
+\begin{f}
+    Here are some examples for Greek letters:
+    \[
+        \Gamma_{u'} = \{ \gamma \mid \gamma < 2\chi,
+        \ B_\alpha \nsubseteq u',
+        \ B_\gamma \subseteq u' \}
+    \]
+\end{f}
+\begin{f}
+    Blockboard Math
+    \[
+        A = B^2 \times \mathbb Z
+    \]
+\end{f}
+\begin{f}
+    \verb+\left[+ and \verb+\right]+ provide stretched delimiters:
+    \[
+        y^C \equiv z \wedge \bigwedge_{i \in C} \left[ s_i^C \right] \pmod\Phi
+    \]
+    \[
+        \mathfrak{Vampire\ Hun\dagger er\ D: BloodLust}
+    \]
+\end{f}
+\begin{f}
+    \[
+        y \vee \bigvee([B_\gamma] \mid \gamma \in \Gamma) \equiv
+        z \vee \bigvee([B_\gamma] \mid \gamma \in \Gamma) \pmod{\Phi^x}
+    \]
+\end{f}
+\begin{f}
+    No limits
+    \[
+        f(\mathbf x) = \bigvee\nolimits_{\!\mathfrak m}
+        \left(\bigwedge\nolimits_{\mathfrak m}( x_j \mid j \in I_i) \mid i < \aleph_\alpha \right)
+    \]
+\end{f}
+\begin{f}
+    \texttt{\symbol{92}left.}
+    \[
+        \left. \widehat F(x)\right|_a^b = \widehat F(b) - \widehat F(a)
+    \]
+\end{f}
+\begin{f}
+    Underset/overset
+    \[
+        u \underset\alpha+ v \overset1\thicksim w
+        \overset2\thicksim z
+    \]
+\end{f}
+\begin{f}
+    Small size bold \textbf{def}:
+    \[
+        f(x) \overset{\mathbf{def}}= x^2 - 1
+    \]
+\end{f}
+\begin{f}
+    Math accents:
+    \[
+        \overbrace{a\spcheck + b\spcheck + \dots + z\spcheck}^{\breve{\breve n}}
+    \]
+\end{f}
+\begin{f}
+    \begin{gather*}
+        \begin{vmatrix}a+b+c &uv\\a+b &c+d\end{vmatrix} = 7\\
+        \begin{Vmatrix}a+b+c &uv\\a+b &c+d\end{Vmatrix} = 7
+    \end{gather*}
+\end{f}
+\begin{f}
+    \[
+        \boldsymbol\alpha^2\sum_{j \in \mathbf N}b_{ij}\hat y_j =
+        \sum_{j \in \mathbf N}b_{ij}^{(\lambda)}\hat y_j +
+        (b_{ii} - \lambda)\hat y_i\hat y
+    \]
+    \begin{gather*}
+        \mathbf N \quad \boldsymbol N \quad \boldsymbol\alpha \quad
+        \mathbf\alpha \quad \mathbf\lambda \quad \boldsymbol\lambda
+    \end{gather*}
+\end{f}
+\begin{f}
+    \begin{align*}
+        \left(\prod_{j=i}^n \hat x_j \right) H_c =
+        \frac{1}{2}\hat k_{ij} \det \hat{\mathbf K}(i|i)\\
+        \bigg(\prod^n_{j=1} \hat x_j\bigg) H_c =
+        \frac12\hat k_{ij} \det \widehat{\mathbf K}(i|i)
+    \end{align*}
+\end{f}
+\begin{f}
+    Overline vs bar
+    \[
+        \det \mathbf K(t = 1,t_1,\dots,t_n) =
+        \sum_{I \in n}(-1)^{|I|}
+        \prod_{i \in I} t_i
+        \prod_{j \in I} (D_j + \lambda_j t_j)
+        \det \mathbf A^{(\lambda)}(\overline I|\bar I) = 0
+    \]
+\end{f}
+\begin{f}
+    The \texttt{\symbol{92}\textbar} provides $\|$:
+    \[
+        \lim_{(v,v')\to(0,0)}
+        \frac{H(z+v) - H(z+v') -BH(z)(v-v')}
+            {\|v-v'\|} = 0
+    \]
+\end{f}
+\begin{f}
+    \[
+        \int_{\mathcal D} |\overline{\partial u}|^2\Phi_0(z)e^{\alpha|z|^2} \geq c_4\alpha
+        \int_{\mathcal D} |u|^2\Phi_0e^{\alpha|z|^2} + c_5\delta^{-2}
+        \int_{\mathcal A} |u|^2\Phi_0e^{\alpha|z|^2}
+    \]
+\end{f}
+\end{document}

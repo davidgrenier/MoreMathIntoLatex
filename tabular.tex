@@ -1,0 +1,104 @@
+\documentclass{amsart}
+\begin{document}
+Here is a table,
+\begin{tabular}[b]{|l|r|r|r|}
+    \hline
+    Name &1 &2 &2 \\\hline
+    Peter &2.45 &34.12 &1.00\\\hline
+    John &0.00 &12.89 &3.71\\\hline
+    David &2.00 &1.85 &0.71\\\hline
+\end{tabular}, typeset inline
+
+\begin{table}
+    \begin{center}
+        \begin{tabular}{|l|r|r|r|}
+            \hline
+            Name &1 &2 & 3\\\hline
+            Peter &2.45 &34.12 &1.00\\\hline
+            John &0.00 &12.89 &3.71\\\hline
+            David &2.00 &1.85 &0.71\\\hline
+        \end{tabular}
+        \caption{Tabular table.}\label{Ta:first}
+    \end{center}
+\end{table}
+
+
+\begin{table}[h]
+    \begin{center}
+        \begin{tabular}{r|l|l|l|l|l|l|l|l|l|l}
+            &0 &1 &2 &3 &4 &5 &6 &7 &8 &9\\\hline
+            0 &\symbol{0} &\symbol{1} &\symbol{2} &\symbol{3} &\symbol{4} &\symbol{5} &\symbol{6} &\symbol{7} &\symbol{8} &\symbol{9}\\\hline
+            1 &\symbol{10} &\symbol{11} &\symbol{12} &\symbol{13} &\symbol{14} &\symbol{15} &\symbol{16} &\symbol{17} &\symbol{18} &\symbol{19}\\\hline
+            2 &\symbol{20} &\symbol{21} &\symbol{22} &\symbol{23} &\symbol{24} &\symbol{25} &\symbol{26} &\symbol{27} &\symbol{28} &\symbol{29}\\\hline
+            3 &\symbol{30} &\symbol{31} &\symbol{32} &\symbol{33} &\symbol{34} &\symbol{35} &\symbol{36} &\symbol{37} &\symbol{38} &\symbol{39}\\\hline
+            4 &\symbol{40} &\symbol{41} &\symbol{42} &\symbol{43} &\symbol{44} &\symbol{45} &\symbol{46} &\symbol{47} &\symbol{48} &\symbol{49}\\\hline
+            5 &\symbol{50} &\symbol{51} &\symbol{52} &\symbol{53} &\symbol{54} &\symbol{55} &\symbol{56} &\symbol{57} &\symbol{58} &\symbol{59}\\\hline
+            6 &\symbol{60} &\symbol{61} &\symbol{62} &\symbol{63} &\symbol{64} &\symbol{65} &\symbol{66} &\symbol{67} &\symbol{68} &\symbol{69}\\\hline
+            7 &\symbol{70} &\symbol{71} &\symbol{72} &\symbol{73} &\symbol{74} &\symbol{75} &\symbol{76} &\symbol{77} &\symbol{78} &\symbol{79}\\\hline
+            8 &\symbol{80} &\symbol{81} &\symbol{82} &\symbol{83} &\symbol{84} &\symbol{85} &\symbol{86} &\symbol{87} &\symbol{88} &\symbol{89}\\\hline
+            9 &\symbol{90} &\symbol{91} &\symbol{92} &\symbol{93} &\symbol{94} &\symbol{95} &\symbol{96} &\symbol{97} &\symbol{98} &\symbol{99}\\\hline
+            10 &\symbol{100} &\symbol{101} &\symbol{102} &\symbol{103} &\symbol{104} &\symbol{105} &\symbol{106} &\symbol{107} &\symbol{108} &\symbol{109}\\\hline
+            11 &\symbol{110} &\symbol{111} &\symbol{112} &\symbol{113} &\symbol{114} &\symbol{115} &\symbol{116} &\symbol{117} &\symbol{118} &\symbol{119}\\\hline
+            12 &\symbol{120} &\symbol{121} &\symbol{122} &\symbol{123} &\symbol{124} &\symbol{125} &\symbol{126} &\symbol{127} &\multicolumn{2}{c}{none}\\\hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+\begin{table}[h]
+    \begin{center}
+        \begin{tabular}{|l|r|r|r|}\hline
+            Name &1 &2 &3\\\hline
+            Peter &2.45 &34.12 &1.00\\\hline
+            John &\multicolumn{3}{c|}{\emph{absent}}\\\hline
+            David &2.00 &1.85 &0.71\\\hline
+        \end{tabular}
+        \caption{Table with \texttt{\symbol{92}multicolumn}.}
+    \end{center}
+\end{table}
+
+\begin{table}[h]
+    \begin{center}
+        \begin{tabular}{p{1in}|r|r|r}
+            \hline
+            Name &1 &2 &3\\\cline{2-3}
+            Peter &2.45 &34.12 &1.00\\\hline
+            John &0.00 &12.89 &3.71\\\hline
+            David &2.00 &1.85 &0.71\\\hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+\begin{table}[h]
+    \begin{center}
+        \begin{tabular}{|c c|c|r|}
+            \hline
+            Name &Month &Week &Amount\\\hline
+            Peter &Jan. &1 &1.00\\\cline{3-4}
+            & &3 &0.71\\\cline{3-4}
+            & &4 &15.00\\\cline{2-4}
+            &\multicolumn{2}{|l}{Total} &29.49\\\hline
+            John &Jan. &1 &12.0\\\cline{3-4}
+            & &2 &3.10\\\cline{3-4}
+            & &3 &10.10\\\cline{3-4}
+            & &4 &0.00\\\cline{2-4}
+            &\multicolumn{2}{|l}{Total} &25.21\\\hline
+            \multicolumn{3}{|l}{\parbox[b]{10em}{\strut Grand Total\\for Peter and John}} &54.70\\\hline
+        \end{tabular}
+        \caption{Table with \texttt{\symbol{92}multicolumn}
+        and \texttt{\symbol{92}cline}.}
+    \end{center}
+\end{table}
+
+\begin{table}[h]
+    \begin{center}
+        \renewcommand\arraystretch{1.25}
+        \begin{tabular}{|r|c|c|}
+            \hline
+            &\textbf{Area} &\textbf{Students}\\\hline
+            \textbf{5th Grade:} &63.4 $m^2$ &22\\\hline
+            \textbf{6th Grade:} &62.0 $m^2$ &19\\\hline
+            \textbf{Overall:} &62.6 $m^2$ &20\\\hline
+        \end{tabular}
+    \end{center}
+\end{table}
+\end{document}

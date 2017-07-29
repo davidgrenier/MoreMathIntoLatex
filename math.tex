@@ -1,0 +1,186 @@
+\documentclass{amsart}
+
+\numberwithin{equation}{section}
+\newtheorem{thm}{Theorem}
+\newcommand\cc[1]{\texttt{\symbol{92}#1}}
+
+\begin{document}
+
+\begin{align*}
+    \sum_{\substack{i < n\\i \text{ even}}} x_i^2\\
+    \sum_{\begin{subarray}{l}i < n\\i \text{ even}\end{subarray}} x_i^2
+\end{align*}
+
+\begin{table}[h]
+    \renewcommand\arraystretch{1.75}
+    \begin{center}
+        \begin{tabular}{lcc}
+            \hline
+            Type &Inline &Displayed\\\hline
+            \verb+\int_a^b+ &$\int_a^b$ &$\displaystyle \int_a^b$\\
+            \verb+\oint_a^b+ &$\oint_a^b$ &$\displaystyle \oint_a^b$\\
+            \verb+\iint_a^b+ &$\iint_a^b$ &$\displaystyle \iint_a^b$\\
+            \verb+\iiint_a^b+ &$\iiint_a^b$ &$\displaystyle \iiint_a^b$\\
+            \verb+\iiiint_a^b+ &$\iiiint_a^b$ &$\displaystyle \iiiint_a^b$\\
+            \verb+\idotsint_a^b+ &$\idotsint_a^b$ &$\displaystyle \idotsint_a^b$\\
+            \verb+\prod{i=1}^n+ &$\prod{i=1}^n$ &$\displaystyle \prod{i=1}^n$\\
+            \verb+\coprod{i=1}^n+ &$\coprod{i=1}^n$ &$\displaystyle \coprod{i=1}^n$\\
+            \verb+\bigcap_{i=1}^n+ &$\bigcap_{i=1}^n$ &$\displaystyle \bigcap_{i=1}^n$\\
+            \verb+\bigcup_{i=1}^n+ &$\bigcup_{i=1}^n$ &$\displaystyle \bigcup_{i=1}^n$\\
+            \verb+\bigwedge_{i=1}^n+ &$\bigwedge_{i=1}^n$ &$\displaystyle \bigwedge_{i=1}^n$\\
+            \verb+\bigvee_{i=1}^n+ &$\bigvee_{i=1}^n$ &$\displaystyle \bigvee_{i=1}^n$\\
+            \verb+\bigsqcup_{i=1}^n+ &$\bigsqcup_{i=1}^n$ &$\displaystyle \bigsqcup_{i=1}^n$\\
+            \verb+\biguplus_{i=1}^n+ &$\biguplus_{i=1}^n$ &$\displaystyle \biguplus_{i=1}^n$\\
+            \verb+\bigotimes_{i=1}^n+ &$\bigotimes_{i=1}^n$ &$\displaystyle \bigotimes_{i=1}^n$\\
+            \verb+\bigoplus_{i=1}^n+ &$\bigoplus_{i=1}^n$ &$\displaystyle \bigoplus_{i=1}^n$\\
+            \verb+\bigodot_{i=1}^n+ &$\bigodot_{i=1}^n$ &$\displaystyle \bigodot_{i=1}^n$\\
+            \verb+\sum_{i=1}^n+ &$\sum_{i=1}^n$ &$\displaystyle \sum_{i=1}^n$\\
+            \hline
+        \end{tabular}
+        \caption{Large operators.}
+    \end{center}
+\end{table}
+\[
+    \frac{z^d - z_0^d}{z - z_0} = \sum_{k=1}^d z_0^{k-1}z^{d-k} \text{\quad and \quad}
+    (T^n)'(x_0) = \prod_{k=0}^{n-1} T'(x_k)
+\]
+
+Inline $\bigsqcup\limits_\mathfrak m X = a$
+
+\begin{align*}
+    \sum\nolimits_{i=1}^n x_i^2 \quad \sum_{i=1}^n x_i^2\\
+    \bigsqcup\nolimits_\mathfrak f X = a\\
+    \mathfrak{Castlevania}
+\end{align*}
+
+\begin{table}[h]
+    \begin{center}
+        \begin{tabular}{ll}
+            \hline
+            Type &Typeset\\\hline
+            \verb+$a \equiv v \mod\theta$+ &$a \equiv v \mod\theta$\\
+            \verb+$a \bmod b$+ &$a \bmod b$\\
+            \verb+$a \equiv v \pmod\theta$+ &$a \equiv v \pmod\theta$\\
+            \verb+$a \equiv v \pod\theta$+ &$a \equiv v \pod\theta$\\
+            \hline
+        \end{tabular}
+        \caption{Congruences.}
+    \end{center}
+\end{table}
+
+\begin{align*}
+    \injlim\nolimits_{x \to 0} \quad \liminf\nolimits_{x \to 0}\\
+    \limsup\nolimits_{x \to 0} \quad \projlim\nolimits_{x \to 0}\\
+    \varliminf_{x \to 0} \quad \varlimsup_{x \to 0} \quad
+    \varinjlim_{x \to 0} \quad \varprojlim_{x \to 0}
+\end{align*}
+
+\begin{table}[h]
+    \begin{center}
+        \begin{tabular}{llcc}\hline
+            Name &Type &Typeset &Text\\\hline
+            left parenthesis &\cc( &$($ &(\\
+            right parenthesis &\cc) &$)$ &)\\
+            left bracket &\cc[ or \cc{lbrack} &$[$ &[\\
+            right bracket &\cc] or \cc{rbrack} &$]$ &]\\
+            left brace &\cc\{ or \cc{lbrace} &$\{$ &\{\\
+            right brace &\cc\} or \cc{rbrace} &$\}$ &\}\\
+            backslash &\cc{textbackslash} & &\textbackslash\\
+            backslash &\cc{backslash} &$\backslash$\\
+            forward slash &\cc/ &$/$ &/\\
+            left angle bracket &\cc{langle} &$\langle$\\
+            right angle bracket &\cc{rangle} &$\rangle$\\
+            vertical line &\cc| or \cc{vert} &$|$\\
+            vertical line &\cc{textbar} & &\textbar\\
+            vertical line &\cc{mid} &$\mid$\\
+            double vertical line &\cc{|} or \cc{Vert} &$\Vert$\\
+            left floor &\cc{lfloor} &$\lfloor$\\
+            right floor &\cc{rfloor} &$\rfloor$\\
+            left ceiling &\cc{lceil} &$\lceil$\\
+            right ceiling &\cc{rceil} &$\rceil$\\
+            upward &\cc{uparrow} &$\uparrow$\\
+            double upward &\cc{Uparrow} &$\Uparrow$\\
+            downward &\cc{downarrow} &$\downarrow$\\
+            double downward &\cc{Downarrow} &$\Downarrow$\\
+            up-and-down &\cc{updownarrow} &$\updownarrow$\\
+            upper-left corner &\cc{ulcorner} &$\ulcorner$\\
+            upper-right corner &\cc{urcorner} &$\urcorner$\\
+            lower-left corner &\cc{llcorner} &$\llcorner$\\
+            lower-right corner &\cc{lrcorner} &$\lrcorner$\\
+            \hline
+        \end{tabular}
+        \caption{Standard delimiters.}
+    \end{center}
+\end{table}
+
+: \begin{math}\int_{-\infty}^\infty \mathrm{e}^{-x^2}\,dx = \sqrt\pi\end{math}
+\[
+    \int_{-\infty}^\infty e^{-x^2}\,dx =\quad \sqrt\pi
+\]
+
+test $a \quad\pi$
+
+\section{}
+\begin{equation}
+    \label{E:int}
+    \int_{-\infty}^\infty e^{-x^2}\,dx = \sqrt\pi
+\end{equation}
+
+{\itshape see~\eqref{E:int} see~(\ref{E:int})}
+
+Get: $a + b$, $a - b$, $-a$, $a / b$, $a b$, $ab$
+
+And: $a \cdot b$, $a \times b$, $a \div b$, $a \mod b$
+\[
+    \frac{1 + 2x}{x + y + xy}
+\]
+And: $\dfrac{1 + 2x}{x + y + xy}$
+\[
+    \tfrac{1 + 2x}{x + y + xy}
+\]
+And: $\frac{1 + 2x}{x + y + xy}$
+And: $\begin{bmatrix}\dfrac{1 + 2x}{x + y + xy}&\dfrac{3 + a^2}{4+b}\\\dfrac{1}{2}&\dfrac{3}{4}\end{bmatrix}$
+
+See: $f'(x)$, $f^{\prime 2}(x)$, $f'^2(x)$, ${f'}^2(x)$
+
+Neither ${}^\dagger$, here $\sb\dagger$, nor $\sp\dagger$ there
+
+Testing $1 * 2 * \vdots$
+
+\[
+    \oint\limits_{-\infty}^\infty e^{-x^2}\,dx = \sqrt\pi
+\]
+
+\[
+    \sqrt{1+\sqrt{1 + \frac{1}{2}\sqrt{1 + \frac{1}{3}\sqrt{1 + \frac{1}{4}\sqrt{1 + \frac{1}{5}\sqrt{1 + \cdots}}}}}}
+\]
+
+\noindent
+In $\sqrt[g]5$\\
+In $\sqrt[\leftroot2 \uproot2 g]5$\\
+In $\sqrt[\uproot2 g]5$\\
+In $\sqrt[5]5$\\
+In $\sqrt5$
+\[
+    A = \{ x \mid x \in X_i, \text {for some} i \in I \}
+\]
+This
+\[
+    a_{\text{left}} + 2 = a_{\text{right}}
+\]
+\[
+    a_{\textnormal{left}} + 2 = a_{\text{right}}
+\]
+
+\begin{thm}
+    The constant $a_{\text{right}}$ is recursive in a.
+\end{thm}
+\begin{thm}
+    The constant $a_{\text{\upshape right}}$ is recursive in a.
+\end{thm}
+\begin{thm}
+    The constant $a_{\text{\bfseries right}}$ is recursive in a.
+\end{thm}
+
+Note $a_l$ vs $a_{\text l}$
+\end{document}
