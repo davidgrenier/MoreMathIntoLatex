@@ -1,0 +1,50 @@
+\documentclass{amsart}
+\begin{document}
+See $\sqrt a + \sqrt b$ vs $\sqrt{\mathstrut a} + \sqrt{\mathstrut b}$ vs $\sqrt{\vphantom ba} + \sqrt b$
+
+\[
+    \Theta_i = \bigcup \bigl(\Theta(\overline{a \wedge b},
+                                \overline{\vphantom ba} \wedge \overline b) \mid
+                            a,\ b \in B_i \bigr)
+                    \vee \bigcup \bigr( \Theta(\overline{a \vee b},
+                                \overline{\vphantom ba} \vee \overline b) \mid
+                            a,\ b \in B_i \bigr)
+\]
+
+    It is \emph{very important} that you memorize the integral
+    $\smash{\frac1{\int f(x)\,dx}} = 2g(x) + C$,
+    which will appear on the next test.
+
+    It is \emph{very important} that you memorize the integral
+    $\frac1{\int f(x)\,dx} = 2g(x) + C$,
+    which will appear on the next test.
+
+\[
+    \int_{-\infty}^\infty e^{-x^2}\,dx = \sqrt\pi\tag{Int}
+\]
+\[
+    \int_{-\infty}^\infty e^{-x^2}\,dx = \sqrt\pi\tag*{A--B}
+\]
+
+Variant:
+\begin{equation}
+    A^{[2]} \diamond B^{[2]} \cong
+    (A \diamond B)^{[2]}\label{E:cong}
+\end{equation}
+\begin{equation}
+    A^{\langle 2 \rangle} \diamond B^{\langle 2 \rangle}
+    \equiv (A \diamond B)^{\langle 2 \rangle}\tag{\ref{E:cong}$'$}
+\end{equation}
+Subequations:
+\begin{subequations}\label{E:joint}
+    \begin{equation}
+        A^{[2]} \diamond B^{[2]} \cong
+        (A \diamond B)^{[2]}\label{E:cong}
+    \end{equation}
+    \begin{equation}
+        A^{\langle 2 \rangle} \diamond B^{\langle 2 \rangle}
+        \equiv (A \diamond B)^{\langle 2 \rangle}\label{E:equiv}
+    \end{equation}
+\end{subequations}
+These equations~\eqref{E:joint} are~\eqref{E:cong} and~\eqref{E:equiv}
+\end{document}
