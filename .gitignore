@@ -7,3 +7,11 @@
 *.snm
 *.dvi
 sample/
+scratch.tex
+fBasics/
+fGarch/
+gss/
+*.r.Rout
+stabledist/
+timeDate/
+timeSeries/

@@ -1,0 +1,134 @@
+\documentclass[12pt,leqno]{article}
+
+\usepackage{amsmath,amsthm}
+\usepackage{amsfonts}
+\usepackage[psamsfonts]{amssymb}
+\usepackage{palatino,euler} 
+\usepackage[applemac]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+
+\setlength{\topmargin}{0pt}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{0pt}
+\setlength{\textheight}{612pt}
+\setlength{\textwidth}{400pt}
+\setlength{\marginparwidth}{0pt}
+\setlength{\oddsidemargin}{36pt}
+% \setlength{\parindent}{0pt}
+
+\newcommand\modif{\color{purple}}
+
+
+\begin{document}
+
+{\bf \large MAT 1460 : rapport - devoir 3 - Hypoth\`eses, variables ind\'ependantes et d\'ependantes}
+
+
+\medskip
+{\bf Pr\'enom Nom} : David Grenier
+
+{\bf Date} : \today
+
+\bigskip
+\bigskip
+
+\hrule height0.3pt
+\bigskip
+
+\noindent
+{\bfseries 1. Mod\`ele SIR modifi\'e pour l'ajout d'un vaccin:}\\
+Voici le mod\`ele obtenu avec les {\modif modifications}:
+\begin{align*}
+    \modif \mathcal V &\modif = \nu\varepsilon P\\
+    S(t) &= S(t-1) - \kappa {\modif(}S(t-1){\modif -\mathcal V)}I(t-1)\\
+    I(t) &= I(t-1) + \kappa {\modif(}S(t-1){\modif -\mathcal V)}I(t-1) - \gamma I(t-1)\\
+    R(t) &= R(t-1) + \gamma I(t-1)\\
+    \text{o\`u } P &= S(t) + I(t) + R(t) \text{\quad({\modif P inchang\'e par l'introduction de $\mathcal V$})}
+\end{align*}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|l|c|l|}\hline
+        Nom &V/P &Description\\\hline
+        $\kappa$ &P &taux d'infectiosit\'e\\\hline
+        $\gamma$ &P &taux de r\'ecup\'eration\\\hline
+        $P$ &P &population totale\\\hline
+        \modif$\boldsymbol\nu$ &\modif P &\modif proportion de la population vaccin\'ee\\\hline
+        \modif$\varepsilon$ &\modif P &\modif taux d'efficacit\'e du vaccin\\\hline
+        $t$ &V (entr\'ee) &temps\\\hline
+        \modif$\mathcal V$ &\modif V &\modif \# individus immunis\'es\\\hline
+        $S(t)$ &V (sortie) &\# d'individus susceptibles\\\hline
+        $I(t)$ &V (sortie) &\# d'individus infect\'es\\\hline
+        $R(t)$ &V (sortie) &\# d'individus qui ont r\'ecup\'er\'es\\\hline
+    \end{tabular}
+\end{table}
+
+\noindent
+Le mod\`ele est sujet aux hypoth\`eses suivantes:
+\begin{enumerate}
+    \item $I(0) > 0$ et $S(0) = P-I(0)$, le d\'ebut de l'\'epid\'emie;
+    \item La population est finie et positive;
+    \item $\kappa$ est suffisamment petit pour \'eviter que $S(t) < 0$ et $I(t) > P$;
+    \item Un individu ayant r\'ecup\'er\'e ne pourra pas \^etre infect\'e de nouveau;
+    \modif\item Le vaccin aura \'et\'e donn\'e avant le d\'ebut de l'\'epid\'emie;
+    \modif\item Un vaccin\'e dont le vaccin est efficace pr\'eserve son immunit\'e ind\'efiniment.
+\end{enumerate}
+
+\clearpage
+
+% \hrule height0.3pt
+% \bigskip
+
+\noindent
+{\bfseries 2. Mod\`ele d'autoroute modifi\'e pour l'ajout d'une voie:}\\
+Voici le mod\`ele obtenu avec les {\modif modifications}:
+\begin{alignat}{3}
+    v_{\modif V}(i) &\to \min(v_{\modif V}(i)+1,v_{\max})\label{AC}\\
+    v_{\modif V}(i) &\to \min({\modif d_V(x_V(i))}\footnotemark, v_{\modif V}(i))\label{DC}\\
+    v_{\modif V}(i) &\to \max(v_{\modif V}(i-1),0) &{}&\text{(avec probabilit\'e $p$)}\label{DT}\\
+    x_{\modif V}(i) &\to x_{\modif V}(i) + v_{\modif V}(i)\label{AV}\\
+    &\modif x_{V \to V\oplus 1}(i)
+        &{}&\modif\text{(si $d_{V \oplus 1}(x_V(i)) > d_V(x_V(i))$)}\label{CV}
+\end{alignat}\footnotetext{La s\'emantique de $d()$ a changer pour trouver le prochain v\'ehicule \`a partir de l'emplacement plut\^ot que le num\'ero de s\'equence sachant que le v\'ehicule $i$ de la voie 0 ne restera pas \`a c\^ot\'e du v\'ehicule $i$ de la voie 1.}
+Les \'etapes sont \eqref{AC} acc\'el\'eration,
+\eqref{DC} d\'ec\'el\'eration,
+\eqref{DT} distraction,
+\eqref{AV} on avance les v\'ehicules selon leur vitesse et
+\eqref{CV} on change les v\'ehicules pouvant profiter d'une opportunit\'e. On effectue chaque \'etape pour chaque voie avant de passer \`a l\'etape suivante.
+
+Puisqu'un v\'ehicule ne change de voie que s'il y a plus d'espace devant lui apr\`es que tous les
+v\'ehicules se soient d\'eplacer il n'y aura pas de collisions.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|l|c|l|}\hline
+        Nom &V/P &Description\\\hline
+        $v_{\max}$ &P &La vitesse maximale\\\hline
+        $p$ &P &La probabilit\'e $p$ qu'un conducteur soit distrait\\\hline
+        $x_{\modif 0},v_{\modif 0},x_{\modif 1},v_{\modif 1}$ &V (entr\'ee) &L'\'etat initial du syst\`eme\\\hline
+        $v_{\modif V}(i)$ &V &La vitesse du v\'ehicule $i$ {\modif dans la voie $V$}\\\hline
+        \modif $d_V(i)$ &V\modif  &\modif Distance au prochain v\'ehicule de la voie $V$ de la case i\\\hline
+        \modif $V$ &\modif V &\modif Variable discrete prenant le \# de la voie, soit 0 o\`u 1\footnotemark\\\hline
+        $x_{\modif 0},x_{\modif 1}$ &V (sortie) &Les positions durant/apr\`es la simulation\\\hline
+    \end{tabular}
+\end{table}
+\footnotetext{On utilise l'addition modulo 2 pour obtenir l'autre voie: $1 \oplus 1 = 0, 0 \oplus 1 = 1$}
+
+\noindent
+Le mod\`ele est sujet aux hypoth\`eses suivantes:
+\begin{enumerate}
+    \item On assume que $(+)$ reviens au d\'ebut lorsqu'on est \`a la t\^ete;
+    \item L'acc\'el\'eration maximale est de 1 unit\'e;
+    \item On v\'ehicule peut freiner a 0 \`a l'int\'erieur d'une unit\'e de temps;
+    \modif\item La longueur discr\'etis\'ee de l'autoroute est suffisante pour accomoder tous les v\'ehicules sur une seule voie;
+    \modif\item On change de voie uniquement pour avoir plus d'espace libre et \'eventuellement acc\'el\'erer;
+    \modif\item (d\'etail d'impl\'ementation) Un v\'ehicule qui change de voie occasionne la r\'eindexation du num\'ero des v\'ehicules.
+\end{enumerate}
+
+\end{document}

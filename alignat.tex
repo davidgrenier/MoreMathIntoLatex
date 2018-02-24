@@ -1,0 +1,20 @@
+\documentclass[reqno]{amsart}
+
+\newcommand\Abf{\ensuremath{\mathbf A}}
+\begin{document}
+\begin{alignat*}{2}
+    (a+bc)x &+{} &cy &= 0,\\
+    Ex &+{} &(f+g)y &= 23.
+\end{alignat*}
+\begin{alignat*}{2}
+    (a+bc)x &+{} &c&y = 0,\\
+    Ex &+{} &(f+g)&y = 23.
+\end{alignat*}
+\begin{subequations}
+    \begin{alignat}{3}
+        \Abf\Abf_1 &= b_0\Abf_0 + c_2\Abf_2 ={} &n&\Abf_0 +{} &\frac n2&\Abf_2\\
+        \Abf\Abf_2 &= b_1\Abf_1 + c_3\Abf_3 ={} &(n-1)&\Abf_1 +{} &(n-1)&\Abf_3\\
+        \Abf\Abf_3 &= b_2\Abf_2 + c_4\Abf_4 ={} &\frac n2&\Abf_2 +{} &n&\Abf_4
+    \end{alignat}
+\end{subequations}
+\end{document}
