@@ -1,0 +1,97 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath,amsthm}
+\usepackage{amsfonts}
+\usepackage[psamsfonts]{amssymb}
+\usepackage{palatino,euler} 
+\usepackage[applemac]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+% \usepackage{tikz}
+\usepackage{hyperref}
+
+
+\setlength{\topmargin}{0pt}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{0pt}
+\setlength{\textheight}{612pt}
+\setlength{\textwidth}{400pt}
+\setlength{\marginparwidth}{0pt}
+\setlength{\oddsidemargin}{36pt}
+\setlength{\parskip}{\baselineskip}
+% \setlength{\parindent}{0pt}
+
+\newcommand\rn[1]{\romannumeral #1}
+
+
+% \title{MAT1460\\[3ex]L'\'epid\'emie d'influenza 2017-2018 demeure-t-elle dangereuse?}
+% \author{Pelletier, Xavier\\[1ex] Chen, Siying\\[1ex]L\'evesque, \'Etienne\\[1ex] Grenier, David}
+% \date{}
+\begin{document}
+
+\begin{enumerate}
+    \item Trouver la r\'ef\'erence pour les d\'epassements par la droite;
+\end{enumerate}
+
+\section{Types de v\'ehicules}
+\begin{table}[h]
+    \begin{tabular}{|l|l|l|l|l|l|}\hline
+        Type &Proportion &Longueur(m) &Masse (kg) &Accel\'eration($m/s^2$) &$V_{\max}$(m/s)\\\hline
+        Camions &0.25 &14.6 &9750 &0.6 &29\\\hline
+        Voitures &0.73 &4.5 &1850 &3 &32.5\\\hline
+        Motocyclette &0.02 &2.2 &175 &7 &32.5\\\hline
+    \end{tabular}
+\end{table}
+
+\section{Crit\`eres}
+\begin{enumerate}
+    \item D\'ebit avec pond\'eration de chaque voies
+    \item[] (Moyenne g\'eom\'etrique ou \'ecart-type, etc);
+    \item Minimiser la somme des \'energies des collisions;
+    \item[] $\frac{\max(m_1,m_2)}2(v_1-v_2)^2$;
+    % \item[] (Temps avant la premi\`ere collision, diff\'erence de vitesse, etc);
+    % \item Le moins de variations de vitesse possible;
+    % \item Nombre de d\'epassements totals;
+    % \item Les types de d\'epassements (gauche ou droite);
+    % \item Formule pour mesurer le graphe des bouchons;
+    % \item[] Densit\'e uniforme;
+\end{enumerate}
+
+\section{Hypoth\`eses}
+\begin{enumerate}
+    \item Les collisions sont in\'elastique;
+    \item Pas de rampes gauches;
+    \item Syst\`eme isol\'e des conditions ext\'erieures;
+    \item Autoroute seulement ou routes avec feux/stops;
+    \item Lorsqu'un v\'ehicule acc\'el\`ere, il va au max;
+    \item Autoroute est une boucle;
+\end{enumerate}
+
+\section{Param\`etres}
+\begin{enumerate}
+    \item $\rho$: Taux d'ajout et de retrait de v\'ehicules;
+    \item Vitesse des v\'ehicules entrant/sortant;
+    \item \'Etat initial du syst\'eme (positions/vitesse de chaque v\'ehicule);
+    \item O\`u et quand de nouveaux v\'ehicules s'ajoutent et \`a quelle vitesse;
+\end{enumerate}
+
+\section{Conditions initiales}
+\begin{enumerate}
+    \item Pas de collisions (pas d'overlap) + vitesse initiale entre 50 et $V_{\max}$;
+    \item Nombres de v\'ehicules est, par voie: $\frac14,\frac12,\frac14$;
+    \item L'autoroute a 5km;
+    \item Un nombre fixe de v\'ehicule;
+\end{enumerate}
+
+\section{R\`egle}
+Mod\`ele de r\'ef\'erence:
+\begin{enumerate}
+    \item Un v\'ehicule ne changera jamais de voie s'il peut acc\'el\'erer dans la sienne;
+    \item Un v\'ehicule veut toujours acc\'el\'erer;
+    \item $b\to a\colon$ est pour dispara\^itre \'eventuellement avec une probabilit\'e $\rho$;
+    \item $b\to c \colon dist(x_{i+1}(b)) < dist(x_{i+1}(c))$;
+    \item $c \to b \colon$ possible de le faire sans d\'ec\'el\'erer;
+\end{enumerate}
+
+\end{document}
