@@ -1,0 +1,64 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[french]{babel} 
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage[margin=3cm]{geometry}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+\section*{Validité du modèle:}
+
+% Nous croyons que le modèle colle à la réalité sous plusieurs aspects. Lorsque la densité
+% de circulation est faible les véhicules semblent en mesure d'atteindre une vitesse de
+% croisière près de leur vitesse maximale. La voie la plus a gauche maintient généralement
+% une vitesse supérieure aux autres puisqu'elle n'est pas exposée à la vitesse maximale des
+% semi-remorques. De plus, les vitesses moyennes de chaque voie diminuent à mesure que la
+% densité augmente ce qui est le comportement attendu.
+
+% Nous n'avons pas accès à des données routières réelles qui nous aurait permis de faire une
+% analyse contre notre simulation. Nous sommes toutefois en mesure de le comparer à un
+% modèle de référence qui nous à été fournis. Qualitativement, on peut tout de suite
+% constater que notre modèle n'adopte pas l'effet typique d'un bouchon de circulation. Nous
+% croyons que l'ajout de conducteur distrait aurait un impact positif en ce sens.
+
+% Finalement, il nous incombe de discuter des colisions. Notre modèle était initialement
+% configuré pour qu'un véhicule freine suffisament pour éviter d'admettre le véhicule en
+% avant dans sa zone de sécurité. Ce comportement engendrait des freinages brusque et
+% puisque nos conducteurs ne vérifie que l'état du véhicule immédiatement devant eux un
+% effet de chaine engendrait fréquemment des accidents. Après avoir relaxé le mécanisme de
+% freinage notre modèle fut en mesure de fonctionner gracieusement à une augmentation de la
+% densité et de la durée de la simulation. Le modèle 1 était sérieusement affecté par ce
+% problème et nous pensons que la règle conventionnelle de revenir à la voie de départ
+% engendre tout simplement plus de changements de voies ce qui augmente les risques de
+% collisions. Il serait pertinent de comparer le nombre total de changements de voies dans
+% chacun des deux modèles.
+
+\section{Conclusion}
+
+Nous avons tenté de construire un modèle pour évaluer la performance d'un système muni de la règle
+proposée contre un autre permettant au conducteur de conserver la voie à l'extrême gauche et revenir
+à la voie centrale que lorsqu'il en tire profit. Notre modèle semble indiquer que la vitesse moyenne
+et le débit sont supérieur lorsque la règle proposée est adoptée. Par contre, à très haute densité
+de circulation, le nombre d'accidents enregistré était supérieur sous cette condition. Nous
+expliquons cette dernière situation par le fait qu'on ne s'attend pas, dans les faits, à ce qu'un
+conducteur revienne à la voie du centre durant l'heure de pointe.
+
+Notre modèle semble nous apprendre autre chose. D'abord que toute recommendation de conduite
+qui peut engendrer une augmentation du nombre de changements de voie devra être évaluée sérieusement
+avant d'être adoptée. Nous pensons aussi que les conducteurs, quoiqu'il peuvent être distrait, sont
+apte à ajuster leur vitesse durant l'heure de pointe de façon sécuritaire. Nous croyons toutefois
+que les conducteurs ont une mauvaise capacité à conduire d'une façon à minimiser l'heure de pointe.
+En particulier, un contrat social qui engagerait les conducteurs à ne pas trop déroger d'une vitesse
+idéale commune et restreindre le nombre de changements de voies (souvent inutiles) ferait des
+miracles pour les conducteurs pressés d'arriver à la maison.
+
+Notre modèle passe à côté d'un élément de simulation important
+
+\end{document} 

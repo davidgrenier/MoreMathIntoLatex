@@ -1,0 +1,271 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[french]{babel} 
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage[margin=3cm]{geometry}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+
+% Entête ---------------------------------------------
+\noindent{MAT1460 - Modélisation} \hfill {27 mars 2018}
+\begin{center}
+	\LARGE\textbf{Autoroute}\\[10pt]
+	\large{Victor Geadah, David Grenier, Thanh Huynh, Denys Shkvarchuk}\\[10pt]
+\end{center}
+\hspace{2pt}
+
+\normalsize % Remettre la taille de la police à 12pt
+
+% Résumé ---------------------------------------------
+\noindent\textbf{Résumé} Texte du résumé (\textit{Abstract} en anglais). Cette section est \textbf{optionnelle}.
+
+\noindent\hfil\rule{0.9\textwidth}{.4pt} % Ligne de séparation
+
+% Table des matières ---------------------------------------------
+\tableofcontents % La table des matières est générée automatiquement à partir des \section, \subsection et \subsubsection du document
+
+\noindent\hfil\rule{0.9\textwidth}{.4pt} % Ligne de séparation
+
+% Introduction ---------------------------------------------
+\section{Introduction}
+
+L'objectif est de vérifier l’efficacité la règle de conduite \guillemotleft\: Garder la droite sauf pour dépasser \guillemotright. En effet, la règle stipule qu'une automobile, située sur une autoroute à plusieurs voies, ait le droit de dépasser un autre véhicule seulement en changeant vers la voie de gauche adjacente. 
+
+\vspace{0.4cm}
+Le modèle du projet évaluera le débit d’une autoroute sous cette condition à l'aide d’un automate cellulaire. Nous voulons mesurer le débit de chaque voie ainsi que le nombre de collisions engendré lors d'une simulation d'une autoroute exposée à une variation des deux paramètres suivants : la longueur de l'autoroute à un nombre de véhicules constants (densité du trafic) et la distance de sécurité [two-second rule]. 
+
+\vspace{0.4cm}
+Nous allons mesurer nos critères sous deux comportements de conduite différents : 
+\begin{enumerate}
+	\item Le modèle de base simule un conducteur qui va revenir à sa voie originale après un dépassement par la gauche.
+	\item Le modèle agressif simule un conducteur opportuniste qui va dépasser par la gauche, par la droite et conservera sa voie à moins de pouvoir tirer profit d’un changement de voie.
+\end{enumerate}
+
+\subsection{Hypothèses}
+\renewcommand{\labelitemi}{\textendash}
+\renewcommand{\labelitemii}{-}
+\begin{itemize}
+	\item Les collisions entre véhicule sont permises;
+	%\item Les collisions sont inélastiques, afin de simplifier le modèle de collision ;
+	%\item Les entrées et sorties de l'autoroute se font seulement dans la voie complètement à droite ; 
+	\item L'autoroute et l'ensemble des voies est un système non affecté par conditions de route à l'extérieur ;
+	\item L'autoroute ne comporte pas de de stops ou de feux de signalisation ;
+	\item Le but d'un véhicule est de se rendre à sa vitesse maximale ; 
+	\item Types de véhicules : semi-remorque, automobile et motocyclette;
+	\item Les véhicules sont distinguables et les distinctions sont limitées à leur vitesse, leur accélération possible et leur longeur ;
+	\item On simplifie le modèle à un autoroute en boucle.
+
+\end{itemize}
+
+\subsection{Description du modèle choisi}
+
+\subsubsection{L'automate cellulaire}
+Le modèle sélectionné est un automate cellulaire permettant de comprendre l'état d’une voiture sur une route. Toutefois, le seul élément discrétisé de notre modèle est l'unité de temps (une seconde). La position des véhicules est mesurée en mètres de l'origine de l'autoroute. Il est à noté que le terme \textit{position} d'un véhicule désigne l'arrière du véhicule. De plus, Les véhicules sont générés aléatoirement selon une pondération de voitures, motocyclettes et semi-remorques établie à partir [données trouvées]. 
+
+\vspace{0.4cm}
+Voici dont ci-dessous les données utilisées par l'automate [SOURCE] :
+
+\vspace{0.4cm}
+\begin{tabular}{|r|c|c|c|c|}
+\hline
+Véhicule & Pondération & Longueur & Accélération maximale & Vitesse maximale \\
+& & $L_{i}$ & $a_{max\: i}$ & $v_{max\: i}$ \\
+& $(\%)$ & $(m)$ & $(m/s^{2})$ & $(m/s)$ \\
+\hline
+Semi-remorque & 4 & 14,6 & 0,6 & 27 \\
+Voiture & 94	 & 4,5 & 3 & 30 \\
+Motocyclette & 2 & 2,2 & 7 & 33 \\
+\hline
+\end{tabular}
+
+\vspace{0.4cm}
+\subsubsection{Paramètres}
+\begin{itemize}
+	\item Nb véhicules initial: 100 gauche 200 milieu et 100 droite;
+	\item Longueur autoroute : 8, 12, 16 km;
+	\item X-second rule :0,5; 1; 2 secondes à la vitesse de croisière.
+	\item Nb de voies paramétrée : 3 fixé 
+\end{itemize}
+
+\subsection{Critères quantitatifs} 
+Les critères quantitatifs caractérisant l'utilisation optimale d'une autoroute choisis par l'équipe sont : 
+\begin{enumerate}
+\item Maximiser le débit de circulation de l'autoroute ;
+\item Minimiser le nombre de collisions sur l'autoroute. 
+\end{enumerate}
+
+\section{Modèles}
+
+\subsection{Règles générales des modèles}
+
+Nous avons décidé de nous inspirer des règles de l'automate cellulaire qui nous a été fourni pour le devoir 3. Ci-dessous sont énumérées les différentes règles générales que suivront chaque modèle. Ces règles énumèrent les actions prises par l'automate lors de la transition d'un temps $t$ à un temps $t+1$. Par la suite, chaque modèle serait légèrement modifié depuis ces règles générales. %La succession des étapes exprime leur ordre d'importance ; un véhicule effectuera l'ensemble de test et de règles d'une étape si la précédente n'a pas été effectuée. 
+
+Ces règles générales représentent les tests et règles effectuées par la $i^{ème}$ auto, positionnée dans la voie $j$. Ainsi, par exemple, $i-1$ définit le prochain véhicule devant, et $j+1$ définit la voie à gauche de celle occupée par le véhicule. Il est à noté que tout test $T$ est effectué en comparaison avec une auto définie $(i,j)$. 
+
+L'automate conçu par l'équipe utilise une seule fonction de test pour toutes les maneuvres. La différence est donc dans les variables entrées. La fonction générale de test va comme suit : 
+\begin{equation}
+T_{a,b}	= [P_{a,b}+v_{a,b}] - [P_{a-1,b+c}+l_{a-1,b+c}+v_{a-1,b+c}+s_{a-1,j+b}]
+\end{equation}
+
+\subsubsection{Accélération et maintien de voie}
+Le but principal d'une auto est d'accélérer dans sa voie.
+\subparagraph{Test} Le principe est de calculer la position attendue du véhicule en avant selon sa position et vitesse, puis de s'assurer de pouvoir accélérer en maintenant une distance sécuritaire. Soit $P_{i}+l_{i}+v_{i}+s_{i}$ la position attendue de la distance sécuritaire du véhicule i au prochain temps et $P_{i+1}+v_{i+1}$ le derrière du véhicule suivant au prochain temps. Le test effectué pour décider si la maneuvre est possible est :
+$$T_{i+1,j} = [P_{i+1}+v_{i+1}]-[P_{i}+l_{i}+v_{i}+s_{i}]$$
+
+\begin{tabular}{r p{12cm}}
+Si $T_{i+1,j} \leq 0$ : & le véhicule i n'effectue pas la maneuvre d'\textit{accélération et maintien de voie} et envisage l'\textit{accélération et changement de voie}. \\
+Si $T_{i+1,j} > 0$ : & \textit{accélération et maintien de voie}.  
+\end{tabular}
+\subparagraph{Règles}
+\begin{equation}
+v_{i} \rightarrow min\{v_{i}+T_{i+1,j}, v_{i} + a_{max\: i}, v_{max\: i}\}
+\end{equation}
+
+\subsubsection{Accélération et changement de voie}
+
+\subparagraph{Test} Pour cette maneuvre, un test semblable à celui de la maneuvre 1 est utilisé, mais comparant cette fois-ci le véhicule i aux véhicules en avant et le précédant dans l'autre voie $j+1$.
+
+Afin de déterminer si une auto est devant ($i+1$) ou derrière ($i-1$), on compare simplement les positions des autos. Si le véhicule dans l'autre voie a une position inférieure au véhicule i, il est $i-1$, et $i+1$ si supérieure ou égale.
+
+\vspace{0.5cm}
+\begin{tabular}{r l}
+En avant : & $T_{i+1,j+1} = [P_{i+1,j+1}+v_{i+1,j+1}]-[P_{i,j}+l_{i,j}+v_{i,j}+s_{i,j}]$ \\
+En arrière : & $T_{i-1,j+1} = [P_{i,j}+v_{i,j}] - [P_{i-1,j+1}+l_{i-1,j+1}+v_{i-1,j+1}+s_{i-1,j+1}]$
+\end{tabular} 
+
+\vspace{0.5cm}
+Si $T_{i+1,j+1} > 0 \text{ \underline{et} } T_{i-1,j+1} > 0$, le véhicule i effectue la maneuvre \textit{accélération et changement de voie}, dont les règles sont énoncées ci-dessous. Sinon : Le véhicule i passe à la maneuvre \textit{décélération et maintien de voie}.  
+\subparagraph{Règles}
+\begin{equation}
+\begin{split}
+\text{vitesse :  } v_{i} & \rightarrow min\{v_{i}+T_{i+1,j+1}, v_{i} + a_{max\: i}, v_{max\: i}\} \\
+\text{voie :  } j & \rightarrow j+1
+\end{split}
+\end{equation}
+
+\subsubsection{Maintien de voie et décélération}
+
+Les conditions menant à cette action par le modèle ont été énoncées plus haut. C'est la dernière maneuvre possible ; l'accélération dans sa voie et l'accélération avec un changement de voie ont étés jugé impossibles. Il n'y a donc pas de test à réussir pour cette maneuvre, et en voici les règles : 
+\subparagraph{Règles} 
+\begin{equation}
+v_{i} \rightarrow max\{v_{i}+T_{i+1,j}, v_{i}-a_{max\: i}\}
+\end{equation}
+Où $T_{i+1,j} \leq 0$. 
+
+%\textbf{Collisions}
+%Il est intéressant de noter que cette règle peut mener à une collision. Si la décélération maximale du véhicule i est trop faible, celle-ci entrera en collision avec le véhicule devant. 
+
+\subsection{Modèle 1}
+
+Tel que mentionné dans l'introduction, ce modèle de base simule un conducteur qui va revenir à sa voie originale après un dépassement par la gauche. Il représente la règle que l'on cherche à évaluer, soit : \guillemotleft\: Garder la droite sauf pour dépasser \guillemotright. L'ensemble des règles générales énoncée ci-haut sont utilisées pour simuler les actions du conducteur du temps $t$ à $t+1$ et on y rajoute celle de retour à droite. Celle-ci est équivalente à celle de retour à gauche énoncé dans la maneuvre \textit{accélération et changement de voie}, sauf que cette fois-ci le changement de voie et les tests sont effectués sur $j-1$ (voie de droite) et non $j+1$. Voici donc les nouveaux tests et règles retranscrits : 
+
+\vspace{0.4cm}
+\textbf{Tests}
+
+\vspace{0.4cm}
+\begin{tabular}{r l}
+En avant : & $T_{i+1,j-1} = [P_{i+1,j-1}+v_{i+1,j-1}]-[P_{i,j}+l_{i,j}+v_{i,j}+s_{i,j}]$ \\
+En arrière : & $T_{i-1,j-1} = [P_{i,j}+v_{i,j}] - [P_{i-1,j-1}+l_{i-1,j-1}+v_{i-1,j-1}+s_{i-1,j-1}]$
+\end{tabular} 
+
+\vspace{0.4cm}
+\textbf{Règles}
+\begin{equation}
+\begin{split}
+\text{vitesse :  } v_{i} & \rightarrow min\{v_{i}+T_{i+1,j-1}, v_{i} + a_{max\: i}, v_{max\: i}\} \\
+\text{voie :  } j & \rightarrow j-1
+\end{split}
+\end{equation}
+
+\subsection{Modèle 2}
+
+Ce modèle plus aggressif a pour but de simuler un conducteur opportuniste qui va dépasser par la gauche, par la droite et ?conservera sa voie à moins de pouvoir tirer profit d'un changement de voie?. Ainsi, l'ensemble des règles générales énoncées plus haut sont utilisées. Les modifications sont apportées à la maneuvre \textit{accélération et changement de voie}. Le modèle 2 effectuera les tests à droite et à gauche, et effectuera la changement de voie permettant la plus grand accélération. Ainsi, l'ensemble des tests effectués lorsqu'il envisage cette maneuvre sont : 
+
+\vspace{0.4cm}
+\textbf{Tests} 
+
+Droite :
+\vspace{0.4cm}
+\begin{tabular}{r l}
+En avant : & $T_{i+1,j-1} = [P_{i+1,j-1}+v_{i+1,j-1}]-[P_{i,j}+l_{i,j}+v_{i,j}+s_{i,j}]$ \\
+En arrière : & $T_{i-1,j-1} = [P_{i,j}+v_{i,j}] - [P_{i-1,j-1}+l_{i-1,j-1}+v_{i-1,j-1}+s_{i-1,j-1}]$
+\end{tabular} 
+
+Gauche : 
+\vspace{0.4cm}
+\begin{tabular}{r l}
+En avant : & $T_{i+1,j+1} = [P_{i+1,j+1}+v_{i+1,j+1}]-[P_{i,j}+l_{i,j}+v_{i,j}+s_{i,j}]$ \\
+En arrière : & $T_{i-1,j+1} = [P_{i,j}+v_{i,j}] - [P_{i-1,j+1}+l_{i-1,j+1}+v_{i-1,j+1}+s_{i-1,j+1}]$
+\end{tabular} 
+
+\vspace{0.4cm}
+Si seulement un des changements de voies s'avère conclusif (voir la sous-section \textit{accélération et changement de voie}), le conducteur effecture le changement vers cette voie. Si les deux côtés sont conclusifs, redéfinissons :
+$$T = max\{T_{i+1,j+1},T_{i+1,j-1}\}$$
+Ainsi, le nouvelles règles sont : 
+
+\vspace{0.4cm}
+\textbf{Règles}
+\begin{equation}
+\begin{split}
+\text{vitesse :  } v_{i} & \rightarrow min\{v_{i}+T, v_{i} + a_{max\: i}, v_{max\: i}\} \\
+\text{voie :  } j & \rightarrow j\pm1
+\end{split}
+\end{equation}
+
+\section{Bibliographie}
+\begin{thebibliography}{1} % Début de la section des références
+
+\bibitem{camionetpoidslourd} WIKIPÉDIA. \textit{Poids lourd}. [en ligne]. \url{https://fr.wikipedia.org/wiki/Poids_lourd} [site consulté 3 mars 2018]. 
+
+\bibitem{Proportionvehicule} Statistique Canada, 
+\textit{Immatriculations de véhicules automobiles, par province et territoire 
+(Québec, Ontario, Manitoba).} [En ligne]. \url{https://www.statcan.gc.ca/tables-tableaux/sum-som/l02/cst01/trade14b-fra.htm} [site consulté le 3 mars 2018]
+
+\bibitem{Longueur voiture} Automobiledimension, 
+\textit{Dimensions des voitures neuves sur le marché européen avec la photo de
+la taille de chaque automobile et sa longueur, sa largeur et sa hauteur.} [En ligne]. \url{https://fr.automobiledimension.com/} [Site consulté le 17 mars 2018]
+
+\bibitem{Longueurmoto}VARIN Bérengère. «La prise en compte des deux-roues
+motorisés dans l’aménagement »,\textit{Savoirs de base
+en sécurité routière}, CETE Normandie-Centre (Avril 2009),p. 5.
+\url{http://www.maine-et-loire.gouv.fr/IMG/pdf/16-Deux_roues_motorises_cle0e1c4c.pdf} [Site consulté le 19 mars 2018]
+
+\bibitem{Accelerationvoitureetmoto} La sécurité routière de A à Z, \textit{ACCÉLÉRATION}. [En ligne]. \url{https://www.securite-routiere-az.fr/a/acceleration/} [site consulté le 3 mars 2018]
+
+\bibitem{InfosurcamionVmax...} Société de l'assurance automobile du Québec,\textit{Sécurité routière: Moyens de déplacement en véhicule lourd.}[En ligne]. \url{https://saaq.gouv.qc.ca/securite-routiere/moyens-deplacement/vehicule-lourd/} [site consulté le 3 mars 2018]
+
+\bibitem{AccelerationCamion} YANG, Guangchuan, XU, Hao, WANG, Zhongren, TIAN, Zong. «Truck acceleration behavior study and acceleration lane length recommendations for metered on-ramps»,\textit{International Journal of Transportation Science and Technology},Chine,Volume 5, Issue 2 (Octobre 2016) p. 93-102.[En ligne]. \url{https://saaq.gouv.qc.ca/securite-routiere/moyens-deplacement/vehicule-lourd/} [site consulté le 3 mars 2018]
+
+\bibitem{Safedistance} WIKIPÉDIA. \textit{Distance d'arrêt.} [en ligne]. \url{https://fr.wikipedia.org/wiki/Distance_d'arrêt} [site consulté 19 mars 2018].
+
+\bibitem{proportioncaminon} U.S. DEPARTEMENT OF TRANSPORTATION,\textit{FREIGHT FACTS AND
+FIGURES},Washington,Office of Freight Management and Operations,2011,77 p.
+  \url{https://ops.fhwa.dot.gov/freight/freight_analysis/nat_freight_stats/docs/11factsfigures/pdfs/fff2011_highres.pdf} [site consulté 19 mars 2018]. 
+
+\end{thebibliography}
+\end{document} 
+
+%-----------------------
+%il faut pas accrocher le vehicule en avant dans un changement de voie, regarde le vehicule devant pour acceleration dans sa voie, si changement de voie regarde devantderriere. Priorise accéler dans sa propre voie, pas d'acceleration après top speed, pas de changement de voie si déjà top speed. 
+
+%Distance securiatire sur internet : 2s de déplacement à la vitesse qu'on roule. Distance de freinage différente pour chaque véhicule. 
+
+%À chaque unité de temps, j'addtione la position du véhicule en avant sa vitesse, pour prévoir la position du véhicule devant au prochain temps. Je calcule ma position(arriere)+vitesse+longueur+safety (nez + safe distance) 
+%-
+%arriere du véhciule devant prévu au prochain temps 
+
+%position d'un véhicule : arriere
+%pour comparer : position+longeur+safety
+%si égal : on traite comme une auto devant 
+%on rejette l'acc nulle en changeant de voie
+%regarde devant et derriere 
+%Même concept de distance que dans sa voie pour l'auto devant 
+%juste l'arriere de toi devant le nose + safety de l'auto derriere 

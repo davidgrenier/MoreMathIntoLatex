@@ -1,0 +1,73 @@
+\documentclass{amsart}
+
+
+\setlength\parindent{0pt}
+\begin{document}
+Qu'est-ce que la th\'eorie de l\'elimination nous permet de r\'esoudre?
+
+$n$ \'equations quadratiques \`a n inconnues:
+\[ \sum_{1\leq i\leq j\leq n} b_{i,j,k}x_ix_j + \sum_{1\leq i\leq n} c_{i,k}x_i + d_k = 0 \quad k \in \{1,\dots,n\} \]
+
+\vspace{10pt}
+Qu'est-ce qu'un syst\`eme d'\'equation r\'esoluble?
+
+Si la solution g\'en\'erale s'exprime avec les seules op\'erations: $+, -, \times, \div, \sqrt[n]{}$
+
+\vspace{10pt}
+Quel est le cas g\'en\'eral pour la solution de syst\`emes d'\'equations?
+
+Pour $f \colon \mathbb R^n \to \mathbb R^m \quad n \geq m$ o\`u $m$ est le nombre d'\'equations.
+\[ \vec f(\vec x) = \vec 0 \]
+
+\vspace{10pt}
+Qu'est-ce qu'une d\'eriv\'ee partielle?
+
+Pour $f \colon \mathbb R^n \to \mathbb R$, la d\'eriv\'ee partielle de $f$ par rapport \`a $x_i,\,(i \leq i \leq n)$ au point $\vec x $ est:
+\[ \lim_{h\to 0} = \frac{f(\vec x + h\cdot \vec e_i) - f(\vec x)}h \]
+
+Qu'est-ce que la classe $\mathcal C^1$ si $\dfrac{\partial f}{\partial x_i}, 1 \leq i \leq n$ sont toutes des fonctions continues.
+
+Si $\dfrac{\partial f}{\partial x_i}$ existe et est continue, on peut r\'eit\'er\'e avec $\dfrac{\partial}{\partial x_j}\dfrac{\partial f}{\partial x_i}$. Si cette derni\'ere
+existe est est continue, on dit qu'elle est de classe $\mathcal C^2$.
+
+\vspace{10pt}
+Qu'est-ce que $f$ de classe $\mathcal C^\infty$?
+
+\vspace{10pt}
+Quelles remarques peut-on faire dans $\mathcal C^k$?
+\begin{enumerate}
+    \item Si $f$ est de classe $\mathcal C^k$, l'ordre de d\'erivation n'a pas d'importance;
+    \item On peut remplacer $\mathbb R^n$ par n'importe quel ouvert de $\mathbb R^n$;
+\end{enumerate}
+
+\vspace{10pt}
+Quelle est la distinction pour $\vec f \colon \mathbb R^n \to \mathbb R^m$?
+\[ \frac{\partial \vec f}{\partial x_i} = \left( \frac{\partial f_1}{\partial x_i}, \dots, \frac{\partial f_n}{\partial x_i} \right) \]
+
+\vspace{10pt}
+Qu'est-ce qu'une fonction $\vec f \colon \mathbb R^n\to \mathbb R^m$ dite analytique?
+S'il existe une \'equation de la forme:
+\[ \sum_{k=0}^\infty \sum_{i_1\leq i_2\leq \dots \leq i_k} a_{i_1i_2\dots i_k}^k x_{i_1}\dots x_{i_k} \]
+Qui converge vers la valeur de $\vec f(\vec x)$ pour tout $\vec x$.
+
+\vspace{10pt}
+Quel th\'eor\`eme a-t-on pour une fonction analytique?
+\[ f \text{ est } \mathcal C^\infty \]
+Et ses d\'eriv\'ees de tout order se calculent en d\'erivant l'expression terme \`a terme.
+
+\vspace{10pt}
+Qu'est-ce que le th\'eor\`eme des fonctions implicites?
+
+Soit $\vec f\colon \mathbb R^n \to \mathbb R^m,\, n \geq m,\, \mathcal C^k$ pour $k \geq 1$, pour $J_{\vec f}$ le Jacobien de $\vec f$:\\
+Supposons que pour un $\vec x$ il existe une matrice $m\times m$ de $J_{\vec f}$ (un sous-ensemble des colonnes de $J_{\vec f}$) tel que cette derni\`ere soit de 
+d\'eterminant non-nul. Alors le sous-ensemble $S = \vec f^{-1}(\vec f(\vec x))$ est un sous-espace de $\mathbb R^n$ qui est lisse et de dimension $n-m$ pr\`es de $\vec x$.
+
+\vspace{10pt}
+Qu'est-ce qui est particulier lorsque $n=m$?
+
+L'ensemble solution de $f^{-1}(y)$ sera form\'e de points isol\'es et donc c'est impossible.
+
+\vspace{10pt}
+Donner un exemple suivant le th\'eor\`eme des fonctions implicite.
+
+\end{document}
