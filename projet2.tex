@@ -1,0 +1,82 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath,amsthm}
+\usepackage{amsfonts}
+\usepackage[psamsfonts]{amssymb}
+\usepackage{palatino,euler}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[french]{babel}
+
+\begin{document}
+\section{Impact de la profondeur}
+
+En relation avec les travaux effectu\'es au Lac aux Castors, nous discuterons ici de l'effet de la
+profondeur du plan d'eau sur les conditions de glace. En particulier, nous cherchons \`a savoir s'il est
+possible que d'avoir approfondi\cite{Lac} le lac \`a contribu\'e \`a la fermeture de la patinoire pour
+assurer la s\'ecurit\'e du personnel et des citoyens.
+
+\subsection{Hypoth\`eses}
+
+Afin de d\'eterminer l'impact de la profondeur d'un plan sur la formation de la glace nous allons
+encadrer la question des simplifications suivantes:
+
+\begin{enumerate}
+    \item Quoique la temp\'erature ext\'erieure peut varier, nous allons consid\'rer l'air comme un puit
+        de chaleur infinie. C'est \`a dire que l'apport en chaleur qu'un seul lac contribue \`a la temp\'erature
+        environnante n\'egligeable;
+    \item Identiquement, l'apport du lac et de l'air \`a la temp\'erature du sol le sera aussi et nous
+        allons consi\d'erer cette derni\`ere comme une source de chaleur infinie;
+    \item Nous n'allons \'evaluer que la perte d'\'energie du lac en terme de la conduction thermique et
+        supposer que les contributions en radiation et \'evaporation des deux lacs est identique;
+    \item Nous allons supposer la temp\'erature ext\'erieure constante. Nous expliquons ce choix
+        ci-dessous.
+\end{enumerate}
+
+Nous tenterons donc de d\'eterminer, pour un plan d'eau d'une surface de superficie fixe, de quelle fa\c
+con une augmentation de la profondeur (et donc du volume d'eau) va prolonger la p\'eriode n\'ecessaire
+pour refroidir le lac.
+
+\subsubsection{Temp\'erature ext\'erieure constante}
+
+Pour d\'eterminer la r\'eponse de fa\c con r\'ealiste nous aurions besoin d'une simulation ou d'une
+utilisation judicieuse de probabilit\'es pour inclure une variation \`a la temp\'erature. En particulier,
+nous savons que la chaleur transmise est proportionnelle \`a la diff\'erence de temp\'erature entre les
+deux corps\cite{Fourier} et il serait pr\'eferable de ne pas n\'egliger cette composante.
+
+Notre intuition nous dit qu'un lac dont le volume d'eau est sup\'erieur demandera plus de temps pour
+changer de temp\'erature, et que la diff\'erence de temp\'erature sera plus grande lorsque la
+temp\'erature ext\'erieure est basse. Toutefois il est important d'appr\'ecier que si tel est le cas,
+lorsque la temp\'erature ext\'erieure passe au dessus de celle de nos deux lacs, la situation est
+renvers\'e et le lac dont le volume est inf\'erieur verra sa temp\'erature remonter plus rapidement.
+
+Nous jugeons donc qu'il est raisonnable de supposer la temp\'erature ext\'erieure constante. Les
+composantes de gains et pertes en chaleur d\^u \`a la variation de temp\'erature vont possiblement
+s'annuler. Si ce n'est pas le cas et que le lac plus profond a une diff\'erence de temp\'erature avec
+l'ext\'erieure plus grande on aura tout de m\^eme une r\'eponse positive \`a la question (que le lac plus
+profond prends plus de temps \`a geler) en ayant possiblement sur\'estim\'e l'impact de la profondeur.
+
+\subsubsection{La convection thermique}
+
+Puisque nous \'evaluerons la diminution de la temp\'erature d'un lac par la chaleur fournie par le plan
+d'eau \`a l'air environnant il s'ensuit que la temp\'erature chutera en surface. Comme nous le verrons
+plus loin, la capacit\'e thermique\cite{CapTherm} massique du sol est inf\'erieure a celle de l'eau,
+toutefois le volume de la terre est de loin sup\'erieur \`a celle d'un lac et dans un contexte o\`u la
+surface sera sujette au gel on pourra supposer que le sol sera une source de chaleur.
+
+\clearpage
+\begin{thebibliography}{Xyz}
+    \bibitem{Lac}
+        \href{https://www.ledevoir.com/politique/montreal/517828/patinoire-du-lac-aux-castors}
+            {Montr\'eal abandonne la patinoire naturelle du lac aux Castors}
+    \bibitem{Fourier} \href{https://fr.wikipedia.org/wiki/Conduction_thermique#Loi_de_Fourier}
+        {Loi de Fourier}
+    \bibitem{ConvNat} \href{https://fr.wikipedia.org/wiki/Convection_thermique#Convection_naturelle}
+        {Convection naturelle}
+    \bibitem{CapTherm} \href{https://fr.wikipedia.org/wiki/Capacit%C3%A9_thermique_massique}
+        {Capacit\'e thermique massique}
+    \bibitem{SpecHeat} \href{https://www.engineeringtoolbox.com/specific-heat-capacity-d_391.html}
+        {Specific heat of common Substances}
+\end{thebibliography}
+
+\end{document}
