@@ -7,13 +7,15 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage[french]{babel}
+\usepackage{gensymb}
+\usepackage{siunitx}
 
 \begin{document}
 \section{Impact de la profondeur}
 
 En relation avec les travaux effectu\'es au Lac aux Castors, nous discuterons ici de l'effet de la
 profondeur du plan d'eau sur les conditions de glace. En particulier, nous cherchons \`a savoir s'il est
-possible que d'avoir approfondi\cite{Lac} le lac \`a contribu\'e \`a la fermeture de la patinoire pour
+possible que d'avoir creus\'e\cite{Lac} le lac \`a contribu\'e \`a la fermeture de la patinoire pour
 assurer la s\'ecurit\'e du personnel et des citoyens.
 
 \subsection{Hypoth\`eses}
@@ -35,7 +37,8 @@ encadrer la question des simplifications suivantes:
 
 Nous tenterons donc de d\'eterminer, pour un plan d'eau d'une surface de superficie fixe, de quelle fa\c
 con une augmentation de la profondeur (et donc du volume d'eau) va prolonger la p\'eriode n\'ecessaire
-pour refroidir le lac.
+pour refroidir le lac. On comparera donc deux corps d'eau id\'ealis\'es et d\'elimit\'es par la m\^eme
+surface circulaire, l'un plus profond que l'autre.
 
 \subsubsection{Temp\'erature ext\'erieure constante}
 
@@ -45,7 +48,7 @@ nous savons que la chaleur transmise est proportionnelle \`a la diff\'erence de 
 deux corps\cite{Fourier} et il serait pr\'eferable de ne pas n\'egliger cette composante.
 
 Notre intuition nous dit qu'un lac dont le volume d'eau est sup\'erieur demandera plus de temps pour
-changer de temp\'erature, et que la diff\'erence de temp\'erature sera plus grande lorsque la
+changer de temp\'erature et que la diff\'erence de temp\'erature sera plus grande lorsque la
 temp\'erature ext\'erieure est basse. Toutefois il est important d'appr\'ecier que si tel est le cas,
 lorsque la temp\'erature ext\'erieure passe au dessus de celle de nos deux lacs, la situation est
 renvers\'e et le lac dont le volume est inf\'erieur verra sa temp\'erature remonter plus rapidement.
@@ -63,6 +66,12 @@ d'eau \`a l'air environnant il s'ensuit que la temp\'erature chutera en surface.
 plus loin, la capacit\'e thermique\cite{CapTherm} massique du sol est inf\'erieure a celle de l'eau,
 toutefois le volume de la terre est de loin sup\'erieur \`a celle d'un lac et dans un contexte o\`u la
 surface sera sujette au gel on pourra supposer que le sol sera une source de chaleur.
+
+Une particularit\'e de l'eau est que la densit\'e de la phase solide est inf\'erieure \`a celle de la
+phase liquide. De plus, la densit\'e de l'eau est maximale \`a $\SI{3.98}{\celsius}$ ce qui introduit
+in\'evitablement un processus de convection thermique\cite{ConvNat}. Tant que la temp\'erature du lac
+n'atteint pas $\SI{3.98}{\celsius}$ l'eau qui refroduit \`a la surface va chuter et sera remplac\'ee par
+de l'eau plus chaude provenant pr\`es de la terre l\`a o\`u la temp\'erature est plus \'elev\'ee.
 
 \clearpage
 \begin{thebibliography}{Xyz}
