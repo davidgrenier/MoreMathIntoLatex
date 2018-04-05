@@ -9,13 +9,16 @@
 \usepackage[french]{babel}
 \usepackage{gensymb}
 \usepackage{siunitx}
+\usepackage[margin=1.25in]{geometry}
+
+\newcommand\critical{\ensuremath{\SI{3.98}\celsius}}
 
 \begin{document}
 \section{Impact de la profondeur}
 
 En relation avec les travaux effectu\'es au Lac aux Castors, nous discuterons ici de l'effet de la
 profondeur du plan d'eau sur les conditions de glace. En particulier, nous cherchons \`a savoir s'il est
-possible que d'avoir creus\'e\cite{Lac} le lac \`a contribu\'e \`a la fermeture de la patinoire pour
+possible que d'avoir creus\'e~\cite{Lac} le lac \`a contribu\'e \`a la fermeture de la patinoire pour
 assurer la s\'ecurit\'e du personnel et des citoyens.
 
 \subsection{Hypoth\`eses}
@@ -30,11 +33,11 @@ encadrer la question des simplifications suivantes:
     \item Similairement pour l'apport du lac et de l'air \`a la temp\'erature du sol et allons
         donc traiter le sol comme une source de chaleur in\'epuisable;
     \item Nous n'allons \'evaluer que la perte d'\'energie du lac en terme de la conduction thermique
-        et supposer que les contributions en radiation et \'evaporation\cite{Evap} des deux lacs est
+        et consid\'erer les contributions en radiation et \'evaporation~\cite{Evap} des deux lacs est
         identique;
     \item Nous allons supposer la temp\'erature ext\'erieure constante. (Voir \ref{TempExt})
     \item Nous allons supposer la temp\'erature du sol constante et uniform\'ement distribu\'ee.
-        (Voir \ref{Convec})
+        (Voir \ref{Conduc})
 \end{enumerate}
 
 Nous tenterons donc de d\'eterminer, pour un plan d'eau d'une surface de superficie fixe, de quelle fa\c
@@ -44,10 +47,10 @@ surface circulaire, l'un plus profond que l'autre.
 
 \subsubsection{Temp\'erature ext\'erieure constante}\label{TempExt}
 
-Pour obtenir une r\'eponse r\'ealiste nous aurions besoin d'une simulation ou d'une utilisation
-judicieuse de probabilit\'es pour inclure une variation \`a la temp\'erature. En particulier, nous
-savons que la chaleur transmise est proportionnelle \`a la diff\'erence de temp\'erature entre les
-deux corps\cite{Fourier} et il serait pr\'eferable de ne pas n\'egliger cette composante.
+Pour obtenir une r\'eponse r\'ealiste une simulation ou une utilisation judicieuse de probabilit\'es
+nous permettrait d'inclure une fluctuation de temp\'erature. En particulier, nous savons que la
+chaleur transmise entre deux corps est proportionnelle \`a la diff\'erence de temp\'erature entre
+ces derniers~\cite{Fourier} et il serait pr\'eferable de ne pas n\'egliger cette composante.
 
 Notre intuition nous dit qu'un lac dont le volume d'eau est sup\'erieur verra sa temp\'erature
 varier plus lentement et que la diff\'erence de temp\'erature sera plus grande lorsque la
@@ -63,29 +66,40 @@ avec l'ext\'erieure plus grande on aura tout de m\^eme une r\'eponse positive \`
 le lac plus profond prends plus de temps \`a geler) en ayant possiblement sur\'estim\'e l'impact de
 la profondeur.
 
-\subsubsection{La convection thermique}\label{Convec}
+\subsection{La convection thermique}\label{Convec}
 
-Puisque nous \'evaluerons la diminution de la temp\'erature d'un lac par la chaleur fournie par le
+Puisque nous \'evaluerons la diminution de la temp\'erature d'un lac par la chaleur d\'egag\'ee par le
 plan d'eau \`a l'air environnant il s'ensuit que la temp\'erature chutera en surface. Comme nous le
-verrons plus loin, la capacit\'e thermique\cite{CapTherm} massique du sol est inf\'erieure a celle
+verrons plus loin, la capacit\'e thermique~\cite{CapTherm} massique du sol est inf\'erieure a celle
 de l'eau, toutefois le volume de la terre est de loin sup\'erieur \`a celle d'un lac on pourra ainsi
 supposer que la temp\'erature du sol va demeurer sup\'erieure \`a celle de l'eau par temps froid ce
 qui justifie de traiter le sol comme une source de chaleur.
 
-Nous allons par ailleurs supposer la temp\'erature du sol constante et uniform\'ement distribu\'ee.
-Le sol \'etant un solide il n'est pas sujet \`a la convection tel l'eau du lac. Nous aurions
-une meilleure approximation en consid\'erant le processus de diffusion qui, \`a un \'etat eventuel
-stable, conduirait \`a une temp\'erature lin\'eairement distribu\'ee\cite{TempLinear}. Toutefois ces calculs seraient
-compliqu\'es et nous pensons pouvoir d\'eduire, par le th\'eor\`eme de la moyenne\cite{AvgValue},
-qu'il existe une temp\'erature constante pour laquelle la contribution en chaleur du sol sera la
-m\^eme que pour une temp\'erature distribu\'ee de fa\c con plus r\'ealiste.
-
 Une particularit\'e de l'eau est que la densit\'e de la phase solide est inf\'erieure \`a celle de
-la phase liquide. De plus, la densit\'e de l'eau est maximale \`a
-$\SI{3.98}{\celsius}$\cite{WaterDensity} ce qui introduit in\'evitablement un processus de
-convection thermique\cite{ConvNat}. Aussi longtemps que la temp\'erature du lac est sup\'erieure \`a
-$\SI{3.98}{\celsius}$ l'eau qui refroduit \`a la surface va sombrer et sera remplac\'ee par de l'eau
+la phase liquide. De plus, la densit\'e augmente avec une diminution de temp\'erature et atteint
+sont maximum \`a \critical~\cite{WaterDensity} ce qui introduit un processus de convection
+thermique~\cite{ConvNat}. Aussi longtemps que la temp\'erature du lac est sup\'erieure \`a
+\critical l'eau qui refroidit \`a la surface va sombrer et sera remplac\'ee par de l'eau
 plus chaude provenant pr\`es de la terre l\`a o\`u la temp\'erature est plus \'elev\'ee.
+
+\subsection{La conduction thermique}\label{Conduc}
+
+Le sol \'etant un solide il n'est pas sujet \`a la convection tel l'eau du lac. Nous aurions une
+meilleure approximation en consid\'erant le processus de diffusion qui, \`a un \'etat eventuel
+stable, conduirait \`a une temp\'erature lin\'eairement distribu\'ee~\cite{TempLinear}. Toutefois ces
+calculs seraient compliqu\'es et nous pensons pouvoir d\'eduire, par le th\'eor\`eme de la
+moyenne~\cite{AvgValue}, qu'il existe une temp\'erature constante pour laquelle la contribution en
+chaleur du sol sera la m\^eme que pour une temp\'erature distribu\'ee de fa\c con plus r\'ealiste.
+Nous allons donc tenter de faire un choix judicieux de temp\'erature constante pour le sol.
+
+Remarquons aussi que puisqu'en dessous de \critical, la densit\'e de l'eau se met \`a
+diminuer avec une diminution de temp\'erature. Le processus de diffusion devient
+stable~\cite{HydroStab} et la temp\'erature ne varie plus de fa\c con uniforme mais d'avantage comme
+celle du sol. La temp\'erature variera \`a l'int\'erieur du medium tel la diffusion de la chaleur
+dans une tige, la profondeur aura donc quand m\^eme un impact. Toutefois il n'est plus n\'ecessaire
+\`a cette \'etape de refroidir le lac dans son ensemble pour obtenir une formation de glace \`a la
+surface. Le refroidissement du lac doit donc \^etre trait\'e diff\'eremment apr\`es l'atteinte
+de la temp\'erature uniforme de \critical.
 
 \begin{figure}
     \centering
@@ -115,6 +129,8 @@ plus chaude provenant pr\`es de la terre l\`a o\`u la temp\'erature est plus \'e
         {Convection naturelle}
     \bibitem{SpecHeat} \href{https://www.engineeringtoolbox.com/specific-heat-capacity-d_391.html}
         {Specific heat of common Substances}
+    \bibitem{HydroStab} \href{https://fr.wikipedia.org/wiki/Gradient_thermique_adiabatique#Atmosph.C3.A8re_stable}
+        {Stabilit\'e hydrostatique}
 \end{thebibliography}
 
 \end{document}
