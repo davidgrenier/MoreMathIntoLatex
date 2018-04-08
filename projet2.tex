@@ -13,7 +13,6 @@
 \usepackage{tikz}
 
 \newcommand\critical{\SI{3.98}\celsius}
-\newcommand\Joule{\si{\kilogram.\square\meter\per{\square\second}}}
 
 \begin{document}
 \section{Impact de la profondeur}
@@ -35,7 +34,7 @@ encadrer la question des simplifications suivantes:
     \item Similairement pour l'apport du lac et de l'air \`a la temp\'erature du sol et allons
         donc traiter le sol comme une source de chaleur in\'epuisable;
     \item Nous n'allons \'evaluer que la perte d'\'energie du lac en terme de la conduction thermique
-        et consid\'erer les contributions en radiation et \'evaporation~\cite{Evap} des deux lacs est
+        et consid\'erer les contributions en radiation et \'evaporation~\cite{Evap} des deux lacs
         identique;
     \item Nous allons supposer la temp\'erature ext\'erieure constante. (Voir \ref{TempExt})
     \item Nous allons supposer la temp\'erature du sol constante et uniform\'ement distribu\'ee.
@@ -56,7 +55,7 @@ ces derniers~\cite{Fourier} et il serait pr\'eferable de ne pas n\'egliger cette
 
 Notre intuition nous dit qu'un lac dont le volume d'eau est sup\'erieur verra sa temp\'erature
 varier plus lentement et que la diff\'erence de temp\'erature sera plus grande lorsque la
-temp\'erature ext\'erieure est basse. Toutefois il est important d'appr\'ecier que si tel est le
+temp\'erature ext\'erieure est basse. Toutefois, il est important d'appr\'ecier que si tel est le
 cas, lorsque la temp\'erature ext\'erieure passe au dessus de celle de nos deux lacs, la situation
 est renvers\'ee et le lac dont le volume est inf\'erieur verra sa temp\'erature remonter plus
 rapidement aussi.
@@ -83,11 +82,12 @@ qui justifie de traiter le sol comme une source de chaleur.
     \caption{Densit\'e de l'eau}
 \end{figure}
 
-Une particularit\'e de l'eau est que sa densit\'e augmente avec une diminution de temp\'erature et
-atteint sont maximum \`a \critical~\cite{WaterDensity} (voir Figure \ref{water-density}) ce qui introduit un processus de convection
-thermique~\cite{ConvNat}. Aussi longtemps que la temp\'erature du lac est sup\'erieure \`a
-\critical, l'eau qui refroidit \`a la surface va sombrer et sera remplac\'ee par de l'eau plus
-chaude provenant pr\`es de la terre l\`a o\`u la temp\'erature est plus \'elev\'ee.
+Une particularit\'e de l'eau est que sa densit\'e augmente avec une diminution de
+temp\'erature~\cite{WaterDensity} et atteint sont maximum \`a \critical (voir figure
+\ref{water-density}) ce qui introduit un processus de convection thermique~\cite{ConvNat}. Aussi
+longtemps que la temp\'erature du lac est sup\'erieure \`a \critical, l'eau qui refroidit \`a la
+surface va sombrer et sera remplac\'ee par de l'eau plus chaude provenant pr\`es de la terre l\`a
+o\`u la temp\'erature est plus \'elev\'ee.
 
 \begin{figure}[h]\label{water-convection}
     \centering
@@ -99,6 +99,7 @@ chaude provenant pr\`es de la terre l\`a o\`u la temp\'erature est plus \'elev\'
 
         \shade[top color=blue!70,bottom color=brown] (7,5) parabola bend (10,0) (13,5);
         \draw (7,5) parabola bend (10,0) (13,5);
+        \draw[dashed] (7,5) arc (-180:0:3);
         \draw[line width=0.5mm, ->] (9.1,4.7) arc (95:445:0.7cm and 1.8cm);
         \draw[line width=0.5mm, ->] (10.9,4.7) arc (85:-260:0.7cm and 1.8cm);
     \end{tikzpicture}
@@ -111,17 +112,39 @@ D\'eterminer l'impact de la profondeur pour ramener la temp\'erature de nos deux
 \critical~revient donc \`a mesurer le temps n\'ecessaire obtenir les chaleurs respectives
 d\'egag\'ees.
 
+\subsection{La conduction thermique (ou diffusion)}\label{Conduc}
+
+Le sol \'etant un solide il n'est pas sujet \`a la convection tel l'eau du lac. Nous aurions une
+meilleure approximation en consid\'erant le processus de diffusion qui, \`a un \'etat eventuel
+stable, conduirait \`a une temp\'erature lin\'eairement distribu\'ee~\cite{TempLinear}. Toutefois,
+ces calculs seraient compliqu\'es et nous pensons pouvoir d\'eduire, par le th\'eor\`eme de la
+moyenne~\cite{AvgValue}, qu'il existe une temp\'erature constante pour laquelle la contribution en
+chaleur du sol sera la m\^eme que pour une temp\'erature distribu\'ee de fa\c con plus r\'ealiste.
+Nous allons donc tenter de faire un choix judicieux de temp\'erature constante pour le sol.
+
+Remarquons aussi que puisqu'en dessous de \critical, la densit\'e de l'eau se met \`a diminuer avec
+une diminution de temp\'erature. Le processus de diffusion devient stable~\cite{HydroStab} et la
+temp\'erature ne varie plus de fa\c con uniforme mais d'avantage comme celle du sol. La
+temp\'erature variera \`a l'int\'erieur du medium tel la diffusion de la chaleur dans une tige, la
+profondeur aura donc quand m\^eme un impact. Toutefois, il n'est plus n\'ecessaire \`a cette \'etape
+de refroidir le lac dans son ensemble pour obtenir une formation de glace \`a la surface. Le
+refroidissement du lac doit donc \^etre trait\'e diff\'eremment apr\`es l'atteinte de la
+temp\'erature uniforme de \critical.
+
+\subsection{Mod\'elisation}
+
 Nous introduisons les variables et constantes suivantes:
 
 \begin{table}[h]
     \centering
     \begin{tabular}{|l|l|l|r|}\hline
         Variable &Description &Unit\'e &Pour $H_2O$\\\hline
-        $Q$ &Chaleur &\si\joule\ (\Joule) &\\\hline
-        $T$ &Temp\'erature initiale &\celsius &\\\hline
-        $c_p$ &Capacit\'e thermique massique &\si{\joule\per{\celsius\,\kilogram}} &4185.5\\\hline
+        $Q$ &Chaleur &\si\joule\ (\si{\kilogram.\square\meter\per{\square\second}}) &\\\hline
+        $T$ &Temp\'erature &\si{\kelvin} &\\\hline
+        $c_p$ &Capacit\'e thermique massique &\si{\joule\per{\kelvin\,\kilogram}} &4185.5\\\hline
         $m$ &Masse &\si\kg &\\\hline
-        $C$ &Capacit\'e thermique &\si{\kilogram.\square\meter\per{\kelvin\,\square\second}} &\\\hline
+        $C$ &Capacit\'e thermique &\si{\joule\per\kelvin} &\\\hline
+        $k$ &Conductivit\'e thermique &\si{\joule\per{\meter\,\second\,\kelvin}} &0.606\\\hline
     \end{tabular}
     \caption{Variables}
 \end{table}
@@ -132,39 +155,18 @@ est donn\'e par:
 \[ Q = c_pm\Delta T \]
 
 En particulier, la capacit\'e thermique d'un corps et une propri\'et\'e extensive~\cite{Extensive}
-ce qui signifie que la quantit\'e est directement proportionnelle \`a la taille du syst\`eme et donc
-additive:
+ce qui signifie que la quantit\'e est directement proportionnelle \`a la taille du syst\`eme:
 
 \[ C = c_pm \]
 
-On voit donc que si on double la masse du second lac il devra perdre deux fois plus d'\'energie pour
-atteindre la m\^eme temp\'erature. Nous avons donc d\'ej\`a une excellente raison de croire que
-d'augmenter la profondeur d'un lac tout en conservant la m\^eme surface aura un impact important sur
-le temps de refroidissement.
+On voit donc que si la masse du second lac est le double du premier, il devra perdre deux fois plus
+d'\'energie pour atteindre la m\^eme temp\'erature. Nous avons donc d\'ej\`a une excellente raison
+de croire qu'une augmentation de la profondeur d'un lac sans augmentation de sa surface aura un
+impact important sur le temps de refroidissement.
 
-Un second regard \`a la Figure \ref{water-convection} r\'ev\`ele que quoique le second lac est
-expos\'e \`a la m\^eme surface ext\'erieure il est toutefois expos\'e \`a une plus grande superficie
-en contact avec le sol que nous consid\'erons comme une source de chaleur. Nous allons donc 
-
-
-\subsection{La conduction thermique (ou diffusion)}\label{Conduc}
-
-Le sol \'etant un solide il n'est pas sujet \`a la convection tel l'eau du lac. Nous aurions une
-meilleure approximation en consid\'erant le processus de diffusion qui, \`a un \'etat eventuel
-stable, conduirait \`a une temp\'erature lin\'eairement distribu\'ee~\cite{TempLinear}. Toutefois ces
-calculs seraient compliqu\'es et nous pensons pouvoir d\'eduire, par le th\'eor\`eme de la
-moyenne~\cite{AvgValue}, qu'il existe une temp\'erature constante pour laquelle la contribution en
-chaleur du sol sera la m\^eme que pour une temp\'erature distribu\'ee de fa\c con plus r\'ealiste.
-Nous allons donc tenter de faire un choix judicieux de temp\'erature constante pour le sol.
-
-Remarquons aussi que puisqu'en dessous de \critical, la densit\'e de l'eau se met \`a
-diminuer avec une diminution de temp\'erature. Le processus de diffusion devient
-stable~\cite{HydroStab} et la temp\'erature ne varie plus de fa\c con uniforme mais d'avantage comme
-celle du sol. La temp\'erature variera \`a l'int\'erieur du medium tel la diffusion de la chaleur
-dans une tige, la profondeur aura donc quand m\^eme un impact. Toutefois il n'est plus n\'ecessaire
-\`a cette \'etape de refroidir le lac dans son ensemble pour obtenir une formation de glace \`a la
-surface. Le refroidissement du lac doit donc \^etre trait\'e diff\'eremment apr\`es l'atteinte
-de la temp\'erature uniforme de \critical.
+La figure \ref{water-convection} nous montre un second lac expos\'e \`a la m\^eme surface
+ext\'erieure. Par contre, il est expos\'e \`a une plus grande superficie en contact avec le sol que
+nous consid\'erons comme une source de chaleur. Nous allons donc \'evaluer
 
 \clearpage
 \begin{thebibliography}{Xyz}
@@ -198,6 +200,8 @@ de la temp\'erature uniforme de \critical.
         {Rate of heat flow}
     \bibitem{Q-equation} \href{https://simple.wikipedia.org/wiki/Specific_heat#Usage}
         {Calculating heat}
+    \bibitem{Conductivity} \href{https://www.engineeringtoolbox.com/thermal-conductivity-d_429.html}
+        {Thermal Conductivity of common Materials and Gases}
 \end{thebibliography}
 
 \end{document}
