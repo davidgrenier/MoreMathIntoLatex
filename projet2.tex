@@ -33,14 +33,66 @@ Universit\'e de Montr\'eal
 \tableofcontents
 \newpage
 \section{Introduction}
-\section{T\^ache 1: Impact de la temp\'erature}
-\newpage
-\section{T\^ache 2: Impact de la profondeur}
 
-En relation avec les travaux effectu\'es au Lac aux Castors, nous discuterons ici de l'effet de la
-profondeur du plan d'eau sur les conditions de glace. En particulier, nous cherchons \`a savoir s'il est
-possible que d'avoir creus\'e~\cite{Lac} le lac \`a contribu\'e \`a la fermeture de la patinoire pour
-assurer la s\'ecurit\'e du personnel et des citoyens.
+Dans le cadre de travaux effectu\'es par la Ville de Montr\'eal au Lac aux Castors le probl\`eme de
+polif\'eration d'algues a \'et\'e r\'gl\'e. Toutefois, la patinoire hivernale naturelle est
+d\'esormais ferm\'ee en vertu d'un accident hivernale reli\'e \`a la qualit\'e de la gla\c ce. Les
+citoyens ne pourront d\'esormais plus jouir de cette activit\'e au Lac aux Castors.
+
+Le r\'echauffement plan\'etaire \'etant d\'esormais une r\'ealit\'e scientifiquement accept\'ee les
+gestionnaires ont bl\^am\'e la situation sur des temp\'eratures plus \'elev\'ees qu'autrefois.
+Toutefois, une cons\'equence directe des travaux est que la profondeur du lac a augment\'e de fa\c
+con significative. Il est donc possible qu'il soit tout simplement plus difficile d'obtenir une
+\'epaisseur de gla\c ce suffisante en raison du volume d'eau plus important \`a refroidir.
+
+Nous avons donc construit certains mod\`eles permetant de v\'erifier l'impact des raisons
+ci-haut mentionn\'es sur la qualit\'e de la gla\c ce.
+
+\section{Impact de la temp\'erature}
+
+Nous ne crayons pas \^etre en mesure de r\'epondre de fa\c con satisfaisante \`a la r\'ealit\'e du
+r\'echauffement plan\'etaire. Nous pensons toutefois v\'erifier le bienfond\'e de l'argument de la
+Ville de Montr\'eal sur la cause ultime de l'accident de l'hiver 2016-2017 qui est survenu apr\`es
+les travaux de r\'efections.
+
+Nous allons d'abord d'\'eterminer si il y a une diff\'erence statistiquement significative dans les
+temp\'eratures enregistr\'ees aux cours des ann\'ees r\'ecentes \`a celle historique. Il est entendu
+que la condition de la gla\c ce d\'epend des temp\'eratures ext\'erieures et nous allons donc aussi
+tenter de mesurer le niveau de corr\'elation entre les temp\'eratures observ\'ees contre les
+donn\'es que nous avons pu trouv\'ees sur l'ouverture des patinoires de l'\^Ile de
+Montr\'eal~\cite{PatHist}.
+
+\subsection{Hypoth\`eses}
+
+\subsection{Augmentation de la temp\'erature}
+
+En utilisant les donn\'es de temp\'eratures disponible~\cite{TempHist} nous avons effectu\'e un test
+d'hypoth\`ese pour d\'eterminer si les temp\'eratures moyennes des 10 derni\`eres ann\'ees sont
+sup\'erieures \`a celles des ann\'ees historique.
+
+********************
+
+Nous avons aussi extrait les donn\'ees d'ouverture des patinoires de l'\^Ile de Montr\'eal. Nous
+avons concentr\'e nos efforts sur les donn\'ees des saisons 2008 \`a 2013, ann\'ees pour lesquels
+nous avions les donn\'ees les plus robustes et ce pour les mois de D\'ecembre \`a Mars.
+
+Nous avons \'etablis deux mesures pour v\'erifier la corr\'elation entre les temp\'eratures
+observ\'ees et l'ouverture des patinoire. Nos pr\'edicteurs de jours possible de patinage sont les
+deux suivants:
+
+\begin{enumerate}
+    \item Le nombre de jours par ann\'ee o\`u la temp\'erature max
+\end{enumerate}
+
+Condition 1: Nombres de jours par ann\'ee que la Temp Max est <= 0.
+Condition 2: 2 jours de suite -10 degr\'es, Temp Moyenne de la journ\'ee <= 0, si 3 jours d'affil\'es > 0
+
+\section{Impact de la profondeur}
+
+Nous discuterons ici de l'effet de la profondeur du plan d'eau sur les conditions de glace. En
+particulier, nous cherchons \`a savoir s'il est possible que d'avoir creus\'e~\cite{Lac} le lac \`a
+contribu\'e \`a la fermeture de la patinoire pour assurer la s\'ecurit\'e du personnel et des
+citoyens.
 
 \subsection{Hypoth\`eses}
 
@@ -253,11 +305,11 @@ On trouves les pertes de chaleur n\'ecessaire de nos deux lacs:
 
 \begin{align*}
     r &= \sqrt{\frac{18500}\pi} = \SI{76.738}\meter\\
-    m_1 &= \rho V_1 = \rho p_1\pi r^2 = \num{3.696e4}\si\kilogram\\
-    m_2 &= \rho V_2 = \rho p_2\pi r^2 = \num{1.294e5}\si\kilogram\\
+    C_1 &= c_pm_1 = c_p\rho p_1\pi r^2 = \num{4.929e7}\si{\joule\per\kelvin}\\
+    C_2 &= c_pm_2 = c_p\rho p_2\pi r^2 = \num{1.725e8}\si{\joule\per\kelvin}\\
     \Delta T &= T_\text{cible} - T_\text{init} = \SI{-4.02}\kelvin\\
-    Q_1 &= c_pm_1\Delta T = -\num{6.226e8}\si\joule\\
-    Q_2 &= c_pm_2\Delta T = -\num{2.179e9}\si\joule
+    Q_1 &= C_1\Delta T = -\num{1.982e8}\si\joule\\
+    Q_2 &= C_2\Delta T = -\num{6.936e8}\si\joule
 \end{align*}
 
 On doit maintenant \'evaluer la chaleur \'emise par la surface et re\c cue par le fond du lac.
@@ -280,7 +332,6 @@ quantitativement les deux syst\`emes.
 
 \begin{align}
     A_1 &= 2\pi r p_1 + \pi r^2 = \num{1.946e4}\si{\square\meter}\notag\\
-    A_2 &= 2\pi r p_2 + \pi r^2 = \num{2.188e4}\si{\square\meter}\notag\\
     \frac{dQ_1}{dt} &=
         -KA_\text{lac}\frac{T - T_\text{air}}x -\alpha KA_1\frac{T_\text{fond}-T}x\notag\\
     dQ_1 &=
@@ -290,7 +341,7 @@ quantitativement les deux syst\`emes.
     \text{o\`u } T(\tau) &= T_\text{cible} - \frac{Q_1(\tau)}{c_pm_1} \label{eq:temp}&&\text{(par l'\'equation \ref{eq:heat})}
 \end{align}
 
-On a utilis\'e Mathematica pour substituer \eqref{eq:temp} dans l'\'equation \eqref{eq:diff}, et
+On a utilis\'e Mathematica pour substituer \eqref{eq:temp} dans l'\'equation \eqref{eq:diff} et
 r\'esoudre l'\'equation diff\'erentielle avec les conditions initiales. On trouves ainsi une
 \'equation exponentielle assez charg\'ee $Q_1(\tau)$ et similairement pour $Q_2(\tau)$. Ces
 derni\`eres \'etant inversibles, on a pu trouver le ``temps'' $\tau$ pour atteindre la perte de
@@ -303,15 +354,19 @@ ici l'\'equation r\'esultante pour $\alpha = 0.1$.
     T_2(\tau) &= 285.15\, -\num{2.477e-9} \left(\num{7.536e9} e^{\num{3.012e-5}}-\num{7.536e9}\right)
 \end{align*}
 
-\subsection{Analyse}
-\subsubsection{Validit\'e}
-\subsubsection{Forces et faiblesses}
+\section{Analyse}
+\subsection{Validit\'e}
+\subsection{Forces et faiblesses}
 
 \section{Conclusion}
 
 \clearpage
 \section{Bibliographie}
 \begin{thebibliography}{Xyz}
+    \bibitem{TempHist} \href{https://www.meteomedia.com/ca/api/sitewrapper/index?b=%2Fstatistics%2F&p=%2Fprevisions%2Fstatistiques%2Findex&url=%2Fstatistics%2Fcaqc0363%2Fmontreal%2F%2F%2F%3F}
+        {M\'et\'eoM\'edia - Montr\'eal}
+    \bibitem{PatHist} \href{http://donnees.ville.montreal.qc.ca/dataset/patinoires-historique}
+        {Patinoire - historique des conditions}
     \bibitem{Lac} \href{https://www.ledevoir.com/politique/montreal/517828/patinoire-du-lac-aux-castors}
         {Montr\'eal abandonne la patinoire naturelle du lac aux Castors}
     \bibitem{Evap} \href{https://www.quora.com/How-does-evaporation-take-place-at-all-temperatures-whereas-boiling-takes-place-at-a-fixed-temperature-under-a-given-pressure}

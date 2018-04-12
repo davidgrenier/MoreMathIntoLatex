@@ -10,48 +10,49 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     13726,        355]
-NotebookOptionsPosition[     12479,        327]
-NotebookOutlinePosition[     12818,        342]
-CellTagsIndexPosition[     12775,        339]
+NotebookDataLength[     70414,       1577]
+NotebookOptionsPosition[     62586,       1478]
+NotebookOutlinePosition[     62934,       1493]
+CellTagsIndexPosition[     62891,       1490]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
-Cell[BoxData[{
- RowBox[{
+Cell[BoxData[
+ RowBox[{"Remove", "[", "\"\<Global`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.7325557960450506`*^9, 
+  3.7325557960606503`*^9}},ExpressionUUID->"fe064255-c7b1-4104-b245-\
+a0caafbc7e12"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
   RowBox[{
-   SubscriptBox["T", "air"], "=", "261.15"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"Alac", "=", " ", "18500"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   SubscriptBox["T", "fond"], "=", " ", "281.15"}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   SubscriptBox["T", "init"], " ", "=", " ", "285.15"}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   SubscriptBox["T", "cible"], " ", "=", " ", "277.13"}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"A1", "=", " ", "1.946*^4"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"A2", " ", "=", " ", "2.188*^4"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"m1", " ", "=", " ", "3.696*^4"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"m2", " ", "=", " ", "1.294*^5"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"cp", " ", "=", " ", "4185.5"}], ";"}]}], "Input",
+   RowBox[{
+    SubscriptBox["T", "air"], "=", "261.15"}], ";", "\[IndentingNewLine]", 
+   RowBox[{"Alac", "=", " ", "18500"}], ";", "\[IndentingNewLine]", 
+   RowBox[{
+    SubscriptBox["T", "fond"], "=", " ", "281.15"}], ";", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    SubscriptBox["T", "init"], " ", "=", " ", "285.15"}], ";", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    SubscriptBox["T", "cible"], " ", "=", " ", "277.13"}], ";", 
+   "\[IndentingNewLine]", 
+   RowBox[{"A1", "=", " ", "1.946*^4"}], ";", "\[IndentingNewLine]", 
+   RowBox[{"A2", " ", "=", " ", "2.188*^4"}], ";", "\[IndentingNewLine]", 
+   RowBox[{"m1", " ", "=", " ", "3.696*^4"}], ";", "\[IndentingNewLine]", 
+   RowBox[{"m2", " ", "=", " ", "1.294*^5"}], ";", "\[IndentingNewLine]", 
+   RowBox[{"cp", " ", "=", " ", "4185.5"}], ";"}], "*)"}]], "Input",
  CellChangeTimes->{{3.732482033779036*^9, 3.732482326934894*^9}, {
-  3.73248238122204*^9, 3.732482413830618*^9}, {3.732482450238843*^9, 
-  3.732482493430601*^9}, {3.732483484696266*^9, 3.732483494009212*^9}, {
-  3.732483651666356*^9, 3.732483683135902*^9}, {3.732487759046638*^9, 
-  3.73248776154195*^9}},ExpressionUUID->"a1540c9d-e038-45f8-827c-\
-17d96808c482"],
+   3.73248238122204*^9, 3.732482413830618*^9}, {3.732482450238843*^9, 
+   3.732482493430601*^9}, {3.732483484696266*^9, 3.732483494009212*^9}, {
+   3.732483651666356*^9, 3.732483683135902*^9}, {3.732487759046638*^9, 
+   3.73248776154195*^9}, {3.7325551995173244`*^9, 3.7325552151867695`*^9}, 
+   3.7325580036135063`*^9},ExpressionUUID->"074c7921-9ca3-4e18-9dcc-\
+7e842bb138e4"],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[{
  RowBox[{
@@ -85,15 +86,14 @@ Cell[BoxData[{
       RowBox[{"Q", "[", "\[Tau]", "]"}], ",", "\[Tau]"}], "]"}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
+  RowBox[{"Q1", "[", 
+   RowBox[{"\[Tau]_", ",", " ", "a_"}], "]"}], " ", "=", " ", 
   RowBox[{
-   RowBox[{"Q1", "[", 
-    RowBox[{"\[Tau]_", ",", " ", "a_"}], "]"}], " ", "=", " ", 
    RowBox[{
-    RowBox[{
-     RowBox[{"Q", "[", "\[Tau]", "]"}], " ", "/.", " ", "solq1"}], " ", "/.", 
-    " ", 
-    RowBox[{"\[Alpha]", " ", "\[Rule]", " ", "a"}]}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{"Q", "[", "\[Tau]", "]"}], " ", "/.", " ", "solq1"}], " ", "/.", 
+   " ", 
+   RowBox[{
+   "\[Alpha]", " ", "\[Rule]", " ", "a"}]}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"solq2", " ", "=", " ", 
    RowBox[{"Simplify", "[", 
@@ -146,57 +146,71 @@ Cell[BoxData[{
    3.732483014857136*^9, 3.7324830203995237`*^9}, {3.732483050704015*^9, 
    3.7324830520628653`*^9}, {3.732483531457082*^9, 3.732483643236483*^9}, {
    3.73248369744269*^9, 3.732483699752798*^9}, {3.732484994163755*^9, 
-   3.732485005746048*^9}, {3.732486620846352*^9, 
-   3.732486624500194*^9}},ExpressionUUID->"490fb5ea-441d-4d88-8ce1-\
+   3.732485005746048*^9}, {3.732486620846352*^9, 3.732486624500194*^9}, {
+   3.732551929001195*^9, 3.7325519771990056`*^9}, 
+   3.7325529783819127`*^9},ExpressionUUID->"490fb5ea-441d-4d88-8ce1-\
 9cbe5d323240"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Solve", "[", 
-  RowBox[{
-   RowBox[{
-    RowBox[{"Q1", "[", 
-     RowBox[{"t", ",", "a"}], "]"}], " ", "\[Equal]", " ", 
-    RowBox[{"-", "6.226*^8"}]}], ",", "t"}], "]"}]], "Input",
- CellChangeTimes->{{3.732486312589212*^9, 3.7324863194992933`*^9}, {
-  3.732486635812881*^9, 3.732486680396161*^9}, {3.7324877267372713`*^9, 
-  3.732487727558524*^9}},ExpressionUUID->"9bb51d84-aced-4b40-b342-\
-897045b0c7a3"],
-
-Cell[BoxData[
- TemplateBox[{
-  "Solve","ifun",
-   "\"Inverse functions are being used by \
-\\!\\(\\*RowBox[{\\\"Solve\\\"}]\\), so some solutions may not be found; use \
-Reduce for complete solution information.\"",2,365,73,21261017831986760809,
-   "Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{{3.7324866581281977`*^9, 3.732486680560782*^9}, 
-   3.7324877343544283`*^9},ExpressionUUID->"31b2ad28-ace7-487c-99b3-\
-e19e3bef3bfe"],
 
 Cell[BoxData[
  RowBox[{"{", 
-  RowBox[{"{", 
-   RowBox[{"t", "\[Rule]", "1854.8320980432006`"}], "}"}], "}"}]], "Output",
- CellChangeTimes->{{3.732486658129917*^9, 3.732486680567059*^9}, 
-   3.7324877343645287`*^9},ExpressionUUID->"6176b268-2455-4b65-88b8-\
-ede31c211dbf"]
+  FractionBox[
+   RowBox[{"cp", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "1"}], "+", 
+      SuperscriptBox["\[ExponentialE]", 
+       FractionBox[
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", "a"}], " ", "A1"}], "+", "Alac"}], ")"}], " ", 
+         "\[Tau]"}], 
+        RowBox[{"cp", " ", "m1"}]]]}], ")"}], " ", "m1", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Alac", " ", 
+       SubscriptBox["T", "air"]}], "+", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"a", " ", "A1"}], "-", "Alac"}], ")"}], " ", 
+       SubscriptBox["T", "cible"]}], "-", 
+      RowBox[{"a", " ", "A1", " ", 
+       SubscriptBox["T", "fond"]}]}], ")"}]}], 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "a"}], " ", "A1"}], "+", "Alac"}]], "}"}]], "Output",
+ CellChangeTimes->{
+  3.732552978840314*^9, 3.732554015749153*^9, 3.732555218341777*^9, {
+   3.7325553147928286`*^9, 3.7325553322724805`*^9}, 3.732555373750186*^9, {
+   3.732555627629662*^9, 3.732555670317777*^9}, {3.732555800299263*^9, 
+   3.7325558339323483`*^9}, 3.7325561586108055`*^9, 3.7325562377856092`*^9, 
+   3.7325563037173815`*^9, {3.732556337238474*^9, 3.7325564175728817`*^9}, {
+   3.732556506563314*^9, 3.73255654459822*^9}, {3.732556585806531*^9, 
+   3.7325566322550583`*^9}, {3.732556699353238*^9, 3.7325567291283197`*^9}, {
+   3.732556769838826*^9, 3.7325567939842978`*^9}, 3.732556979435205*^9, {
+   3.732557087285902*^9, 3.7325571099809637`*^9}, {3.7325571899223795`*^9, 
+   3.7325571981036005`*^9}, 
+   3.7325580145513363`*^9},ExpressionUUID->"9878dee1-2183-4f73-8236-\
+955ee9921156"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[{
  RowBox[{
-  RowBox[{"T1", "[", "t_", "]"}], " ", "=", " ", 
+  RowBox[{"T1", "[", 
+   RowBox[{"t_", ",", " ", "a_"}], "]"}], " ", "=", " ", 
   RowBox[{
    SubscriptBox["T", "init"], "+", 
    FractionBox[
-    RowBox[{"Q1", "[", "t", "]"}], 
+    RowBox[{"Q1", "[", 
+     RowBox[{"t", ",", "a"}], "]"}], 
     RowBox[{"cp", " ", "m1"}]]}]}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"T2", "[", "t_", "]"}], " ", "=", " ", 
+  RowBox[{"T2", "[", 
+   RowBox[{"t_", ",", " ", "a_"}], "]"}], " ", "=", " ", 
   RowBox[{
    SubscriptBox["T", "init"], "+", 
    FractionBox[
@@ -208,126 +222,1263 @@ Cell[BoxData[{
   3.732486033314391*^9}, {3.732486325156145*^9, 3.732486340716222*^9}, {
   3.732487030709338*^9, 3.732487031589484*^9}, {3.732487619889255*^9, 
   3.732487629798195*^9}, {3.732487688119419*^9, 3.732487688815033*^9}, {
-  3.732487774697287*^9, 
-  3.7324877805592613`*^9}},ExpressionUUID->"935aba3a-2ec2-4537-b6ee-\
+  3.732487774697287*^9, 3.7324877805592613`*^9}, {3.7325415659638186`*^9, 
+  3.732541566073019*^9}, {3.732552126709546*^9, 
+  3.732552130770155*^9}},ExpressionUUID->"935aba3a-2ec2-4537-b6ee-\
 6ae758ba7ddf"],
 
 Cell[BoxData[
- RowBox[{"285.15`", "\[VeryThinSpace]", "+", 
-  RowBox[{"6.4642879121436045`*^-9", " ", 
-   RowBox[{"Q1", "[", "t", "]"}]}]}]], "Output",
+ RowBox[{"{", 
+  RowBox[{
+   FractionBox[
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "1"}], "+", 
+       SuperscriptBox["\[ExponentialE]", 
+        FractionBox[
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"-", "a"}], " ", "A1"}], "+", "Alac"}], ")"}], " ", 
+          "t"}], 
+         RowBox[{"cp", " ", "m1"}]]]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"Alac", " ", 
+        SubscriptBox["T", "air"]}], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"a", " ", "A1"}], "-", "Alac"}], ")"}], " ", 
+        SubscriptBox["T", "cible"]}], "-", 
+       RowBox[{"a", " ", "A1", " ", 
+        SubscriptBox["T", "fond"]}]}], ")"}]}], 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "a"}], " ", "A1"}], "+", "Alac"}]], "+", 
+   SubscriptBox["T", "init"]}], "}"}]], "Output",
  CellChangeTimes->{
   3.732487032527685*^9, {3.732487622529952*^9, 3.73248763429806*^9}, 
    3.732487689573493*^9, 3.732487734369728*^9, {3.7324877670866117`*^9, 
-   3.732487781051125*^9}},ExpressionUUID->"15ca2703-edae-4249-ac2c-\
-8824e904e514"],
+   3.732487781051125*^9}, 3.732541509299652*^9, 3.7325415686242247`*^9, {
+   3.73254160949434*^9, 3.732541611764547*^9}, 3.732551937489117*^9, {
+   3.732552134236063*^9, 3.732552136040167*^9}, 3.732552185253886*^9, 
+   3.7325540160807533`*^9, 3.732555218404177*^9, {3.7325553148084283`*^9, 
+   3.7325553323036804`*^9}, 3.732555373796986*^9, {3.732555627660862*^9, 
+   3.7325556703645773`*^9}, {3.732555800361663*^9, 3.732555833994749*^9}, 
+   3.732556158657606*^9, 3.732556237848009*^9, 3.7325563037953815`*^9, {
+   3.7325563373008738`*^9, 3.7325564176402826`*^9}, {3.732556506610114*^9, 
+   3.73255654464502*^9}, {3.732556585868931*^9, 3.732556632333059*^9}, {
+   3.732556699415638*^9, 3.7325567291917195`*^9}, {3.732556769901226*^9, 
+   3.732556794031098*^9}, 3.7325569794920053`*^9, {3.7325570873327017`*^9, 
+   3.7325571100433636`*^9}, {3.73255718998578*^9, 3.7325571981710005`*^9}, 
+   3.7325580146927366`*^9},ExpressionUUID->"fb39be2d-434e-4abc-979e-\
+0db2eca7e742"],
 
 Cell[BoxData[
  RowBox[{"{", 
-  RowBox[{"285.15`", "\[VeryThinSpace]", "+", 
+  RowBox[{
    FractionBox[
-    RowBox[{"1.8463684793881578`*^-9", " ", 
+    RowBox[{
      RowBox[{"(", 
       RowBox[{
-       RowBox[{"-", "7.317838292093235`*^9"}], "-", 
-       RowBox[{"2.177246873999991`*^9", " ", "a"}], "+", 
-       RowBox[{
-        RowBox[{"(", 
-         RowBox[{"7.317838292093235`*^9", "+", 
-          RowBox[{"2.177246873999991`*^9", " ", "a"}]}], ")"}], " ", 
-        SuperscriptBox["\[ExponentialE]", 
+       RowBox[{"-", "1"}], "+", 
+       SuperscriptBox["\[ExponentialE]", 
+        FractionBox[
          RowBox[{
           RowBox[{"(", 
-           RowBox[{"0.00003415781686868092`", "\[VeryThinSpace]", "-", 
-            RowBox[{"0.00004039854232901289`", " ", "a"}]}], ")"}], " ", 
-          "t"}]]}]}], ")"}]}], 
+           RowBox[{
+            RowBox[{
+             RowBox[{"-", "a"}], " ", "A2"}], "+", "Alac"}], ")"}], " ", 
+          "t"}], 
+         RowBox[{"cp", " ", "m2"}]]]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"Alac", " ", 
+        SubscriptBox["T", "air"]}], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"a", " ", "A2"}], "-", "Alac"}], ")"}], " ", 
+        SubscriptBox["T", "cible"]}], "-", 
+       RowBox[{"a", " ", "A2", " ", 
+        SubscriptBox["T", "fond"]}]}], ")"}]}], 
     RowBox[{
-     RowBox[{"-", "0.8455210237659964`"}], "+", 
-     RowBox[{"1.`", " ", "a"}]}]]}], "}"}]], "Output",
+     RowBox[{
+      RowBox[{"-", "a"}], " ", "A2"}], "+", "Alac"}]], "+", 
+   SubscriptBox["T", "init"]}], "}"}]], "Output",
  CellChangeTimes->{
   3.732487032527685*^9, {3.732487622529952*^9, 3.73248763429806*^9}, 
    3.732487689573493*^9, 3.732487734369728*^9, {3.7324877670866117`*^9, 
-   3.732487781054513*^9}},ExpressionUUID->"915dd3ca-ec18-4bdb-b22e-\
-29c0a6cfc278"]
+   3.732487781051125*^9}, 3.732541509299652*^9, 3.7325415686242247`*^9, {
+   3.73254160949434*^9, 3.732541611764547*^9}, 3.732551937489117*^9, {
+   3.732552134236063*^9, 3.732552136040167*^9}, 3.732552185253886*^9, 
+   3.7325540160807533`*^9, 3.732555218404177*^9, {3.7325553148084283`*^9, 
+   3.7325553323036804`*^9}, 3.732555373796986*^9, {3.732555627660862*^9, 
+   3.7325556703645773`*^9}, {3.732555800361663*^9, 3.732555833994749*^9}, 
+   3.732556158657606*^9, 3.732556237848009*^9, 3.7325563037953815`*^9, {
+   3.7325563373008738`*^9, 3.7325564176402826`*^9}, {3.732556506610114*^9, 
+   3.73255654464502*^9}, {3.732556585868931*^9, 3.732556632333059*^9}, {
+   3.732556699415638*^9, 3.7325567291917195`*^9}, {3.732556769901226*^9, 
+   3.732556794031098*^9}, 3.7325569794920053`*^9, {3.7325570873327017`*^9, 
+   3.7325571100433636`*^9}, {3.73255718998578*^9, 3.7325571981710005`*^9}, 
+   3.7325580146927366`*^9},ExpressionUUID->"a812654a-971c-477d-b62c-\
+6ff0ecf0a04f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"a", " ", "=", " ", "4"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"target", " ", "=", " ", 
+   SubscriptBox["T", "cible"]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"findEnd", "[", "f_", "]"}], " ", "=", " ", 
+   RowBox[{"t", " ", "/.", " ", 
+    RowBox[{
+     RowBox[{"Solve", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"f", "[", 
+         RowBox[{"t", ",", " ", "a"}], "]"}], " ", "\[Equal]", "  ", 
+        "target"}], ",", "t"}], "]"}], "[", 
+     RowBox[{"[", "1", "]"}], "]"}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.732541615193755*^9, 3.7325416373998146`*^9}, {
+   3.732552037593543*^9, 3.732552037946744*^9}, {3.732552158737623*^9, 
+   3.732552159276825*^9}, {3.7325521970831127`*^9, 3.732552197865014*^9}, {
+   3.7325523015167503`*^9, 3.7325523018699512`*^9}, {3.7325530456134872`*^9, 
+   3.732553142476942*^9}, {3.732553173582625*^9, 3.732553175549629*^9}, {
+   3.732553496399641*^9, 3.732553569062228*^9}, {3.7325553120888205`*^9, 
+   3.7325553290370717`*^9}, {3.732555370800177*^9, 3.7325554133884935`*^9}, {
+   3.732555603969593*^9, 3.7325556672063675`*^9}, {3.732555819183111*^9, 
+   3.7325558308473406`*^9}, {3.7325561278657255`*^9, 
+   3.7325563008733745`*^9}, {3.7325563343894663`*^9, 
+   3.7325564145806727`*^9}, {3.7325565038929033`*^9, 
+   3.7325566297266517`*^9}, {3.732556670131559*^9, 3.7325567555419893`*^9}, 
+   3.7325567915956917`*^9, {3.7325570817462845`*^9, 
+   3.732557107460354*^9}},ExpressionUUID->"01e11bc4-d9ce-48ea-85ca-\
+4f3fa631e97f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Solve","ifun",
+   "\"Inverse functions are being used by \
+\\!\\(\\*RowBox[{\\\"Solve\\\"}]\\), so some solutions may not be found; use \
+Reduce for complete solution information.\"",2,1113,222,33452378549366626970,
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732553270737074*^9, {3.7325535007914515`*^9, 3.7325535694566298`*^9}, 
+   3.732554016471362*^9, 3.732555218419777*^9, {3.7325553148240285`*^9, 
+   3.7325553323192806`*^9}, {3.732555373812586*^9, 3.7325554139660954`*^9}, {
+   3.732555605961198*^9, 3.7325556703801775`*^9}, {3.732555800377263*^9, 
+   3.7325558340113487`*^9}, 3.7325561586732063`*^9, {3.732556227769184*^9, 
+   3.7325562378636093`*^9}, {3.7325562765603113`*^9, 
+   3.7325563038385825`*^9}, {3.732556337378874*^9, 3.732556417717684*^9}, {
+   3.732556507187716*^9, 3.73255654472302*^9}, {3.7325565859479313`*^9, 
+   3.7325566323954587`*^9}, {3.732556699432238*^9, 3.7325567292385197`*^9}, {
+   3.7325567699802265`*^9, 3.732556794078898*^9}, 3.732556979571006*^9, {
+   3.7325570874107027`*^9, 3.7325571101213636`*^9}, {3.7325571900481796`*^9, 
+   3.7325571982344007`*^9}, 
+   3.7325580147395372`*^9},ExpressionUUID->"71f7bf4b-897c-4193-9712-\
+956928c54297"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"Manipulate", "[", 
-  RowBox[{
+ RowBox[{"tFin", " ", "=", " ", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"findEnd", "[", "T1", "]"}], ",", 
+    RowBox[{"findEnd", "[", "T2", "]"}], ",", " ", 
+    RowBox[{
+     RowBox[{"tFin", "[", 
+      RowBox[{"[", "2", "]"}], "]"}], "/", 
+     RowBox[{"tFin", "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.7325566513641095`*^9, 3.7325566971488323`*^9}, {
+  3.7325567348095355`*^9, 3.7325567797868547`*^9}, {3.7325571492402706`*^9, 
+  3.7325571844583654`*^9}, {3.732557661035796*^9, 
+  3.7325576795600424`*^9}},ExpressionUUID->"1420b140-5bcb-4045-9516-\
+20a6d30c3e35"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part","partd",
+   "\"Part specification \\!\\(\\*RowBox[{\\\"tFin\\\", \\\"\
+\[LeftDoubleBracket]\\\", \\\"2\\\", \\\"\[RightDoubleBracket]\\\"}]\\) is \
+longer than depth of object.\"",2,1114,223,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580147873373`*^9},ExpressionUUID->"92b5c2c7-8367-464d-a142-\
+59f9bc7d28cd"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part","partd",
+   "\"Part specification \\!\\(\\*RowBox[{\\\"tFin\\\", \\\"\
+\[LeftDoubleBracket]\\\", \\\"1\\\", \\\"\[RightDoubleBracket]\\\"}]\\) is \
+longer than depth of object.\"",2,1114,224,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558014834137*^9},ExpressionUUID->"8c195c72-fe48-424c-b01c-\
+89c100432f9d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "$RecursionLimit","reclim2",
+   "\"Recursion depth of \\!\\(\\*RowBox[{\\\"1024\\\"}]\\) exceeded during \
+evaluation of \\!\\(\\*RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"cp\\\", \
+\\\" \\\", \\\"m1\\\", \\\" \\\", RowBox[{\\\"Log\\\", \\\"[\\\", \
+FractionBox[RowBox[{RowBox[{\\\"Alac\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \
+\\\"air\\\"]}], \\\"+\\\", RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \
+\\\", SubscriptBox[\\\"T\\\", \\\"cible\\\"]}], \\\"-\\\", RowBox[{\\\"Alac\\\
+\", \\\" \\\", SubscriptBox[\\\"T\\\", \\\"cible\\\"]}], \\\"-\\\", \
+RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \
+\\\"fond\\\"]}]}], RowBox[{RowBox[{\\\"Alac\\\", \\\" \\\", \
+SubscriptBox[\\\"T\\\", \\\"air\\\"]}], \\\"-\\\", RowBox[{\\\"4\\\", \\\" \\\
+\", \\\"A1\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \\\"fond\\\"]}], \
+\\\"+\\\", RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \\\", SubscriptBox[\
+\\\"T\\\", \\\"init\\\"]}], \\\"-\\\", RowBox[{\\\"Alac\\\", \\\" \\\", \
+SubscriptBox[\\\"T\\\", \\\"init\\\"]}]}]], \\\"]\\\"}]}], \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"4\\\"}], \\\" \\\", \\\"A1\\\"}], \
+\\\"+\\\", \\\"Alac\\\"}]]}]\\).\"",2,1114,225,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558015258338*^9},ExpressionUUID->"21208e0f-5998-4e31-887e-\
+eb4ae89b1787"],
+
+Cell[BoxData[
+ RowBox[{"Hold", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{"cp", " ", "m1", " ", 
+       RowBox[{"Log", "[", 
+        FractionBox[
+         RowBox[{
+          RowBox[{"Alac", " ", 
+           SubscriptBox["T", "air"]}], "+", 
+          RowBox[{"4", " ", "A1", " ", 
+           SubscriptBox["T", "cible"]}], "-", 
+          RowBox[{"Alac", " ", 
+           SubscriptBox["T", "cible"]}], "-", 
+          RowBox[{"4", " ", "A1", " ", 
+           SubscriptBox["T", "fond"]}]}], 
+         RowBox[{
+          RowBox[{"Alac", " ", 
+           SubscriptBox["T", "air"]}], "-", 
+          RowBox[{"4", " ", "A1", " ", 
+           SubscriptBox["T", "fond"]}], "+", 
+          RowBox[{"4", " ", "A1", " ", 
+           SubscriptBox["T", "init"]}], "-", 
+          RowBox[{"Alac", " ", 
+           SubscriptBox["T", "init"]}]}]], "]"}]}], 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "4"}], " ", "A1"}], "+", "Alac"}]]}], ",", 
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{"cp", " ", "m2", " ", 
+       RowBox[{"Log", "[", 
+        FractionBox[
+         RowBox[{
+          RowBox[{"Alac", " ", 
+           SubscriptBox["T", "air"]}], "+", 
+          RowBox[{"4", " ", "A2", " ", 
+           SubscriptBox["T", "cible"]}], "-", 
+          RowBox[{"Alac", " ", 
+           SubscriptBox["T", "cible"]}], "-", 
+          RowBox[{"4", " ", "A2", " ", 
+           SubscriptBox["T", "fond"]}]}], 
+         RowBox[{
+          RowBox[{"Alac", " ", 
+           SubscriptBox["T", "air"]}], "-", 
+          RowBox[{"4", " ", "A2", " ", 
+           SubscriptBox["T", "fond"]}], "+", 
+          RowBox[{"4", " ", "A2", " ", 
+           SubscriptBox["T", "init"]}], "-", 
+          RowBox[{"Alac", " ", 
+           SubscriptBox["T", "init"]}]}]], "]"}]}], 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "4"}], " ", "A2"}], "+", "Alac"}]]}], ",", 
+    FractionBox[
+     RowBox[{"tFin", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+     RowBox[{
+     "tFin", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]]}], "}"}],
+   "]"}]], "Output",
+ CellChangeTimes->{{3.7325566994634385`*^9, 3.7325567293009195`*^9}, {
+   3.7325567666628175`*^9, 3.7325567942382994`*^9}, 3.7325569796560063`*^9, {
+   3.7325570874887023`*^9, 3.7325571101993637`*^9}, {3.73255719012718*^9, 
+   3.732557198329001*^9}, {3.7325576686686153`*^9, 3.732557681670848*^9}, 
+   3.732558015273938*^9},ExpressionUUID->"0f20bb36-dfdd-4310-98ab-\
+5fa66fce0efe"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"g1", " ", "=", " ", 
    RowBox[{"Plot", "[", 
     RowBox[{
+     RowBox[{"T1", "[", 
+      RowBox[{"t", ",", "a"}], "]"}], ",", " ", 
      RowBox[{"{", 
-      RowBox[{
-       RowBox[{"f", "[", 
-        RowBox[{"q", ",", "a"}], "]"}], ",", 
-       RowBox[{"g", "[", 
-        RowBox[{"q", ",", "a"}], "]"}]}], "}"}], ",", " ", 
+      RowBox[{"t", ",", "0", ",", 
+       RowBox[{"tFin", "[", 
+        RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", " ", 
+     RowBox[{"PlotStyle", " ", "\[Rule]", " ", "Red"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"g2", " ", "=", " ", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"T2", "[", 
+      RowBox[{"t", ",", "a"}], "]"}], ",", " ", 
      RowBox[{"{", 
-      RowBox[{"q", ",", "0", ",", 
-       RowBox[{"-", 
-        RowBox[{"(", "3*^9", ")"}]}]}], "}"}], ",", " ", 
-     RowBox[{"PlotStyle", " ", "\[Rule]", " ", 
+      RowBox[{"t", ",", "0", ",", 
+       RowBox[{"tFin", "[", 
+        RowBox[{"[", "2", "]"}], "]"}]}], "}"}], ",", " ", 
+     RowBox[{"PlotStyle", " ", "\[Rule]", " ", "Blue"}], ",", " ", 
+     RowBox[{"AxesLabel", " ", "\[Rule]", " ", 
       RowBox[{"{", 
-       RowBox[{"Red", ",", " ", "Blue"}], "}"}]}]}], "]"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"a", ",", "0.1", ",", "2"}], "}"}]}], "]"}]], "Input",
+       RowBox[{
+        RowBox[{"\[Tau]", " ", "Temps"}], ",", 
+        RowBox[{"K", " ", "Temp\[EAcute]rature"}]}], "}"}]}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Show", "[", 
+  RowBox[{"g2", ",", "g1"}], "]"}]}], "Input",
  CellChangeTimes->{{3.732483709081099*^9, 3.7324838165695553`*^9}, {
    3.7324843645212803`*^9, 3.732484391849584*^9}, {3.732484469810063*^9, 
    3.732484502816453*^9}, {3.7324846140901623`*^9, 3.732484637793502*^9}, {
    3.732484733746497*^9, 3.732484753433592*^9}, {3.7324853976192427`*^9, 
-   3.732485431130589*^9}, 
-   3.732485537292952*^9},ExpressionUUID->"88ea37b8-1865-4fc2-8988-\
+   3.732485431130589*^9}, 3.732485537292952*^9, {3.732552099511384*^9, 
+   3.7325521039158945`*^9}, {3.7325522140904493`*^9, 
+   3.7325522158146534`*^9}, {3.7325523436859493`*^9, 
+   3.7325523447555513`*^9}, {3.732553077592971*^9, 3.7325530866223946`*^9}, {
+   3.7325531186446776`*^9, 3.732553147192353*^9}, {3.7325531821534452`*^9, 
+   3.7325532186505394`*^9}, {3.7325532588592415`*^9, 3.732553284525313*^9}, {
+   3.7325534466827106`*^9, 3.732553464542156*^9}, {3.732553619889165*^9, 
+   3.7325536561526594`*^9}, 3.7325561317805386`*^9, {3.7325562855057354`*^9, 
+   3.7325563168852186`*^9}, {3.7325567199382954`*^9, 3.732556750607777*^9}, {
+   3.732557163177307*^9, 3.7325571952611923`*^9}, {3.732557296805967*^9, 
+   3.7325573429860916`*^9}, {3.7325574049556775`*^9, 
+   3.7325574454991875`*^9}, {3.73255749572012*^9, 
+   3.7325574978271284`*^9}},ExpressionUUID->"88ea37b8-1865-4fc2-8988-\
 ad85d358b77a"],
 
 Cell[BoxData[
- TagBox[
-  StyleBox[
-   DynamicModuleBox[{$CellContext`a$$ = 0.1, Typeset`show$$ = True, 
-    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
-    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
-    "\"untitled\"", Typeset`specs$$ = {{
-      Hold[$CellContext`a$$], 0.1, 2}}, Typeset`size$$ = {360., {104., 108.}},
-     Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`a$180169$$ = 0}, 
-    DynamicBox[Manipulate`ManipulateBoxes[
-     1, StandardForm, "Variables" :> {$CellContext`a$$ = 0.1}, 
-      "ControllerVariables" :> {
-        Hold[$CellContext`a$$, $CellContext`a$180169$$, 0]}, 
-      "OtherVariables" :> {
-       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
-        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
-        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
-         Typeset`skipInitDone$$}, "Body" :> Plot[{
-         $CellContext`f[$CellContext`q, $CellContext`a$$], 
-         $CellContext`g[$CellContext`q, $CellContext`a$$]}, {$CellContext`q, 
-         0, -3000000000}, PlotStyle -> {Red, Blue}], 
-      "Specifications" :> {{$CellContext`a$$, 0.1, 2}}, "Options" :> {}, 
-      "DefaultOptions" :> {}],
-     ImageSizeCache->{407., {148., 153.}},
-     SingleEvaluation->True],
-    Deinitialization:>None,
-    DynamicModuleValues:>{},
-    SynchronousInitialization->True,
-    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
-    UnsavedVariables:>{Typeset`initDone$$},
-    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
-   Deployed->True,
-   StripOnInput->False],
-  Manipulate`InterpretManipulate[1]]], "Output",
+ TemplateBox[{
+  "$RecursionLimit","reclim2",
+   "\"Recursion depth of \\!\\(\\*RowBox[{\\\"1024\\\"}]\\) exceeded during \
+evaluation of \\!\\(\\*RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"cp\\\", \
+\\\" \\\", \\\"m1\\\", \\\" \\\", RowBox[{\\\"Log\\\", \\\"[\\\", \
+FractionBox[RowBox[{RowBox[{\\\"Alac\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \
+\\\"air\\\"]}], \\\"+\\\", RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \
+\\\", SubscriptBox[\\\"T\\\", \\\"cible\\\"]}], \\\"-\\\", RowBox[{\\\"Alac\\\
+\", \\\" \\\", SubscriptBox[\\\"T\\\", \\\"cible\\\"]}], \\\"-\\\", \
+RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \
+\\\"fond\\\"]}]}], RowBox[{RowBox[{\\\"Alac\\\", \\\" \\\", \
+SubscriptBox[\\\"T\\\", \\\"air\\\"]}], \\\"-\\\", RowBox[{\\\"4\\\", \\\" \\\
+\", \\\"A1\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \\\"fond\\\"]}], \
+\\\"+\\\", RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \\\", SubscriptBox[\
+\\\"T\\\", \\\"init\\\"]}], \\\"-\\\", RowBox[{\\\"Alac\\\", \\\" \\\", \
+SubscriptBox[\\\"T\\\", \\\"init\\\"]}]}]], \\\"]\\\"}]}], \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"4\\\"}], \\\" \\\", \\\"A1\\\"}], \
+\\\"+\\\", \\\"Alac\\\"}]]}]\\).\"",2,1115,226,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580157011395`*^9},ExpressionUUID->"7bcb7cfa-bafd-42b2-b79b-\
+630750b63e2c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part","partw",
+   "\"Part \\!\\(\\*RowBox[{\\\"1\\\"}]\\) of \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"}\\\"}]\\) does not exist.\"",2,1115,227,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580157645397`*^9},ExpressionUUID->"f03ce830-243e-4918-958a-\
+42d34af245b2"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part","partw",
+   "\"Part \\!\\(\\*RowBox[{\\\"1\\\"}]\\) of \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"}\\\"}]\\) does not exist.\"",2,1115,228,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558015795739*^9},ExpressionUUID->"9dde987f-bb4d-44db-81ee-\
+9b167f732288"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part","partw",
+   "\"Part \\!\\(\\*RowBox[{\\\"1\\\"}]\\) of \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"}\\\"}]\\) does not exist.\"",2,1115,229,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580158269396`*^9},ExpressionUUID->"9908a341-27b4-496e-9bcf-\
+01958317c630"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Part\\\", \\\"::\\\", \
+\\\"partw\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,1115,230,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580158761406`*^9},ExpressionUUID->"4a4c9097-6b85-4bc8-b184-\
+7279557496db"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "$RecursionLimit","reclim2",
+   "\"Recursion depth of \\!\\(\\*RowBox[{\\\"1024\\\"}]\\) exceeded during \
+evaluation of \\!\\(\\*RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"cp\\\", \
+\\\" \\\", \\\"m1\\\", \\\" \\\", RowBox[{\\\"Log\\\", \\\"[\\\", \
+FractionBox[RowBox[{RowBox[{\\\"Alac\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \
+\\\"air\\\"]}], \\\"+\\\", RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \
+\\\", SubscriptBox[\\\"T\\\", \\\"cible\\\"]}], \\\"-\\\", RowBox[{\\\"Alac\\\
+\", \\\" \\\", SubscriptBox[\\\"T\\\", \\\"cible\\\"]}], \\\"-\\\", \
+RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \
+\\\"fond\\\"]}]}], RowBox[{RowBox[{\\\"Alac\\\", \\\" \\\", \
+SubscriptBox[\\\"T\\\", \\\"air\\\"]}], \\\"-\\\", RowBox[{\\\"4\\\", \\\" \\\
+\", \\\"A1\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \\\"fond\\\"]}], \
+\\\"+\\\", RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \\\", SubscriptBox[\
+\\\"T\\\", \\\"init\\\"]}], \\\"-\\\", RowBox[{\\\"Alac\\\", \\\" \\\", \
+SubscriptBox[\\\"T\\\", \\\"init\\\"]}]}]], \\\"]\\\"}]}], \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"4\\\"}], \\\" \\\", \\\"A1\\\"}], \
+\\\"+\\\", \\\"Alac\\\"}]]}]\\).\"",2,1115,231,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558016320942*^9},ExpressionUUID->"4a05813c-53b0-404c-b950-\
+be9cfb214d27"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "OptionValue","rep",
+   "\"\\!\\(\\*RowBox[{\\\"System`ProtoPlotDump`modelData\\\", \\\"[\\\", \
+\\\"\\\\\\\"PreprocessOptionsData\\\\\\\"\\\", \\\"]\\\"}]\\) is not a valid \
+replacement rule.\"",2,1115,232,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558016398942*^9},ExpressionUUID->"77cfd233-a1cb-4c01-9894-\
+7246bce349cc"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "OptionValue","optnf",
+   "\"Option name \\!\\(\\*RowBox[{\\\"\\\\\\\"Mesh\\\\\\\"\\\"}]\\) not \
+found in defaults for \
+\\!\\(\\*RowBox[{\\\"System`ProtoPlotDump`modelData\\\", \\\"[\\\", \
+\\\"\\\\\\\"PreprocessOptionsData\\\\\\\"\\\", \\\"]\\\"}]\\).\"",2,1115,233,
+   33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558016414542*^9},ExpressionUUID->"8ee26fd1-4cfc-437c-8f71-\
+92336110763c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "OptionValue","rep",
+   "\"\\!\\(\\*RowBox[{\\\"System`ProtoPlotDump`modelData\\\", \\\"[\\\", \
+\\\"\\\\\\\"PreprocessOptionsData\\\\\\\"\\\", \\\"]\\\"}]\\) is not a valid \
+replacement rule.\"",2,1115,234,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580164457417`*^9},ExpressionUUID->"155270ce-e699-437c-8411-\
+0702ab8a64cd"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "OptionValue","optnf",
+   "\"Option name \\!\\(\\*RowBox[{\\\"\\\\\\\"ScalingFunctions\\\\\\\"\\\"}]\
+\\) not found in defaults for \
+\\!\\(\\*RowBox[{\\\"System`ProtoPlotDump`modelData\\\", \\\"[\\\", \
+\\\"\\\\\\\"PreprocessOptionsData\\\\\\\"\\\", \\\"]\\\"}]\\).\"",2,1115,235,
+   33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558016476942*^9},ExpressionUUID->"e6145672-effb-4401-931c-\
+29fa944c2da4"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "OptionValue","rep",
+   "\"\\!\\(\\*RowBox[{\\\"System`ProtoPlotDump`modelData\\\", \\\"[\\\", \
+\\\"\\\\\\\"PreprocessOptionsData\\\\\\\"\\\", \\\"]\\\"}]\\) is not a valid \
+replacement rule.\"",2,1115,236,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558016508142*^9},ExpressionUUID->"000dcc83-aa80-4600-8303-\
+029285df5674"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"OptionValue\\\", \\\"::\
+\\\", \\\"rep\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,1115,237,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580165403423`*^9},ExpressionUUID->"612a7976-cc84-4ee7-b8bb-\
+7387c0298fd9"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "OptionValue","optnf",
+   "\"Option name \\!\\(\\*RowBox[{\\\"\\\\\\\"Varspec\\\\\\\"\\\"}]\\) not \
+found in defaults for \
+\\!\\(\\*RowBox[{\\\"System`ProtoPlotDump`modelData\\\", \\\"[\\\", \
+\\\"\\\\\\\"PreprocessOptionsData\\\\\\\"\\\", \\\"]\\\"}]\\).\"",2,1115,238,
+   33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580165715427`*^9},ExpressionUUID->"884ef4bc-36ec-4fc3-8353-\
+088296a21744"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"OptionValue\\\", \\\"::\
+\\\", \\\"optnf\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,1115,239,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558016602742*^9},ExpressionUUID->"5dee2ec2-6d7c-4b0d-aa45-\
+ca3fa718363e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set","shape",
+   "\"Lists \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\
+\"Visualization`Utilities`OptionsDump`scalefnsx\\\", \\\",\\\", \
+\\\"Visualization`Utilities`OptionsDump`iscalefnsx\\\"}], \\\"}\\\"}], \
+\\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"Visualization`Utilities`OptionsDump`scalefnsy\\\", \\\",\\\", \
+\\\"Visualization`Utilities`OptionsDump`iscalefnsy\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}]\\) and \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"ScalingFunctions\\\\\\\"\\\"}]\\) are not the \
+same shape.\"",2,1115,240,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558016676544*^9},ExpressionUUID->"ccb66eed-e6da-4d89-be3c-\
+2d3a4eb0b69b"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Plot","pllim",
+   "\"Range specification \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"Varspec\\\\\\\"\\\"}]\\) is not of the form {x, \
+xmin, xmax}.\"",2,1115,241,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580167077436`*^9},ExpressionUUID->"73f7ffb0-6028-4c96-82f1-\
+9571b630fb8f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "$RecursionLimit","reclim2",
+   "\"Recursion depth of \\!\\(\\*RowBox[{\\\"1024\\\"}]\\) exceeded during \
+evaluation of \\!\\(\\*RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"cp\\\", \
+\\\" \\\", \\\"m1\\\", \\\" \\\", RowBox[{\\\"Log\\\", \\\"[\\\", \
+FractionBox[RowBox[{RowBox[{\\\"Alac\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \
+\\\"air\\\"]}], \\\"+\\\", RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \
+\\\", SubscriptBox[\\\"T\\\", \\\"cible\\\"]}], \\\"-\\\", RowBox[{\\\"Alac\\\
+\", \\\" \\\", SubscriptBox[\\\"T\\\", \\\"cible\\\"]}], \\\"-\\\", \
+RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \
+\\\"fond\\\"]}]}], RowBox[{RowBox[{\\\"Alac\\\", \\\" \\\", \
+SubscriptBox[\\\"T\\\", \\\"air\\\"]}], \\\"-\\\", RowBox[{\\\"4\\\", \\\" \\\
+\", \\\"A1\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \\\"fond\\\"]}], \
+\\\"+\\\", RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \\\", SubscriptBox[\
+\\\"T\\\", \\\"init\\\"]}], \\\"-\\\", RowBox[{\\\"Alac\\\", \\\" \\\", \
+SubscriptBox[\\\"T\\\", \\\"init\\\"]}]}]], \\\"]\\\"}]}], \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"4\\\"}], \\\" \\\", \\\"A1\\\"}], \
+\\\"+\\\", \\\"Alac\\\"}]]}]\\).\"",2,1115,242,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558017086546*^9},ExpressionUUID->"63719bda-43f8-445b-ad88-\
+dc903affa794"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"$RecursionLimit\\\", \\\
+\"::\\\", \\\"reclim2\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"",2,1115,243,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580174795465`*^9},ExpressionUUID->"b16d3e8f-ef61-452f-8db5-\
+a4d541767971"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set","shape",
+   "\"Lists \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\
+\"Visualization`Utilities`OptionsDump`scalefnsx\\\", \\\",\\\", \
+\\\"Visualization`Utilities`OptionsDump`iscalefnsx\\\"}], \\\"}\\\"}], \
+\\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"Visualization`Utilities`OptionsDump`scalefnsy\\\", \\\",\\\", \
+\\\"Visualization`Utilities`OptionsDump`iscalefnsy\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}]\\) and \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"ScalingFunctions\\\\\\\"\\\"}]\\) are not the \
+same shape.\"",2,1115,244,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558017558547*^9},ExpressionUUID->"4497b038-81f0-46aa-9cd8-\
+a543432dddd4"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Plot","pllim",
+   "\"Range specification \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"Varspec\\\\\\\"\\\"}]\\) is not of the form {x, \
+xmin, xmax}.\"",2,1115,245,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580175897465`*^9},ExpressionUUID->"96cba299-5563-4d3b-a7b3-\
+e2762e6623f2"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "$RecursionLimit","reclim2",
+   "\"Recursion depth of \\!\\(\\*RowBox[{\\\"1024\\\"}]\\) exceeded during \
+evaluation of \\!\\(\\*RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"cp\\\", \
+\\\" \\\", \\\"m1\\\", \\\" \\\", RowBox[{\\\"Log\\\", \\\"[\\\", \
+FractionBox[RowBox[{RowBox[{\\\"Alac\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \
+\\\"air\\\"]}], \\\"+\\\", RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \
+\\\", SubscriptBox[\\\"T\\\", \\\"cible\\\"]}], \\\"-\\\", RowBox[{\\\"Alac\\\
+\", \\\" \\\", SubscriptBox[\\\"T\\\", \\\"cible\\\"]}], \\\"-\\\", \
+RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \
+\\\"fond\\\"]}]}], RowBox[{RowBox[{\\\"Alac\\\", \\\" \\\", \
+SubscriptBox[\\\"T\\\", \\\"air\\\"]}], \\\"-\\\", RowBox[{\\\"4\\\", \\\" \\\
+\", \\\"A1\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \\\"fond\\\"]}], \
+\\\"+\\\", RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \\\", SubscriptBox[\
+\\\"T\\\", \\\"init\\\"]}], \\\"-\\\", RowBox[{\\\"Alac\\\", \\\" \\\", \
+SubscriptBox[\\\"T\\\", \\\"init\\\"]}]}]], \\\"]\\\"}]}], \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"4\\\"}], \\\" \\\", \\\"A1\\\"}], \
+\\\"+\\\", \\\"Alac\\\"}]]}]\\).\"",2,1116,246,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558017977148*^9},ExpressionUUID->"f318b12a-6c12-4c21-918d-\
+d56e1f136dc5"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part","partw",
+   "\"Part \\!\\(\\*RowBox[{\\\"1\\\"}]\\) of \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"}\\\"}]\\) does not exist.\"",2,1116,247,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580180561485`*^9},ExpressionUUID->"61882851-cdd1-42cc-a164-\
+412b8ae03e7e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part","partw",
+   "\"Part \\!\\(\\*RowBox[{\\\"1\\\"}]\\) of \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"}\\\"}]\\) does not exist.\"",2,1116,248,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580180873485`*^9},ExpressionUUID->"6e6c5385-d851-46ae-aaea-\
+613150bb00de"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part","partw",
+   "\"Part \\!\\(\\*RowBox[{\\\"1\\\"}]\\) of \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"}\\\"}]\\) does not exist.\"",2,1116,249,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580181341486`*^9},ExpressionUUID->"086f7a7e-3d0e-4ca4-8a8a-\
+70a4d8bb5434"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Part\\\", \\\"::\\\", \
+\\\"partw\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,1116,250,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580181813498`*^9},ExpressionUUID->"c64cf7c4-92bd-49b9-96c7-\
+a4f4bed2aafc"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "$RecursionLimit","reclim2",
+   "\"Recursion depth of \\!\\(\\*RowBox[{\\\"1024\\\"}]\\) exceeded during \
+evaluation of \\!\\(\\*RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"cp\\\", \
+\\\" \\\", \\\"m1\\\", \\\" \\\", RowBox[{\\\"Log\\\", \\\"[\\\", \
+FractionBox[RowBox[{RowBox[{\\\"Alac\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \
+\\\"air\\\"]}], \\\"+\\\", RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \
+\\\", SubscriptBox[\\\"T\\\", \\\"cible\\\"]}], \\\"-\\\", RowBox[{\\\"Alac\\\
+\", \\\" \\\", SubscriptBox[\\\"T\\\", \\\"cible\\\"]}], \\\"-\\\", \
+RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \
+\\\"fond\\\"]}]}], RowBox[{RowBox[{\\\"Alac\\\", \\\" \\\", \
+SubscriptBox[\\\"T\\\", \\\"air\\\"]}], \\\"-\\\", RowBox[{\\\"4\\\", \\\" \\\
+\", \\\"A1\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \\\"fond\\\"]}], \
+\\\"+\\\", RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \\\", SubscriptBox[\
+\\\"T\\\", \\\"init\\\"]}], \\\"-\\\", RowBox[{\\\"Alac\\\", \\\" \\\", \
+SubscriptBox[\\\"T\\\", \\\"init\\\"]}]}]], \\\"]\\\"}]}], \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"4\\\"}], \\\" \\\", \\\"A1\\\"}], \
+\\\"+\\\", \\\"Alac\\\"}]]}]\\).\"",2,1116,251,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558018626151*^9},ExpressionUUID->"8d4cfe0c-b403-4ebd-b74b-\
+581ce4688961"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "OptionValue","rep",
+   "\"\\!\\(\\*RowBox[{\\\"System`ProtoPlotDump`modelData\\\", \\\"[\\\", \
+\\\"\\\\\\\"PreprocessOptionsData\\\\\\\"\\\", \\\"]\\\"}]\\) is not a valid \
+replacement rule.\"",2,1116,252,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580186729507`*^9},ExpressionUUID->"5cf80667-5c59-4df4-89a4-\
+21641c82854f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "OptionValue","optnf",
+   "\"Option name \\!\\(\\*RowBox[{\\\"\\\\\\\"Mesh\\\\\\\"\\\"}]\\) not \
+found in defaults for \
+\\!\\(\\*RowBox[{\\\"System`ProtoPlotDump`modelData\\\", \\\"[\\\", \
+\\\"\\\\\\\"PreprocessOptionsData\\\\\\\"\\\", \\\"]\\\"}]\\).\"",2,1116,253,
+   33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558018704151*^9},ExpressionUUID->"b174c95c-8ebe-40fa-aa13-\
+00cf31d3185e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "OptionValue","rep",
+   "\"\\!\\(\\*RowBox[{\\\"System`ProtoPlotDump`modelData\\\", \\\"[\\\", \
+\\\"\\\\\\\"PreprocessOptionsData\\\\\\\"\\\", \\\"]\\\"}]\\) is not a valid \
+replacement rule.\"",2,1116,254,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558018735351*^9},ExpressionUUID->"ea226914-bb3a-41a7-81e6-\
+be8b6d91f8b9"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "OptionValue","optnf",
+   "\"Option name \\!\\(\\*RowBox[{\\\"\\\\\\\"ScalingFunctions\\\\\\\"\\\"}]\
+\\) not found in defaults for \
+\\!\\(\\*RowBox[{\\\"System`ProtoPlotDump`modelData\\\", \\\"[\\\", \
+\\\"\\\\\\\"PreprocessOptionsData\\\\\\\"\\\", \\\"]\\\"}]\\).\"",2,1116,255,
+   33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558018782151*^9},ExpressionUUID->"85216b01-2663-4261-8c40-\
+f02e2f203f2f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "OptionValue","rep",
+   "\"\\!\\(\\*RowBox[{\\\"System`ProtoPlotDump`modelData\\\", \\\"[\\\", \
+\\\"\\\\\\\"PreprocessOptionsData\\\\\\\"\\\", \\\"]\\\"}]\\) is not a valid \
+replacement rule.\"",2,1116,256,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580188419523`*^9},ExpressionUUID->"412779d8-6f40-4ad2-a905-\
+d1fe80c3a347"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"OptionValue\\\", \\\"::\
+\\\", \\\"rep\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,1116,257,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558018876152*^9},ExpressionUUID->"473fc33e-6d39-4e5a-be05-\
+f0a72f40d400"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "OptionValue","optnf",
+   "\"Option name \\!\\(\\*RowBox[{\\\"\\\\\\\"Varspec\\\\\\\"\\\"}]\\) not \
+found in defaults for \
+\\!\\(\\*RowBox[{\\\"System`ProtoPlotDump`modelData\\\", \\\"[\\\", \
+\\\"\\\\\\\"PreprocessOptionsData\\\\\\\"\\\", \\\"]\\\"}]\\).\"",2,1116,258,
+   33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558018922952*^9},ExpressionUUID->"c068d85c-376d-4b8c-941d-\
+ad6a3c286f26"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"OptionValue\\\", \\\"::\
+\\\", \\\"optnf\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,1116,259,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580189697523`*^9},ExpressionUUID->"eba52636-3d39-4968-a559-\
+6c9fca122f4f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set","shape",
+   "\"Lists \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\
+\"Visualization`Utilities`OptionsDump`scalefnsx\\\", \\\",\\\", \
+\\\"Visualization`Utilities`OptionsDump`iscalefnsx\\\"}], \\\"}\\\"}], \
+\\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"Visualization`Utilities`OptionsDump`scalefnsy\\\", \\\",\\\", \
+\\\"Visualization`Utilities`OptionsDump`iscalefnsy\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}]\\) and \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"ScalingFunctions\\\\\\\"\\\"}]\\) are not the \
+same shape.\"",2,1116,260,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558019032152*^9},ExpressionUUID->"eda2fd69-312d-455f-8df8-\
+e4199dc02871"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Plot","pllim",
+   "\"Range specification \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"Varspec\\\\\\\"\\\"}]\\) is not of the form {x, \
+xmin, xmax}.\"",2,1116,261,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580190799527`*^9},ExpressionUUID->"3b6f6d0e-e93e-40b1-bd03-\
+b88c47346a5d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "$RecursionLimit","reclim2",
+   "\"Recursion depth of \\!\\(\\*RowBox[{\\\"1024\\\"}]\\) exceeded during \
+evaluation of \\!\\(\\*RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"cp\\\", \
+\\\" \\\", \\\"m1\\\", \\\" \\\", RowBox[{\\\"Log\\\", \\\"[\\\", \
+FractionBox[RowBox[{RowBox[{\\\"Alac\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \
+\\\"air\\\"]}], \\\"+\\\", RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \
+\\\", SubscriptBox[\\\"T\\\", \\\"cible\\\"]}], \\\"-\\\", RowBox[{\\\"Alac\\\
+\", \\\" \\\", SubscriptBox[\\\"T\\\", \\\"cible\\\"]}], \\\"-\\\", \
+RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \
+\\\"fond\\\"]}]}], RowBox[{RowBox[{\\\"Alac\\\", \\\" \\\", \
+SubscriptBox[\\\"T\\\", \\\"air\\\"]}], \\\"-\\\", RowBox[{\\\"4\\\", \\\" \\\
+\", \\\"A1\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \\\"fond\\\"]}], \
+\\\"+\\\", RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \\\", SubscriptBox[\
+\\\"T\\\", \\\"init\\\"]}], \\\"-\\\", RowBox[{\\\"Alac\\\", \\\" \\\", \
+SubscriptBox[\\\"T\\\", \\\"init\\\"]}]}]], \\\"]\\\"}]}], \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"4\\\"}], \\\" \\\", \\\"A1\\\"}], \
+\\\"+\\\", \\\"Alac\\\"}]]}]\\).\"",2,1116,262,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558019488553*^9},ExpressionUUID->"85b3bac7-8678-4912-8a90-\
+cfe73bde0af2"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"$RecursionLimit\\\", \\\
+\"::\\\", \\\"reclim2\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"",2,1116,263,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558019903155*^9},ExpressionUUID->"66ba4a87-1c34-4ffd-a976-\
+cf39d110075d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set","shape",
+   "\"Lists \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\
+\"Visualization`Utilities`OptionsDump`scalefnsx\\\", \\\",\\\", \
+\\\"Visualization`Utilities`OptionsDump`iscalefnsx\\\"}], \\\"}\\\"}], \
+\\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"Visualization`Utilities`OptionsDump`scalefnsy\\\", \\\",\\\", \
+\\\"Visualization`Utilities`OptionsDump`iscalefnsy\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}]\\) and \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"ScalingFunctions\\\\\\\"\\\"}]\\) are not the \
+same shape.\"",2,1116,264,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580199665546`*^9},ExpressionUUID->"f36015d8-8a74-4a8d-b541-\
+f53312f63d37"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Plot","pllim",
+   "\"Range specification \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"Varspec\\\\\\\"\\\"}]\\) is not of the form {x, \
+xmin, xmax}.\"",2,1116,265,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558020013355*^9},ExpressionUUID->"b1b4084e-d96a-4dc6-bd3b-\
+e2b7a4977950"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "$RecursionLimit","reclim2",
+   "\"Recursion depth of \\!\\(\\*RowBox[{\\\"1024\\\"}]\\) exceeded during \
+evaluation of \\!\\(\\*RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"cp\\\", \
+\\\" \\\", \\\"m1\\\", \\\" \\\", RowBox[{\\\"Log\\\", \\\"[\\\", \
+FractionBox[RowBox[{RowBox[{\\\"Alac\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \
+\\\"air\\\"]}], \\\"+\\\", RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \
+\\\", SubscriptBox[\\\"T\\\", \\\"cible\\\"]}], \\\"-\\\", RowBox[{\\\"Alac\\\
+\", \\\" \\\", SubscriptBox[\\\"T\\\", \\\"cible\\\"]}], \\\"-\\\", \
+RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \
+\\\"fond\\\"]}]}], RowBox[{RowBox[{\\\"Alac\\\", \\\" \\\", \
+SubscriptBox[\\\"T\\\", \\\"air\\\"]}], \\\"-\\\", RowBox[{\\\"4\\\", \\\" \\\
+\", \\\"A1\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \\\"fond\\\"]}], \
+\\\"+\\\", RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \\\", SubscriptBox[\
+\\\"T\\\", \\\"init\\\"]}], \\\"-\\\", RowBox[{\\\"Alac\\\", \\\" \\\", \
+SubscriptBox[\\\"T\\\", \\\"init\\\"]}]}]], \\\"]\\\"}]}], \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"4\\\"}], \\\" \\\", \\\"A1\\\"}], \
+\\\"+\\\", \\\"Alac\\\"}]]}]\\).\"",2,1117,266,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558020421956*^9},ExpressionUUID->"1478924c-4cac-499d-ad1d-\
+da033722ad3d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part","partw",
+   "\"Part \\!\\(\\*RowBox[{\\\"1\\\"}]\\) of \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"}\\\"}]\\) does not exist.\"",2,1117,267,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558020500956*^9},ExpressionUUID->"ff5d591b-2534-4464-8e65-\
+628173bbe8eb"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part","partw",
+   "\"Part \\!\\(\\*RowBox[{\\\"1\\\"}]\\) of \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"}\\\"}]\\) does not exist.\"",2,1117,268,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558020532156*^9},ExpressionUUID->"b839bc38-f765-4ca1-91a0-\
+969371df283e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part","partw",
+   "\"Part \\!\\(\\*RowBox[{\\\"1\\\"}]\\) of \\!\\(\\*RowBox[{\\\"{\\\", \
+\\\"}\\\"}]\\) does not exist.\"",2,1117,269,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580205789557`*^9},ExpressionUUID->"dda6585a-f9b2-4a58-a976-\
+2be44f2be342"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Part\\\", \\\"::\\\", \
+\\\"partw\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,1117,270,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558020610156*^9},ExpressionUUID->"f254e7d7-70d0-4ddb-89c8-\
+b64c12006634"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "$RecursionLimit","reclim2",
+   "\"Recursion depth of \\!\\(\\*RowBox[{\\\"1024\\\"}]\\) exceeded during \
+evaluation of \\!\\(\\*RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"cp\\\", \
+\\\" \\\", \\\"m1\\\", \\\" \\\", RowBox[{\\\"Log\\\", \\\"[\\\", \
+FractionBox[RowBox[{RowBox[{\\\"Alac\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \
+\\\"air\\\"]}], \\\"+\\\", RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \
+\\\", SubscriptBox[\\\"T\\\", \\\"cible\\\"]}], \\\"-\\\", RowBox[{\\\"Alac\\\
+\", \\\" \\\", SubscriptBox[\\\"T\\\", \\\"cible\\\"]}], \\\"-\\\", \
+RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \
+\\\"fond\\\"]}]}], RowBox[{RowBox[{\\\"Alac\\\", \\\" \\\", \
+SubscriptBox[\\\"T\\\", \\\"air\\\"]}], \\\"-\\\", RowBox[{\\\"4\\\", \\\" \\\
+\", \\\"A1\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \\\"fond\\\"]}], \
+\\\"+\\\", RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \\\", SubscriptBox[\
+\\\"T\\\", \\\"init\\\"]}], \\\"-\\\", RowBox[{\\\"Alac\\\", \\\" \\\", \
+SubscriptBox[\\\"T\\\", \\\"init\\\"]}]}]], \\\"]\\\"}]}], \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"4\\\"}], \\\" \\\", \\\"A1\\\"}], \
+\\\"+\\\", \\\"Alac\\\"}]]}]\\).\"",2,1117,271,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580210655575`*^9},ExpressionUUID->"4fd13bab-965b-47a6-acd6-\
+42db74f99ea3"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "OptionValue","rep",
+   "\"\\!\\(\\*RowBox[{\\\"System`ProtoPlotDump`modelData\\\", \\\"[\\\", \
+\\\"\\\\\\\"PreprocessOptionsData\\\\\\\"\\\", \\\"]\\\"}]\\) is not a valid \
+replacement rule.\"",2,1117,272,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558021096757*^9},ExpressionUUID->"9fe46129-b7d0-4347-81c9-\
+a6920228e28e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "OptionValue","optnf",
+   "\"Option name \\!\\(\\*RowBox[{\\\"\\\\\\\"Mesh\\\\\\\"\\\"}]\\) not \
+found in defaults for \
+\\!\\(\\*RowBox[{\\\"System`ProtoPlotDump`modelData\\\", \\\"[\\\", \
+\\\"\\\\\\\"PreprocessOptionsData\\\\\\\"\\\", \\\"]\\\"}]\\).\"",2,1117,273,
+   33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580211435575`*^9},ExpressionUUID->"2e620807-9634-467e-8980-\
+be40dc0af0f8"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "OptionValue","rep",
+   "\"\\!\\(\\*RowBox[{\\\"System`ProtoPlotDump`modelData\\\", \\\"[\\\", \
+\\\"\\\\\\\"PreprocessOptionsData\\\\\\\"\\\", \\\"]\\\"}]\\) is not a valid \
+replacement rule.\"",2,1117,274,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558021174757*^9},ExpressionUUID->"cd0babc9-bb3a-464f-9348-\
+bded4c5ca5e8"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "OptionValue","optnf",
+   "\"Option name \\!\\(\\*RowBox[{\\\"\\\\\\\"ScalingFunctions\\\\\\\"\\\"}]\
+\\) not found in defaults for \
+\\!\\(\\*RowBox[{\\\"System`ProtoPlotDump`modelData\\\", \\\"[\\\", \
+\\\"\\\\\\\"PreprocessOptionsData\\\\\\\"\\\", \\\"]\\\"}]\\).\"",2,1117,275,
+   33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580212215576`*^9},ExpressionUUID->"7292d527-b68c-48b1-8c10-\
+5ca166022b83"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "OptionValue","rep",
+   "\"\\!\\(\\*RowBox[{\\\"System`ProtoPlotDump`modelData\\\", \\\"[\\\", \
+\\\"\\\\\\\"PreprocessOptionsData\\\\\\\"\\\", \\\"]\\\"}]\\) is not a valid \
+replacement rule.\"",2,1117,276,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580212693577`*^9},ExpressionUUID->"d6f0d16f-8831-4944-a633-\
+ae00a5f8ed46"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"OptionValue\\\", \\\"::\
+\\\", \\\"rep\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,1117,277,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580213005576`*^9},ExpressionUUID->"464daeec-6251-43a6-923e-\
+512da270744e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "OptionValue","optnf",
+   "\"Option name \\!\\(\\*RowBox[{\\\"\\\\\\\"Varspec\\\\\\\"\\\"}]\\) not \
+found in defaults for \
+\\!\\(\\*RowBox[{\\\"System`ProtoPlotDump`modelData\\\", \\\"[\\\", \
+\\\"\\\\\\\"PreprocessOptionsData\\\\\\\"\\\", \\\"]\\\"}]\\).\"",2,1117,278,
+   33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580213317575`*^9},ExpressionUUID->"115d5204-0333-4bcd-a23f-\
+b8af19b35955"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"OptionValue\\\", \\\"::\
+\\\", \\\"optnf\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,1117,279,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580213785577`*^9},ExpressionUUID->"5518d8dd-af5f-496b-8927-\
+b4b5e8caed7f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set","shape",
+   "\"Lists \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\
+\"Visualization`Utilities`OptionsDump`scalefnsx\\\", \\\",\\\", \
+\\\"Visualization`Utilities`OptionsDump`iscalefnsx\\\"}], \\\"}\\\"}], \
+\\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"Visualization`Utilities`OptionsDump`scalefnsy\\\", \\\",\\\", \
+\\\"Visualization`Utilities`OptionsDump`iscalefnsy\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}]\\) and \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"ScalingFunctions\\\\\\\"\\\"}]\\) are not the \
+same shape.\"",2,1117,280,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558021425358*^9},ExpressionUUID->"6114531d-1df2-4c59-b396-\
+c7236450445d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Plot","pllim",
+   "\"Range specification \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"Varspec\\\\\\\"\\\"}]\\) is not of the form {x, \
+xmin, xmax}.\"",2,1117,281,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558021479559*^9},ExpressionUUID->"6fdb2eed-ec54-4a27-a7fc-\
+ae12007fbd93"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "$RecursionLimit","reclim2",
+   "\"Recursion depth of \\!\\(\\*RowBox[{\\\"1024\\\"}]\\) exceeded during \
+evaluation of \\!\\(\\*RowBox[{\\\"-\\\", FractionBox[RowBox[{\\\"cp\\\", \
+\\\" \\\", \\\"m1\\\", \\\" \\\", RowBox[{\\\"Log\\\", \\\"[\\\", \
+FractionBox[RowBox[{RowBox[{\\\"Alac\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \
+\\\"air\\\"]}], \\\"+\\\", RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \
+\\\", SubscriptBox[\\\"T\\\", \\\"cible\\\"]}], \\\"-\\\", RowBox[{\\\"Alac\\\
+\", \\\" \\\", SubscriptBox[\\\"T\\\", \\\"cible\\\"]}], \\\"-\\\", \
+RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \
+\\\"fond\\\"]}]}], RowBox[{RowBox[{\\\"Alac\\\", \\\" \\\", \
+SubscriptBox[\\\"T\\\", \\\"air\\\"]}], \\\"-\\\", RowBox[{\\\"4\\\", \\\" \\\
+\", \\\"A1\\\", \\\" \\\", SubscriptBox[\\\"T\\\", \\\"fond\\\"]}], \
+\\\"+\\\", RowBox[{\\\"4\\\", \\\" \\\", \\\"A1\\\", \\\" \\\", SubscriptBox[\
+\\\"T\\\", \\\"init\\\"]}], \\\"-\\\", RowBox[{\\\"Alac\\\", \\\" \\\", \
+SubscriptBox[\\\"T\\\", \\\"init\\\"]}]}]], \\\"]\\\"}]}], \
+RowBox[{RowBox[{RowBox[{\\\"-\\\", \\\"4\\\"}], \\\" \\\", \\\"A1\\\"}], \
+\\\"+\\\", \\\"Alac\\\"}]]}]\\).\"",2,1117,282,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580218871603`*^9},ExpressionUUID->"a08775f7-d0fb-45e5-a61a-\
+2919d1025a99"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"$RecursionLimit\\\", \\\
+\"::\\\", \\\"reclim2\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"",2,1117,283,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558022344561*^9},ExpressionUUID->"09510b11-7f6a-4272-b099-\
+5252f14fa2bd"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set","shape",
+   "\"Lists \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\
+\"Visualization`Utilities`OptionsDump`scalefnsx\\\", \\\",\\\", \
+\\\"Visualization`Utilities`OptionsDump`iscalefnsx\\\"}], \\\"}\\\"}], \
+\\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"Visualization`Utilities`OptionsDump`scalefnsy\\\", \\\",\\\", \
+\\\"Visualization`Utilities`OptionsDump`iscalefnsy\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}]\\) and \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"ScalingFunctions\\\\\\\"\\\"}]\\) are not the \
+same shape.\"",2,1117,284,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.732558022422561*^9},ExpressionUUID->"c6f56ee8-a462-40bb-b8c7-\
+6a0ea0fca2ff"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Plot","pllim",
+   "\"Range specification \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"Varspec\\\\\\\"\\\"}]\\) is not of the form {x, \
+xmin, xmax}.\"",2,1117,285,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580224547615`*^9},ExpressionUUID->"c6168675-7e21-4a51-a1b8-\
+95137cdb215d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Show","gcomb",
+   "\"Could not combine the graphics objects in \
+\\!\\(\\*RowBox[{\\\"Show\\\", \\\"[\\\", RowBox[{RowBox[{\\\"Plot\\\", \\\"[\
+\\\", RowBox[{RowBox[{\\\"T2\\\", \\\"[\\\", RowBox[{\\\"t\\\", \\\",\\\", \\\
+\"a\\\"}], \\\"]\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"t\\\", \
+\\\",\\\", \\\"0\\\", \\\",\\\", RowBox[{\\\"tFin\\\", \\\"\
+\[LeftDoubleBracket]\\\", \\\"2\\\", \\\"\[RightDoubleBracket]\\\"}]}], \\\"}\
+\\\"}], \\\",\\\", RowBox[{\\\"PlotStyle\\\", \\\"\[Rule]\\\", \
+\\\"Blue\\\"}], \\\",\\\", RowBox[{\\\"AxesLabel\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"\[Tau]\\\", \\\" \\\", \
+\\\"Temps\\\"}], \\\",\\\", RowBox[{\\\"K\\\", \\\" \\\", \
+\\\"Temp\[EAcute]rature\\\"}]}], \\\"}\\\"}]}]}], \\\"]\\\"}], \\\",\\\", \
+RowBox[{\\\"Plot\\\", \\\"[\\\", RowBox[{RowBox[{\\\"T1\\\", \\\"[\\\", \
+RowBox[{\\\"t\\\", \\\",\\\", \\\"a\\\"}], \\\"]\\\"}], \\\",\\\", RowBox[{\\\
+\"{\\\", RowBox[{\\\"t\\\", \\\",\\\", \\\"0\\\", \\\",\\\", RowBox[{\\\"tFin\
+\\\", \\\"\[LeftDoubleBracket]\\\", \\\"1\\\", \
+\\\"\[RightDoubleBracket]\\\"}]}], \\\"}\\\"}], \\\",\\\", \
+RowBox[{\\\"PlotStyle\\\", \\\"\[Rule]\\\", \\\"Red\\\"}]}], \\\"]\\\"}]}], \
+\\\"]\\\"}]\\).\"",2,1117,286,33452378549366626970,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7325580224859614`*^9},ExpressionUUID->"da02b2b6-f949-4ef6-b17d-\
+234cc272c31d"],
+
+Cell[BoxData[
+ RowBox[{"Show", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"T2", "[", 
+      RowBox[{"t", ",", "a"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", 
+       RowBox[{
+       "tFin", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}], 
+      "}"}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", "Blue"}], ",", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\[Tau]", " ", "Temps"}], ",", 
+        RowBox[{"K", " ", "Temp\[EAcute]rature"}]}], "}"}]}]}], "]"}], ",", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"T1", "[", 
+      RowBox[{"t", ",", "a"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", 
+       RowBox[{
+       "tFin", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}], 
+      "}"}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", "Red"}]}], "]"}]}], "]"}]], "Output",
  CellChangeTimes->{{3.732483778022081*^9, 3.732483816812003*^9}, 
    3.73248439765668*^9, {3.732484470637138*^9, 3.732484506102127*^9}, {
    3.732484638244066*^9, 3.732484663616682*^9}, {3.73248474227479*^9, 
    3.732484753736011*^9}, 3.7324853911566973`*^9, 3.7324854328794537`*^9, 
-   3.7324855377961617`*^9, 
-   3.7324877344004517`*^9},ExpressionUUID->"981791a4-6de5-4572-a22a-\
-562e2b89c425"]
+   3.7324855377961617`*^9, 3.7324877344004517`*^9, 3.732541509362053*^9, 
+   3.7325519375671177`*^9, {3.73255211494212*^9, 3.7325521361206675`*^9}, 
+   3.7325521854304867`*^9, 3.732552216172854*^9, 3.732552345470154*^9, {
+   3.732553265460661*^9, 3.732553285013914*^9}, 3.7325534652345576`*^9, {
+   3.7325536082031317`*^9, 3.732553656851061*^9}, 3.732554017104187*^9, 
+   3.732555218672378*^9, {3.732555314949829*^9, 3.732555332491881*^9}, 
+   3.7325553739227867`*^9, {3.732555609324808*^9, 3.7325556705059776`*^9}, {
+   3.732555800503063*^9, 3.732555834136149*^9}, 3.732556158814606*^9, 
+   3.7325562379582095`*^9, {3.7325563042637835`*^9, 3.7325564180990844`*^9}, {
+   3.7325565075797167`*^9, 3.732556545116021*^9}, {3.7325565863353324`*^9, 
+   3.7325566325826592`*^9}, {3.7325566995746384`*^9, 3.732556729717922*^9}, {
+   3.732556770141628*^9, 3.7325567946313*^9}, 3.732556979922207*^9, {
+   3.732557087770503*^9, 3.7325571104699655`*^9}, {3.7325571903309803`*^9, 
+   3.7325571983914013`*^9}, {3.7325573243626413`*^9, 
+   3.7325573435118933`*^9}, {3.732557410430291*^9, 3.732557445859988*^9}, 
+   3.7325574983823366`*^9, 
+   3.7325580225171614`*^9},ExpressionUUID->"69463169-6f40-4866-a4db-\
+2d2598c89114"]
 }, Open  ]]
 },
-WindowSize->{1080, 1860},
-WindowMargins->{{0, Automatic}, {0, Automatic}},
-FrontEndVersion->"11.2 for Linux x86 (64-bit) (September 10, 2017)",
+WindowSize->{1600, 828},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+FrontEndVersion->"11.2 for Microsoft Windows (64-bit) (September 10, 2017)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -341,21 +1492,92 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 1297, 33, 239, "Input",ExpressionUUID->"a1540c9d-e038-45f8-827c-17d96808c482"],
-Cell[1858, 55, 3818, 95, 144, "Input",ExpressionUUID->"490fb5ea-441d-4d88-8ce1-9cbe5d323240"],
+Cell[558, 20, 204, 4, 28, "Input",ExpressionUUID->"fe064255-c7b1-4104-b245-a0caafbc7e12"],
+Cell[765, 26, 1311, 26, 200, "Input",ExpressionUUID->"074c7921-9ca3-4e18-9dcc-7e842bb138e4"],
 Cell[CellGroupData[{
-Cell[5701, 154, 431, 10, 31, "Input",ExpressionUUID->"9bb51d84-aced-4b40-b342-897045b0c7a3"],
-Cell[6135, 166, 452, 10, 22, "Message",ExpressionUUID->"31b2ad28-ace7-487c-99b3-e19e3bef3bfe"],
-Cell[6590, 178, 272, 6, 35, "Output",ExpressionUUID->"6176b268-2455-4b65-88b8-ede31c211dbf"]
+Cell[2101, 56, 3870, 95, 128, "Input",ExpressionUUID->"490fb5ea-441d-4d88-8ce1-9cbe5d323240"],
+Cell[5974, 153, 1674, 42, 103, "Output",ExpressionUUID->"9878dee1-2183-4f73-8236-955ee9921156"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[6899, 189, 931, 23, 97, "Input",ExpressionUUID->"935aba3a-2ec2-4537-b6ee-6ae758ba7ddf"],
-Cell[7833, 214, 398, 8, 35, "Output",ExpressionUUID->"15ca2703-edae-4249-ac2c-8824e904e514"],
-Cell[8234, 224, 1064, 26, 92, "Output",ExpressionUUID->"915dd3ca-ec18-4bdb-b22e-29c0a6cfc278"]
+Cell[7685, 200, 1114, 27, 87, "Input",ExpressionUUID->"935aba3a-2ec2-4537-b6ee-6ae758ba7ddf"],
+Cell[8802, 229, 2055, 48, 70, "Output",ExpressionUUID->"fb39be2d-434e-4abc-979e-0db2eca7e742"],
+Cell[10860, 279, 2055, 48, 70, "Output",ExpressionUUID->"a812654a-971c-477d-b62c-6ff0ecf0a04f"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[9335, 255, 1037, 26, 31, "Input",ExpressionUUID->"88ea37b8-1865-4fc2-8988-ad85d358b77a"],
-Cell[10375, 283, 2088, 41, 320, "Output",ExpressionUUID->"981791a4-6de5-4572-a22a-562e2b89c425"]
+Cell[12952, 332, 1556, 32, 67, "Input",ExpressionUUID->"01e11bc4-d9ce-48ea-85ca-4f3fa631e97f"],
+Cell[14511, 366, 1244, 22, 21, "Message",ExpressionUUID->"71f7bf4b-897c-4193-9712-956928c54297"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15792, 393, 629, 15, 28, "Input",ExpressionUUID->"1420b140-5bcb-4045-9516-20a6d30c3e35"],
+Cell[16424, 410, 404, 9, 21, "Message",ExpressionUUID->"92b5c2c7-8367-464d-a142-59f9bc7d28cd"],
+Cell[16831, 421, 402, 9, 21, "Message",ExpressionUUID->"8c195c72-fe48-424c-b01c-89c100432f9d"],
+Cell[17236, 432, 1385, 22, 56, "Message",ExpressionUUID->"21208e0f-5998-4e31-887e-eb4ae89b1787"],
+Cell[18624, 456, 2483, 66, 63, "Output",ExpressionUUID->"0f20bb36-dfdd-4310-98ab-5fa66fce0efe"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21144, 527, 2286, 49, 67, "Input",ExpressionUUID->"88ea37b8-1865-4fc2-8988-ad85d358b77a"],
+Cell[23433, 578, 1387, 22, 56, "Message",ExpressionUUID->"7bcb7cfa-bafd-42b2-b79b-630750b63e2c"],
+Cell[24823, 602, 343, 8, 21, "Message",ExpressionUUID->"f03ce830-243e-4918-958a-42d34af245b2"],
+Cell[25169, 612, 341, 8, 21, "Message",ExpressionUUID->"9dde987f-bb4d-44db-81ee-9b167f732288"],
+Cell[25513, 622, 343, 8, 21, "Message",ExpressionUUID->"9908a341-27b4-496e-9bcf-01958317c630"],
+Cell[25859, 632, 403, 9, 21, "Message",ExpressionUUID->"4a4c9097-6b85-4bc8-b184-7279557496db"],
+Cell[26265, 643, 1385, 22, 56, "Message",ExpressionUUID->"4a05813c-53b0-404c-b950-be9cfb214d27"],
+Cell[27653, 667, 412, 9, 21, "Message",ExpressionUUID->"77cfd233-a1cb-4c01-9894-7246bce349cc"],
+Cell[28068, 678, 477, 11, 21, "Message",ExpressionUUID->"8ee26fd1-4cfc-437c-8f71-92336110763c"],
+Cell[28548, 691, 414, 9, 21, "Message",ExpressionUUID->"155270ce-e699-437c-8411-0702ab8a64cd"],
+Cell[28965, 702, 489, 11, 21, "Message",ExpressionUUID->"e6145672-effb-4401-931c-29fa944c2da4"],
+Cell[29457, 715, 412, 9, 21, "Message",ExpressionUUID->"000dcc83-aa80-4600-8303-029285df5674"],
+Cell[29872, 726, 408, 9, 21, "Message",ExpressionUUID->"612a7976-cc84-4ee7-b8bb-7387c0298fd9"],
+Cell[30283, 737, 482, 11, 21, "Message",ExpressionUUID->"884ef4bc-36ec-4fc3-8353-088296a21744"],
+Cell[30768, 750, 408, 9, 21, "Message",ExpressionUUID->"5dee2ec2-6d7c-4b0d-aa45-ca3fa718363e"],
+Cell[31179, 761, 744, 15, 21, "Message",ExpressionUUID->"ccb66eed-e6da-4d89-be3c-2d3a4eb0b69b"],
+Cell[31926, 778, 356, 9, 21, "Message",ExpressionUUID->"73f7ffb0-6028-4c96-82f1-9571b630fb8f"],
+Cell[32285, 789, 1385, 22, 56, "Message",ExpressionUUID->"63719bda-43f8-445b-ad88-dc903affa794"],
+Cell[33673, 813, 416, 9, 21, "Message",ExpressionUUID->"b16d3e8f-ef61-452f-8db5-a4d541767971"],
+Cell[34092, 824, 744, 15, 21, "Message",ExpressionUUID->"4497b038-81f0-46aa-9cd8-a543432dddd4"],
+Cell[34839, 841, 356, 9, 21, "Message",ExpressionUUID->"96cba299-5563-4d3b-a7b3-e2762e6623f2"],
+Cell[35198, 852, 1385, 22, 56, "Message",ExpressionUUID->"f318b12a-6c12-4c21-918d-d56e1f136dc5"],
+Cell[36586, 876, 343, 8, 21, "Message",ExpressionUUID->"61882851-cdd1-42cc-a164-412b8ae03e7e"],
+Cell[36932, 886, 343, 8, 21, "Message",ExpressionUUID->"6e6c5385-d851-46ae-aaea-613150bb00de"],
+Cell[37278, 896, 343, 8, 21, "Message",ExpressionUUID->"086f7a7e-3d0e-4ca4-8a8a-70a4d8bb5434"],
+Cell[37624, 906, 403, 9, 21, "Message",ExpressionUUID->"c64cf7c4-92bd-49b9-96c7-a4f4bed2aafc"],
+Cell[38030, 917, 1385, 22, 56, "Message",ExpressionUUID->"8d4cfe0c-b403-4ebd-b74b-581ce4688961"],
+Cell[39418, 941, 414, 9, 21, "Message",ExpressionUUID->"5cf80667-5c59-4df4-89a4-21641c82854f"],
+Cell[39835, 952, 477, 11, 21, "Message",ExpressionUUID->"b174c95c-8ebe-40fa-aa13-00cf31d3185e"],
+Cell[40315, 965, 412, 9, 21, "Message",ExpressionUUID->"ea226914-bb3a-41a7-81e6-be8b6d91f8b9"],
+Cell[40730, 976, 489, 11, 21, "Message",ExpressionUUID->"85216b01-2663-4261-8c40-f02e2f203f2f"],
+Cell[41222, 989, 414, 9, 21, "Message",ExpressionUUID->"412779d8-6f40-4ad2-a905-d1fe80c3a347"],
+Cell[41639, 1000, 406, 9, 21, "Message",ExpressionUUID->"473fc33e-6d39-4e5a-be05-f0a72f40d400"],
+Cell[42048, 1011, 480, 11, 21, "Message",ExpressionUUID->"c068d85c-376d-4b8c-941d-ad6a3c286f26"],
+Cell[42531, 1024, 410, 9, 21, "Message",ExpressionUUID->"eba52636-3d39-4968-a559-6c9fca122f4f"],
+Cell[42944, 1035, 744, 15, 21, "Message",ExpressionUUID->"eda2fd69-312d-455f-8df8-e4199dc02871"],
+Cell[43691, 1052, 356, 9, 21, "Message",ExpressionUUID->"3b6f6d0e-e93e-40b1-bd03-b88c47346a5d"],
+Cell[44050, 1063, 1385, 22, 56, "Message",ExpressionUUID->"85b3bac7-8678-4912-8a90-cfe73bde0af2"],
+Cell[45438, 1087, 414, 9, 21, "Message",ExpressionUUID->"66ba4a87-1c34-4ffd-a976-cf39d110075d"],
+Cell[45855, 1098, 746, 15, 21, "Message",ExpressionUUID->"f36015d8-8a74-4a8d-b541-f53312f63d37"],
+Cell[46604, 1115, 354, 9, 21, "Message",ExpressionUUID->"b1b4084e-d96a-4dc6-bd3b-e2b7a4977950"],
+Cell[46961, 1126, 1385, 22, 56, "Message",ExpressionUUID->"1478924c-4cac-499d-ad1d-da033722ad3d"],
+Cell[48349, 1150, 341, 8, 21, "Message",ExpressionUUID->"ff5d591b-2534-4464-8e65-628173bbe8eb"],
+Cell[48693, 1160, 341, 8, 21, "Message",ExpressionUUID->"b839bc38-f765-4ca1-91a0-969371df283e"],
+Cell[49037, 1170, 343, 8, 21, "Message",ExpressionUUID->"dda6585a-f9b2-4a58-a976-2be44f2be342"],
+Cell[49383, 1180, 401, 9, 21, "Message",ExpressionUUID->"f254e7d7-70d0-4ddb-89c8-b64c12006634"],
+Cell[49787, 1191, 1387, 22, 56, "Message",ExpressionUUID->"4fd13bab-965b-47a6-acd6-42db74f99ea3"],
+Cell[51177, 1215, 412, 9, 21, "Message",ExpressionUUID->"9fe46129-b7d0-4347-81c9-a6920228e28e"],
+Cell[51592, 1226, 479, 11, 21, "Message",ExpressionUUID->"2e620807-9634-467e-8980-be40dc0af0f8"],
+Cell[52074, 1239, 412, 9, 21, "Message",ExpressionUUID->"cd0babc9-bb3a-464f-9348-bded4c5ca5e8"],
+Cell[52489, 1250, 491, 11, 21, "Message",ExpressionUUID->"7292d527-b68c-48b1-8c10-5ca166022b83"],
+Cell[52983, 1263, 414, 9, 21, "Message",ExpressionUUID->"d6f0d16f-8831-4944-a633-ae00a5f8ed46"],
+Cell[53400, 1274, 408, 9, 21, "Message",ExpressionUUID->"464daeec-6251-43a6-923e-512da270744e"],
+Cell[53811, 1285, 482, 11, 21, "Message",ExpressionUUID->"115d5204-0333-4bcd-a23f-b8af19b35955"],
+Cell[54296, 1298, 410, 9, 21, "Message",ExpressionUUID->"5518d8dd-af5f-496b-8927-b4b5e8caed7f"],
+Cell[54709, 1309, 744, 15, 21, "Message",ExpressionUUID->"6114531d-1df2-4c59-b396-c7236450445d"],
+Cell[55456, 1326, 354, 9, 21, "Message",ExpressionUUID->"6fdb2eed-ec54-4a27-a7fc-ae12007fbd93"],
+Cell[55813, 1337, 1387, 22, 56, "Message",ExpressionUUID->"a08775f7-d0fb-45e5-a61a-2919d1025a99"],
+Cell[57203, 1361, 414, 9, 21, "Message",ExpressionUUID->"09510b11-7f6a-4272-b099-5252f14fa2bd"],
+Cell[57620, 1372, 744, 15, 21, "Message",ExpressionUUID->"c6f56ee8-a462-40bb-b8c7-6a0ea0fca2ff"],
+Cell[58367, 1389, 356, 9, 21, "Message",ExpressionUUID->"c6168675-7e21-4a51-a1b8-95137cdb215d"],
+Cell[58726, 1400, 1433, 24, 21, "Message",ExpressionUUID->"da02b2b6-f949-4ef6-b17d-234cc272c31d"],
+Cell[60162, 1426, 2408, 49, 32, "Output",ExpressionUUID->"69463169-6f40-4866-a4db-2d2598c89114"]
 }, Open  ]]
 }
 ]
