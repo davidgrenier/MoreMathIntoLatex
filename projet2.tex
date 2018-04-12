@@ -13,9 +13,29 @@
 \usepackage{tikz}
 
 \newcommand\critical{\SI{3.98}\celsius}
+\numberwithin{figure}{section}
 
+\title{MAT1460\\[3ex]Fermeture de la patinoire naturelle du Lac aux Castors}
+\author{Chen, Siying\\[1ex] Labont\'e, Pierre-Luc\\[1ex]Higgins, Philip\\[1ex] Grenier, David}
+\date{}
 \begin{document}
-\section{Impact de la profondeur}
+
+\maketitle
+\thispagestyle{empty}
+\vfill
+\begin{center}
+Universit\'e de Montr\'eal
+
+\today
+\end{center}
+\clearpage
+
+\tableofcontents
+\newpage
+\section{Introduction}
+\section{T\^ache 1: Impact de la temp\'erature}
+\newpage
+\section{T\^ache 2: Impact de la profondeur}
 
 En relation avec les travaux effectu\'es au Lac aux Castors, nous discuterons ici de l'effet de la
 profondeur du plan d'eau sur les conditions de glace. En particulier, nous cherchons \`a savoir s'il est
@@ -36,9 +56,14 @@ encadrer la question des simplifications suivantes:
     \item Nous n'allons \'evaluer que la perte d'\'energie du lac en terme de la conduction thermique
         et consid\'erer les contributions en radiation et \'evaporation~\cite{Evap} des deux lacs
         identique;
-    \item Nous allons supposer la temp\'erature ext\'erieure constante. (Voir \ref{TempExt})
-    \item Nous allons supposer la temp\'erature du sol constante et uniform\'ement distribu\'ee.
-        (Voir \ref{Conduc})
+    \item Nous allons supposer la temp\'erature ext\'erieure constante. (voir \ref{TempExt})
+    \item Nous allons supposer la temp\'erature du sol constante et uniform\'ement distribu\'ee;
+        (voir \ref{Conduc})
+    \item Nous ne connaissons pas les conductivit\'e thermiques en surface et au fond du lac, mais
+        nous allons les consid\'erer respectivement identiques pour nos deux lacs;
+    \item Nous ne connaissons pas la nature de l'interface en surface et au fond du lac pour le
+        calcul de flux thermique et par cons\'equent nous en ignoront l'\'epaisseur. Nous allons
+        toutefois les consid\'erer respectivement identiques pour nos deux lacs.
 \end{enumerate}
 
 Nous tenterons donc de d\'eterminer, pour un plan d'eau d'une surface de superficie fixe, de quelle fa\c
@@ -61,105 +86,127 @@ est renvers\'ee et le lac dont le volume est inf\'erieur verra sa temp\'erature 
 rapidement aussi.
 
 Nous jugeons donc qu'il est raisonnable de supposer la temp\'erature ext\'erieure constante. Les
-composantes de gains et pertes en chaleur d\^ues \`a la variation de temp\'erature vont possiblement
+composantes de gains et pertes en chaleur dues \`a la variation de temp\'erature vont possiblement
 s'annuler. Si ce n'est pas le cas et que le lac plus profond a une diff\'erence de temp\'erature
 avec l'ext\'erieure plus grande on aura tout de m\^eme une r\'eponse positive \`a la question (que
-le lac plus profond prends plus de temps \`a geler) en ayant possiblement sur\'estim\'e l'impact de
+le lac plus profond prends plus de temps \`a geler) en ayant possiblement surestim\'e l'impact de
 la profondeur.
 
 \subsection{La convection thermique}\label{Convec}
 
-Puisque nous \'evaluerons la diminution de la temp\'erature d'un lac par la chaleur d\'egag\'ee par le
-plan d'eau \`a l'air environnant il s'ensuit que la temp\'erature chutera en surface. Comme nous le
-verrons plus loin, la capacit\'e thermique~\cite{CapTherm} massique du sol est inf\'erieure a celle
-de l'eau, toutefois le volume de la terre est de loin sup\'erieur \`a celle d'un lac on pourra ainsi
-supposer que la temp\'erature du sol va demeurer sup\'erieure \`a celle de l'eau par temps froid ce
-qui justifie de traiter le sol comme une source de chaleur.
+Puisque nous \'evaluerons la diminution de la temp\'erature d'un lac par la chaleur d\'egag\'ee par
+le plan d'eau \`a l'air environnant il s'ensuit que la temp\'erature chutera en surface. La
+capacit\'e thermique~\cite{CapTherm} massique du sol est inf\'erieure a celle de l'eau, toutefois le
+volume de la terre est de loin sup\'erieur \`a celle d'un lac. On pourra ainsi supposer que la
+temp\'erature du sol va demeurer sup\'erieure \`a celle de l'eau par temps froid ce qui justifie de
+traiter le sol comme une source de chaleur.
 
 \begin{figure}[h]\label{water-density}
     \centering
-    \includegraphics[scale=0.9]{WaterDensity.png}
+    \includegraphics[scale=0.7]{WaterDensity.png}
     \caption{Densit\'e de l'eau}
 \end{figure}
 
 Une particularit\'e de l'eau est que sa densit\'e augmente avec une diminution de
-temp\'erature~\cite{WaterDensity} et atteint sont maximum \`a \critical (voir figure
-\ref{water-density}) ce qui introduit un processus de convection thermique~\cite{ConvNat}. Aussi
-longtemps que la temp\'erature du lac est sup\'erieure \`a \critical, l'eau qui refroidit \`a la
-surface va sombrer et sera remplac\'ee par de l'eau plus chaude provenant pr\`es de la terre l\`a
-o\`u la temp\'erature est plus \'elev\'ee.
+temp\'erature~\cite{WaterDensity} et atteint son maximum \`a \critical~(voir figure
+\ref{water-density}) ce qui introduit un processus de convection thermique~\cite{ConvNat}. Tant que
+la temp\'erature du lac est sup\'erieure \`a \critical, l'eau qui refroidit \`a la surface va
+sombrer et sera remplac\'ee par de l'eau plus chaude provenant pr\`es de la terre, l\`a o\`u la
+temp\'erature est plus \'elev\'ee.
 
 \begin{figure}[h]\label{water-convection}
     \centering
-    \begin{tikzpicture}
-        \shade[top color=blue!70,bottom color=brown] (0,5) arc (-180:0:3);
-        \draw (0,5) arc (-180:0:3);
-        \draw[line width=0.5mm, ->] (1.8,4.7) arc (95:445:1cm and 1cm);
-        \draw[line width=0.5mm, ->] (4.2,4.7) arc (85:-260:1cm and 1cm);
+    \begin{tikzpicture}[scale=0.7]
+        \shade[top color=blue!70,bottom color=brown] (0,5) -- (0,2) arc (180:360:3 and 0.5) -- (6,5)
+        arc (0:180:3 and 0.5);
+        \draw [<->] (3,5) -- (5.9,5) node [midway, above, scale=0.7] {$r$};
+        \draw [<->] (6.3,5) -- (6.3,2) node [midway, right, scale=0.7] {$p_1$};
+        \draw (3,5) ellipse (3 and 0.5);
+        \draw (0,5) -- (0,2);
+        \draw (6,5) -- (6,2);
+        \draw [dashed] (0,2) arc (180:0:3 and 0.5);
+        \draw (0,2) arc (180:360:3 and 0.5);
+        \draw[line width=0.5mm, ->] (1.8,4.1) arc (95:445:1cm and 1cm);
+        \draw[line width=0.5mm, ->] (4.2,4.1) arc (85:-260:1cm and 1cm);
 
-        \shade[top color=blue!70,bottom color=brown] (7,5) parabola bend (10,0) (13,5);
-        \draw (7,5) parabola bend (10,0) (13,5);
-        \draw[dashed] (7,5) arc (-180:0:3);
-        \draw[line width=0.5mm, ->] (9.1,4.7) arc (95:445:0.7cm and 1.8cm);
-        \draw[line width=0.5mm, ->] (10.9,4.7) arc (85:-260:0.7cm and 1.8cm);
+        \shade[top color=blue!70,bottom color=brown] (7,5) -- (7,-4) arc (180:360:3 and 0.5) -- (13,5)
+        arc (0:180:3 and 0.5);
+        \draw [<->] (10,5) -- (12.9,5) node [midway, above, scale=0.7] {$r$};
+        \draw [<->] (13.3,5) -- (13.3,-4) node [midway, right, scale=0.7] {$p_2$};
+        \draw (10,5) ellipse (3 and 0.5);
+        \draw (7,5) -- (7,-4);
+        \draw (13,5) -- (13,-4);
+        \draw [dashed] (7,2) arc (180:360:3 and 0.5);
+        \draw [dashed] (7,-4) arc (180:0:3 and 0.5);
+        \draw (7,-4) arc (180:360:3 and 0.5);
+        \draw[line width=0.5mm, ->] (8.8,4.1) arc (95:445:1cm and 4cm);
+        \draw[line width=0.5mm, ->] (11.2,4.1) arc (85:-260:1cm and 4cm);
     \end{tikzpicture}
     \caption{Convection \`a plus de \critical}
 \end{figure}
 
-Nous allons donc consid\'erer que pour un lac \`a une temp\'erature sup\'erieur \`a \critical, sa
-temp\'erature va diminuer de fa\c con \`a ce que l'eau demeure \`a temp\'erature uniforme.
-D\'eterminer l'impact de la profondeur pour ramener la temp\'erature de nos deux lacs \`a
-\critical~revient donc \`a mesurer le temps n\'ecessaire obtenir les chaleurs respectives
-d\'egag\'ees.
+Nous allons donc consid\'erer qu'un lac dont la temp\'erature est sup\'erieur \`a \critical, va voir
+sa temp\'erature va diminuer de fa\c con \`a ce que l'eau demeure \`a temp\'erature uniforme.
+D\'eterminer l'impact de la profondeur d'un lac pour diminuer sa temp\'erature \`a \critical~revient
+donc \`a mesurer le temps n\'ecessaire pour obtenir les chaleurs respectives d\'egag\'ees.
 
 \subsection{La conduction thermique (ou diffusion)}\label{Conduc}
 
 Le sol \'etant un solide il n'est pas sujet \`a la convection tel l'eau du lac. Nous aurions une
 meilleure approximation en consid\'erant le processus de diffusion qui, \`a un \'etat eventuel
-stable, conduirait \`a une temp\'erature lin\'eairement distribu\'ee~\cite{TempLinear}. Toutefois,
-ces calculs seraient compliqu\'es et nous pensons pouvoir d\'eduire, par le th\'eor\`eme de la
-moyenne~\cite{AvgValue}, qu'il existe une temp\'erature constante pour laquelle la contribution en
-chaleur du sol sera la m\^eme que pour une temp\'erature distribu\'ee de fa\c con plus r\'ealiste.
-Nous allons donc tenter de faire un choix judicieux de temp\'erature constante pour le sol.
+stable, conduirait \`a une temp\'erature du sol lin\'eairement distribu\'ee~\cite{TempLinear}.
+Toutefois, ces calculs seraient compliqu\'es et nous pensons pouvoir d\'eduire, par le th\'eor\`eme
+de la moyenne~\cite{AvgValue}, qu'il existe une temp\'erature constante pour laquelle la
+contribution en chaleur du sol sera la m\^eme que pour une temp\'erature distribu\'ee de fa\c con
+plus r\'ealiste.
 
-Remarquons aussi que puisqu'en dessous de \critical, la densit\'e de l'eau se met \`a diminuer avec
-une diminution de temp\'erature. Le processus de diffusion devient stable~\cite{HydroStab} et la
-temp\'erature ne varie plus de fa\c con uniforme mais d'avantage comme celle du sol. La
-temp\'erature variera \`a l'int\'erieur du medium tel la diffusion de la chaleur dans une tige, la
-profondeur aura donc quand m\^eme un impact. Toutefois, il n'est plus n\'ecessaire \`a cette \'etape
-de refroidir le lac dans son ensemble pour obtenir une formation de glace \`a la surface. Le
-refroidissement du lac doit donc \^etre trait\'e diff\'eremment apr\`es l'atteinte de la
-temp\'erature uniforme de \critical.
+Remarquons aussi qu'en dessous de \critical, la densit\'e de l'eau se met \`a diminuer avec une
+diminution de temp\'erature. Le processus de convection devient alors stable~\cite{HydroStab} et la
+temp\'erature ne varie plus de fa\c con uniforme. On penses que la temp\'erature variera \`a
+l'int\'erieur du corps tel la diffusion de la chaleur dans une tige, la profondeur aura donc quand
+m\^eme un impact. Toutefois, il n'est plus n\'ecessaire \`a cette \'etape de refroidir le lac dans
+son ensemble pour obtenir une formation de glace \`a la surface. Le refroidissement du lac doit donc
+\^etre trait\'e diff\'eremment apr\`es l'atteinte de la temp\'erature uniforme de \critical.
 
 \subsection{Mod\'elisation}
 
-Nous introduisons les variables et constantes suivantes:
+Nous introduisons les variables dont nous allons avoir besoin:
 
 \begin{table}[h]
     \centering
-    \begin{tabular}{|l|l|l|r|}\hline
-        Variable &Description &Unit\'e &Pour $H_2O$\\\hline
-        $Q$ &Chaleur &\si\joule\ (\si{\kilogram.\square\meter\per{\square\second}}) &\\\hline
-        $T$ &Temp\'erature &\si{\kelvin} &\\\hline
-        $c_p$ &Capacit\'e thermique massique &\si{\joule\per{\kelvin\,\kilogram}} &4185.5\\\hline
-        $m$ &Masse &\si\kg &\\\hline
-        $C$ &Capacit\'e thermique &\si{\joule\per\kelvin} &\\\hline
-        $k$ &Conductivit\'e thermique &\si{\joule\per{\meter\,\second\,\kelvin}} &0.606\\\hline
+    \begin{tabular}{|l|l|l|}\hline
+        Variable &Description &Unit\'e\\\hline
+        $Q$ &Chaleur &\si\joule\ (\si{\kilogram.\square\meter\per{\square\second}})\\\hline
+        $T$ &Temp\'erature &\si{\kelvin}\\\hline
+        $c_p$ &Capacit\'e thermique massique &\si{\joule\per{\kelvin\,\kilogram}}\\\hline
+        $m$ &Masse &\si\kg\\\hline
+        $C$ &Capacit\'e thermique &\si{\joule\per\kelvin}\\\hline
+        $K$ &Conductivit\'e thermique &\si{\joule\per{\meter\,\second\,\kelvin}}\\\hline
+        $\rho$ &Densit\'e de la substance &\si{\kilogram\per{\square\meter}}\\\hline
+        $V$ &Volume &\si{\cubic\meter}\\\hline
+        $r$ &Rayon d'un lac cylindrique &\si\meter\\\hline
+        $A$ &Superficie &\si{\square\meter}\\\hline
+        $p$ &Profondeur d'un lac cylindrique &\si\meter\\\hline
+        $t$ &Temps &\si\second\\\hline
     \end{tabular}
     \caption{Variables}
 \end{table}
 
-Si notre lac subit une variation de temp\'erature $\Delta T$ la perte de chaleur n\'ecessaire nous
-est donn\'e par:
+Lorsqu'un corps subit une variation de temp\'erature $\Delta T$ l'energie transf\'er\'ee (chaleur)~\cite{Q-equation}
+nous est donn\'e par:
 
-\[ Q = c_pm\Delta T \]
+\begin{align}
+    Q &= c_pm\Delta T\label{eq:heat}\\
+    &= c_p\rho V\Delta T\notag\\
+    &= c_p\rho (\pi r^2p)\Delta T &&\text{(pour un lac cylindrique)}\notag
+\end{align}
 
 En particulier, la capacit\'e thermique d'un corps et une propri\'et\'e extensive~\cite{Extensive}
-ce qui signifie que la quantit\'e est directement proportionnelle \`a la taille du syst\`eme:
+ce qui signifie que sa valeur est directement proportionnelle \`a la taille du syst\`eme:
 
 \[ C = c_pm \]
 
-On voit donc que si la masse du second lac est le double du premier, il devra perdre deux fois plus
+On voit donc que si la masse du second lac est le triple du premier, il devra perdre trois fois plus
 d'\'energie pour atteindre la m\^eme temp\'erature. Nous avons donc d\'ej\`a une excellente raison
 de croire qu'une augmentation de la profondeur d'un lac sans augmentation de sa surface aura un
 impact important sur le temps de refroidissement.
@@ -168,38 +215,133 @@ La figure \ref{water-convection} nous montre un second lac expos\'e \`a la m\^em
 ext\'erieure. Par contre, il est expos\'e \`a une plus grande superficie en contact avec le sol que
 nous consid\'erons comme une source de chaleur. Nous allons donc \'evaluer
 
+Les donn\'ees officielles sur la superficie et la profondeur du Lac aux Castors semblent difficile
+\`a obtenir. Nous avons toutefois r\'eussi \`a estimer la superficie du lac \`a environ
+\SI{18500}{\square\meter} (voir figure \ref{google-castor}). On nous informe aussi qu'en vertu des travaux effectu\'es le lac est
+pass\'e d'une profondeur d'environ $\SI{2}\meter$ \`a \SI{7}\meter~\cite{Lac-Castor}.
+
+\begin{figure}\label{google-castor}
+    \centering
+    \includegraphics[scale=0.5]{Superficie.png}
+    \caption{Superficie du Lac aux Castors}
+\end{figure}
+
+En ramenant ces donn\'ees \`a un lac cylindrique de superficie et volumes respectifs on obtiendra
+les param\`etres ci-dessous pour effectuer nos calculs:
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|l|l|r|}\hline
+        Param\`etre &Description &Valeur\\\hline
+        $c_p$ &Capacit\'e thermique massique de l'eau &\SI{4185.5}{\joule\per{\kelvin\,\kilogram}}\\\hline
+        $T_\text{sol}$ &Temp\'erature du sol &\SI{281.15}\kelvin\ (\SI8\celsius)\\\hline
+        $T_\text{air}$ &Temp\'erature de l'air &\SI{261.15}\kelvin\ (\SI{-12}\celsius)\\\hline
+        $T_\text{init}$ &Temp\'erature initiale de l'eau &\SI{285.15}\kelvin\ (\SI8\celsius)\\\hline
+        $T_\text{cible}$ &Temp\'erature \`a hydrostabilit\'e &\SI{277.13}\kelvin\\\hline
+        $A_{lac}$ &Superficie du lac &\SI{18500}{\square\meter}\\\hline
+        $p_1,p_2$ &Profondeur du lac et lac excav\'e &\SI2\meter, \SI7\meter\\\hline
+        $\rho$ &Densit\'e de l'eau &\SI1{\kilogram\per{\cubic\meter}}\\\hline
+        $K$ &Conductivit\'e thermique de surface &inconnue\\\hline
+        $x$ &\'Epaisseur de l'interface de surface &inconnue\\\hline
+        $\alpha$ &Ratio des constantes du fond contre surface &inconnue\\\hline
+    \end{tabular}
+    \caption{Param\`etres}
+\end{table}
 \clearpage
+
+On trouves les pertes de chaleur n\'ecessaire de nos deux lacs:
+
+\begin{align*}
+    r &= \sqrt{\frac{18500}\pi} = \SI{76.738}\meter\\
+    m_1 &= \rho V_1 = \rho p_1\pi r^2 = \num{3.696e4}\si\kilogram\\
+    m_2 &= \rho V_2 = \rho p_2\pi r^2 = \num{1.294e5}\si\kilogram\\
+    \Delta T &= T_\text{cible} - T_\text{init} = \SI{-4.02}\kelvin\\
+    Q_1 &= c_pm_1\Delta T = -\num{6.226e8}\si\joule\\
+    Q_2 &= c_pm_2\Delta T = -\num{2.179e9}\si\joule
+\end{align*}
+
+On doit maintenant \'evaluer la chaleur \'emise par la surface et re\c cue par le fond du lac.
+L'\'equation du flux thermique \eqref{eq:flux} n'est normalement pas applicable
+directement~\cite{HeatFlow} puisqu'elle est typiquement utilis\'ee entre deux syst\`emes de masse et
+capacit\'e thermique massique identiques. Aussi, la structure de l'interface entre a surface de
+l'eau et l'air ambiante ainsi que celle du fond du lac nous sont inconnues. Nous ne pensons pas
+pouvoir trouver la conductivit\'e thermique appropri\'ee ainsi que le gradient de temp\'erature
+r\'eel. Pour simplifier les calculs nous allons exprimer les constantes pour le fond du lac comme le
+produit d'un nouveau param\^etre qu'on pourra faire varier.
+
+\begin{align}
+    \frac{\Delta Q}{\Delta t} = -KA\frac{\Delta T}x \label{eq:flux}
+\end{align}
+
+Nous allons par contre \^etre en mesure d'\'evaluer la diff\'erence entre nos deux syst\`emes en
+terme de proportion. Pour ceci, nous allons absorber ces constante dans la variable d'int\'egration,
+cela va nous emp\^echer d'evaluer un temps r\'eel mais pr\'eserver la capacit\'e de comparer
+quantitativement les deux syst\`emes.
+
+\begin{align}
+    A_1 &= 2\pi r p_1 + \pi r^2 = \num{1.946e4}\si{\square\meter}\notag\\
+    A_2 &= 2\pi r p_2 + \pi r^2 = \num{2.188e4}\si{\square\meter}\notag\\
+    \frac{dQ_1}{dt} &=
+        -KA_\text{lac}\frac{T - T_\text{air}}x -\alpha KA_1\frac{T_\text{fond}-T}x\notag\\
+    dQ_1 &=
+        \underbrace{KA_\text{lac}\frac{T_\text{air}-T}x\,dt
+        -\alpha KA_1\frac{T_\text{fond}-T}x\,dt}_{\tau = \frac Kxt}\notag\\
+    &= A_\text{lac}(T_\text{air} - T)\ - \alpha A_1(T_\text{fond} - T)\,d\tau\label{eq:diff}\\
+    \text{o\`u } T(\tau) &= T_\text{cible} - \frac{Q_1(\tau)}{c_pm_1} \label{eq:temp}&&\text{(par l'\'equation \ref{eq:heat})}
+\end{align}
+
+On a utilis\'e Mathematica pour substituer \eqref{eq:temp} dans l'\'equation \eqref{eq:diff}, et
+r\'esoudre l'\'equation diff\'erentielle avec les conditions initiales. On trouves ainsi une
+\'equation exponentielle assez charg\'ee $Q_1(\tau)$ et similairement pour $Q_2(\tau)$. Ces
+derni\`eres \'etant inversibles, on a pu trouver le ``temps'' $\tau$ pour atteindre la perte de
+chaleur recherch\'ee pour diverses valeurs de $\alpha$. En substituant les solutions $Q_1(\tau)$ et
+$Q_2(\tau)$ dans l\'equation~\ref{eq:heat} on obtient les \'equations de temp\'eratures. On montre
+ici l'\'equation r\'esultante pour $\alpha = 0.1$.
+
+\begin{align*}
+    T_1(\tau) &= 285.15\, -\num{7.599e-9} \left(\num{2.412e9} e^{\num{1.070e-4}}-\num{2.412e9}\right)\\
+    T_2(\tau) &= 285.15\, -\num{2.477e-9} \left(\num{7.536e9} e^{\num{3.012e-5}}-\num{7.536e9}\right)
+\end{align*}
+
+\subsection{Analyse}
+\subsubsection{Validit\'e}
+\subsubsection{Forces et faiblesses}
+
+\section{Conclusion}
+
+\clearpage
+\section{Bibliographie}
 \begin{thebibliography}{Xyz}
-    \bibitem{Lac}
-        \href{https://www.ledevoir.com/politique/montreal/517828/patinoire-du-lac-aux-castors}
-            {Montr\'eal abandonne la patinoire naturelle du lac aux Castors}
+    \bibitem{Lac} \href{https://www.ledevoir.com/politique/montreal/517828/patinoire-du-lac-aux-castors}
+        {Montr\'eal abandonne la patinoire naturelle du lac aux Castors}
     \bibitem{Evap} \href{https://www.quora.com/How-does-evaporation-take-place-at-all-temperatures-whereas-boiling-takes-place-at-a-fixed-temperature-under-a-given-pressure}
         {How does evaporation take place at all temperatures}
     \bibitem{Fourier} \href{https://fr.wikipedia.org/wiki/Conduction_thermique#Loi_de_Fourier}
         {Loi de Fourier}
     \bibitem{CapTherm} \href{https://fr.wikipedia.org/wiki/Capacit%C3%A9_thermique_massique}
         {Capacit\'e thermique massique}
-    \bibitem{TempLinear}
-        \href{https://fr.wikipedia.org/wiki/Conduction_thermique#Surfaces_planes_en_série}
-        {Conduction Thermique - Profil des temp\'eratures}
-    \bibitem{AvgValue} \href{https://fr.wikipedia.org/wiki/Th%C3%A9or%C3%A8me_de_la_moyenne}
-        {Th\'eor\`eme de la moyenne}
     \bibitem{WaterDensity} \href{http://www.open.edu/openlearn/science-maths-technology/the-oceans/content-section-3.2}
         {The density of fresh water and seawater}
     \bibitem{ConvNat} \href{https://fr.wikipedia.org/wiki/Convection_thermique#Convection_naturelle}
         {Convection naturelle}
-    \bibitem{SpecHeat} \href{https://www.engineeringtoolbox.com/specific-heat-capacity-d_391.html}
-        {Specific heat of common Substances}
+    \bibitem{TempLinear} \href{https://fr.wikipedia.org/wiki/Conduction_thermique#Surfaces_planes_en_série}
+        {Conduction Thermique - Profil des temp\'eratures}
+    \bibitem{AvgValue} \href{https://fr.wikipedia.org/wiki/Th%C3%A9or%C3%A8me_de_la_moyenne}
+        {Th\'eor\`eme de la moyenne}
     \bibitem{HydroStab} \href{https://fr.wikipedia.org/wiki/Gradient_thermique_adiabatique#Atmosph.C3.A8re_stable}
         {Stabilit\'e hydrostatique}
+    \bibitem{Q-equation} \href{https://simple.wikipedia.org/wiki/Specific_heat#Usage}
+        {Calculating heat}
     \bibitem{Extensive} \href{https://fr.wikipedia.org/wiki/Extensivit%C3%A9_et_intensivit%C3%A9_(physique)}
         {Extensivit\'e}
+    \bibitem{Lac-Castor} \href{https://fr.wikipedia.org/wiki/Lac_aux_Castors_(Montr%C3%A9al)}
+        {Lac aux Castors}
+    \bibitem{SpecHeat} \href{https://www.engineeringtoolbox.com/specific-heat-capacity-d_391.html}
+        {Specific heat of common Substances}
     \bibitem{NewtonLaw} \href{https://en.wikipedia.org/wiki/Newton%27s_law_of_cooling}
         {Newton Law of cooling}
     \bibitem{HeatFlow} \href{https://en.wikipedia.org/wiki/Rate_of_heat_flow}
         {Rate of heat flow}
-    \bibitem{Q-equation} \href{https://simple.wikipedia.org/wiki/Specific_heat#Usage}
-        {Calculating heat}
     \bibitem{Conductivity} \href{https://www.engineeringtoolbox.com/thermal-conductivity-d_429.html}
         {Thermal Conductivity of common Materials and Gases}
 \end{thebibliography}
