@@ -14,6 +14,7 @@
 
 \newcommand\critical{\SI{3.98}\celsius}
 \numberwithin{figure}{section}
+\numberwithin{table}{section}
 
 \title{MAT1460\\[3ex]Fermeture de la patinoire naturelle du Lac aux Castors}
 \author{Chen, Siying\\[1ex] Labont\'e, Pierre-Luc\\[1ex]Higgins, Philip\\[1ex] Grenier, David}
@@ -31,7 +32,7 @@ Universit\'e de Montr\'eal
 \clearpage
 
 \tableofcontents
-\newpage
+\clearpage
 \section{Introduction}
 
 Dans le cadre de travaux effectu\'es par la Ville de Montr\'eal au Lac aux Castors le probl\`eme de
@@ -59,19 +60,18 @@ Nous allons d'abord d\'eterminer si il y a une diff\'erence statistiquement sign
 temp\'eratures enregistr\'ees aux cours des ann\'ees r\'ecentes \`a celles historiques. Il est
 entendu que la condition de la glace d\'epend des temp\'eratures ext\'erieures et nous allons donc
 aussi tenter de mesurer le niveau de corr\'elation entre les temp\'eratures observ\'ees et les
-donn\'es d'ouverture des patinoires de l'\^Ile de Montr\'eal~\cite{PatHist}.
+donn\'ees d'ouverture des patinoires de l'\^Ile de Montr\'eal~\cite{PatHist}.
 
 \subsection{Hypoth\`eses}
 
-Nos hypoth\`eses sont principalement ax\'ees sur la nature des donn\'ees que nous avons recueillies:
+Nos hypoth\`eses sont principalement ax\'ees sur la nature des donn\'ees que nous avons disponibles:
 
 \begin{enumerate}
-    \item On suppose que nos donn\'ees sur les temp\'eratures recueillies sont uniform\'ement
-        distribu\'ees \`a Montr\'eal;
+    \item Nous supposons que les temp\'eratures ext\'erieures sur l'\^Ile de Montr\'eal sont
+        uniform\'ement distribu\'ees;
     \item Lorsque les donn\'ees sont absentes en d\'ebut d\'ecembre et fin mars, nous supponsons que
-        les patinoires sont ferm\'ees et que nous sommes hors-saison;
-    \item Nous consid\'erons que les donn\'es accumul\'ees sur les conditions des patinoires sont
-        fiables;
+        les patinoires sont ferm\'ees puisque hors-saison;
+    \item Nous supposons les donn\'ees collectives sur les conditions des patinoires sont fiables;
     \item Nous assumons que l'\'ecart-type de temp\'erature donn\'ee par le minist\`ere est
         l'\'ecart-type r\'eel des temp\'eratures d'hivers avec lesquels nous comparons~\cite{AvgTemp};
     \item On suppose que s'il y a effectivement r\'echauffement plan\'etaire que ce dernier
@@ -80,39 +80,44 @@ Nos hypoth\`eses sont principalement ax\'ees sur la nature des donn\'ees que nou
 
 \subsection{Augmentation de la temp\'erature}
 
-En utilisant les donn\'es de temp\'eratures disponible~\cite{TempHist} nous avons effectu\'e un test
-d'hypoth\`ese pour d\'eterminer si les temp\'eratures moyennes des 10 derni\`eres ann\'ees \`a
-celles des 30 derni\`eres ann\'ees compil\'ees par M\'et\'eoM\'edia~\cite{MeteoTemp}.
+En utilisant les donn\'ees de temp\'eratures disponible~\cite{TempHist}, nous avons effectu\'e un
+test de diff\'erence de moyennes pour d\'eterminer si les temp\'eratures moyennes des 10 derni\`eres
+ann\'ees \'etaient semblable \`a celles des 30 derni\`eres ann\'ees~\cite{MeteoTemp}. La table
+\ref{vars:hyptest} en donne les variables.
 
-Notre test d'hypoth\`ese repose sur les variables suivantes:
-
-\begin{table}[h]
+\begin{table}
     \centering
     \begin{tabular}{|l|l|r|}\hline
         Variable &Description &Valeur\\\hline
-        $\mu_T$ &Moyenne de temp\'erature d\'ecembre-mars, 1981-2010 &-\SI{6.800}\celsius\\\hline
+        $\mu_T$ &Moyenne de temp\'erature d\'ecembre-mars, 1981-2010 &-\SI{6.80}\celsius\\\hline
         $\sigma_T^2$, $\sigma_t^2$ &\'Ecart-type donn\'e par le minist\`ere &\SI{2.25}\celsius\\\hline
-        $\mu_t$ &Moyenne \'echantillonnale d\'ecembre-mars, 2008-2017 &-\SI{5.062}\celsius\\\hline
+        $\mu_t$ &Moyenne \'echantillonnale d\'ecembre-mars &-\SI{5.06}\celsius\\\hline
         $n_T$ &Ann\'ees de temp\'eratures historique enregistr\'ees &30\\\hline
         $n_t$ &Ann\'ees de temp\'eratures r\'ecentes &10\\\hline
     \end{tabular}
+    \caption{Test d'hypoth\`ese - \'echantillon 2008-2017}\label{vars:hyptest}
 \end{table}
+
 \begin{align*}
     H_0&: \mu_T - \mu_t = 0\\
     H_A&: \mu_T - \mu_t < 0\\
     p_\text{valeur} &= \frac{\mu_T - \mu_t}{\sqrt{\frac{\sigma_T^2}{n_T} + \frac{\sigma_t^2}{n_t}}} = \frac{\mu_T - \mu_t}{\sigma_T\sqrt{\frac1{n_T}+\frac1{n_t}}}\\
-                    &= \frac{-6.8 + 5.062}{\sqrt{2.25}\sqrt{\frac1{30}+\frac1{10}}} = -3.17
+                    &= \frac{-6.8 + 5.06}{\sqrt{2.25}\sqrt{\frac1{30}+\frac1{10}}} = -3.17
 \end{align*}
 
-Notre statistique de test \'etant tr\`es faible nous devons \'ecarter l'hypoth\`ese que les
-temp\'eratures r\'ecentes ne sont pas sup\'erieures aux temp\'eratures historique.
+Notre statistique de test \'etant tr\`es faible nous \'ecartons l'hypoth\`ese que les temp\'eratures
+r\'ecentes sont dans les normes hivernales. Nous ne pr\'etendons rien ici sur le r\'echauffement
+plan\'etaire, mais seulement que les temp\'eratures des 10 derni\`eres ann\'ees sont
+significativement plus \'elev\'ees.
+
+\subsection{Corr\'elation des jours d'ouverture des patinoires}
 
 Nous avons aussi extrait les donn\'ees d'ouverture des patinoires de l'\^Ile de Montr\'eal. Nous
 avons concentr\'e nos efforts sur les donn\'ees des saisons 2008 \`a 2013, ann\'ees pour lesquels
 nous avions les donn\'ees les plus robustes et ce pour les mois de D\'ecembre \`a Mars.
 
-Nous avons \'etablis deux mesures pour v\'erifier la corr\'elation entre les temp\'eratures
-observ\'ees et l'ouverture des patinoire. Notre premi\`ere pr\'ediction est le nombre de jours o\`u
+Nous avons \'etabli deux mesures (voir table \ref{data:predict}) pour v\'erifier la corr\'elation entre les temp\'eratures
+observ\'ees et l'ouverture des patinoire. La premi\`ere est le nombre de jours o\`u
 la temp\'erature maximale est au plus \SI0\celsius. La seconde est plus complexe, on
 ne comptabilisera une journ\'ee que si les crit\`eres suivants sont satisfaits:
 
@@ -124,7 +129,7 @@ ne comptabilisera une journ\'ee que si les crit\`eres suivants sont satisfaits:
         trois jours cons\'ecutifs de temp\'erature moyenne sup\'erieure \`a \SI0\celsius.
 \end{enumerate}
 
-\begin{table}[h]
+\begin{table}
     \centering
     \begin{tabular}{|l|r|r|r|r|}\hline
         Ann\'ee &Temp moyenne &Pr\'ediction 1 &Pr\'ediction 2 &Ouvertures\\
@@ -141,179 +146,167 @@ ne comptabilisera une journ\'ee que si les crit\`eres suivants sont satisfaits:
         2008 &-5.26 &61 &91 &62\\\hline
         Moyenne &-5.06 &62.0 &76.3 &58.4\\\hline
     \end{tabular}
+    \caption{Pr\'edictions 1 \& 2 et jours d'ouverture r\'eel}\label{data:predict}
 \end{table}
 
-On a trouv\'e une droite des moindres des moindres carr\'es entre nos deux pr\'edictions et les
-temp\'eratures moyennes saisonni\`eres pour trouver leur corr\'elations. En particulier, la pr\'ediction
-1 \`a une corr\'elation forte n\'egative $R = -0.892$.
+On voit en figure \ref{predictions} la droite des moindres carr\'es entre nos deux pr\'edictions et
+les temp\'eratures moyennes saisonni\`eres. En particulier, la pr\'ediction 1 \`a une corr\'elation
+forte n\'egative $R = -0.892$.
 
-\begin{figure}[h]
+\begin{figure}
     \centering
     \includegraphics[scale=0.5]{Prediction1.png}
     \includegraphics[scale=0.5]{Prediction2.png}
-    \caption{Pr\'edictions 1 \& 2 contre les temp\'eratures moyennes saisonni\`eres}
+    \caption{Pr\'edictions 1 \& 2 contre les temp\'eratures moyennes saisonni\`eres}\label{predictions}
 \end{figure}
 
-Nos pr\'edicteurs sont donc fortement reli\'es aux temp\'eratures moyennes saisonni\`eres, s'ils sont
-efficaces pour pr\'edire les jours d'ouverture r\'eels on aura une bonne mesure de l'impact des
-augmentations de temp\'eratures. On va v\'erifier si on doit rejeter la pr\'ediction 1 comme \'etant
-une bonne repr\'esentation du nombre de jours d'ouvertures r\'eel en effectuant un test
-d'hypoth\`ese d'une diff\'erence de moyenne. Puisque notre \'echantillon est petit nous allons
-effectuer un test de Student soumises aux variables suivantes:
+Nos pr\'edicteurs \'etant reli\'es aux temp\'eratures moyennes saisonni\`eres, nous pensons que
+s'ils sont efficaces pour pr\'edire les jours d'ouverture r\'eels, que nous aurons une bonne mesure
+de l'impact des augmentations de temp\'eratures.
 
-\begin{table}[h]
+Le r\'esultat d'un test d'hypoth\`ese d'une diff\'erence de moyenne est indiqu\'e \`a l'\'equation
+\eqref{test:days}. Notre \'echantillon \'etant petit nous avons effectu\'e un test de Student soumis
+aux variables de la table \ref{vars:predict}. On voit qu'on ne peut donc pas \'ecarter la
+possibilit\'e que notre $1^\text{er}$ pr\'edicteur est repr\'esentatif des jours d'ouverture r\'eel. 
+
+\begin{table}
     \centering
     \begin{tabular}{|l|l|r|}\hline
         Variable &Description &Valeur\\\hline
-        $n_1$, $n_2$ &Ann\'ees de donn\'es de patinoires ouvertes &5\\\hline
+        $n_1$, $n_2$ &Ann\'ees de donn\'ees de patinoires ouvertes &5\\\hline
         $s$ &Estimateur de la diff\'erence de moyenne &\\\hline
         $s_1$, $s_2$ &\'Ecart-type \'echantillonnal &\\\hline
-        $\overline{P_1}$ &Moyenne du pr\'edicteur 1 &\\\hline
-        $\overline O$ &Moyenne des jours d'ouvertures &\\\hline
+        $\mu_1$ &Moyenne du pr\'edicteur 1 &\\\hline
+        $\mu$ &Moyenne des jours d'ouverture &\\\hline
     \end{tabular}
-    \caption{Variables pour les ann\'ees de donn\'ees pertinentes 2008-2012}
+    \caption{Variables pour les ann\'ees de donn\'ees pertinentes 2008-2012}\label{vars:predict}
 \end{table}
 
-\begin{align*}
-    s &= \sqrt{\frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1+n_2-2}}\\
-      &= \sqrt{39}\\
-    T_{\overline{P_1}-\overline O} &= \frac{\overline{P_1} - \overline O}{s\sqrt{\frac1{n_1}+\frac1{n_2}}}
-                                   = \frac{62.8-58.4}{\sqrt{39}\sqrt{\frac25}}\\
-                                   &= 1.114
-\end{align*}
+\begin{align}
+    H_0 &: \mu_1 - \mu = 0\notag\\
+    H_A &: \mu_1 - \mu \ne 0\notag\\
+    s &= \sqrt{\frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1+n_2-2}} = \sqrt{39}\notag\\
+    T_{\mu_1-\mu} &= \frac{\mu_1 - \mu}{s\sqrt{\frac1{n_1}+\frac1{n_2}}} = 1.114\label{test:days}
+\end{align}
 
-On ne peut donc pas \'ecarter la possibilit\'e que notre $1^\text{er}$ pr\'edicteur est
-repr\'esentatif des jours d'ouvertures r\'eel. L'\'equation de la droite des moindres carr\'es de la
-pr\'ediction 1 est la suivante:
+Sa droite des moindres carr\'es est donn\'ee par l'\'equation \eqref{eq:y}. Cette derni\'ere nous
+dis que l'impact d'une augmentation de temp\'erature moyenne annuelle d'un \si{\celsius} se
+traduirat par une perte de 6.72 jours de patinage par ann\'ee.
 
-\[ y = -6.72x + 31.2 \]
+\begin{equation}
+    y = -6.72x + 31.2\label{eq:y}
+\end{equation}
 
-Nous donne l'impact q'une augmentation d'un \si\celsius~va diminuer le nombre de jours d'ouvertures
-d'environ 6.72 jours par ann\'ee. Les mod\`eles actuels nous disent que la temp\'erature globale
-devrait augmenter de \SI4\celsius~d'ici 2100~\cite{GlobalRaise} par rapport \`a la temp\'erature
-pr\'e-industrielle. Toutefois l'impact Canadien d'une telle augmentation serait le double de
-l'impact global~\cite{CanadaRaise}. Nous interpr\'etons cette derni\`ere comme repr\'esentant une
-augmentation d'environ \SI6\celsius~au cours des prochains 80 ans et donc une augmentation
-\si{0.75}\celsius~par d\'ec\'enie.
+Les mod\`eles actuels nous disent que la temp\'erature globale devrait augmenter de \SI4{\celsius}
+d'ici 2100~\cite{GlobalRaise} relativement \`a la temp\'erature pr\'e-industrielle. Toutefois
+l'impact Canadien d'une telle augmentation serait le double de l'impact global~\cite{CanadaRaise}.
+Nous interpr\'etons cette derni\`ere comme une augmentation d'environ \SI6{\celsius} au cours des
+prochains 80 ans et donc \si{0.75}{\celsius} par d\'ec\'enie.
 
 \subsection{Validit\'e des r\'esultats}
+
+Il n'est pas surprenant que notre premier pr\'edicteur soit fortement corr\'el\'e avec les moyennes
+de temp\'erature annuelles. Quoique simple, ils donnent tous deux des valeurs raisonnable si bien
+que nous n'avons pas cru bon d'effectuer une correction. Nous nous fions toutefois sur la
+communaut\'e scientifique en ce qui attrait au r\'echauffement plan\'etaire. Cette derni\`ere
+question \'etant beaucoup plus sophistiqu\'ee nous ne parlerons de l'impact sur la qualit\'e des
+patinoires qu'en supposant leurs conclusions correcte.
 
 \section{Impact de la profondeur}
 
 Nous discuterons ici de l'effet de la profondeur du plan d'eau sur les conditions de glace. En
-particulier, nous cherchons \`a savoir s'il est possible que d'avoir creus\'e~\cite{Lac} le lac \`a
-contribu\'e \`a la fermeture de la patinoire pour assurer la s\'ecurit\'e du personnel et des
-citoyens.
+particulier, nous cherchons \`a savoir si l'excavation du lac~\cite{Lac} \`a contribu\'e de fa\c con
+importante \`a la fermeture de la patinoire.
 
 \subsection{Hypoth\`eses}
 
-Afin de d\'eterminer l'impact de la profondeur d'un plan sur la formation de la glace nous allons
-encadrer la question des simplifications suivantes:
+Afin de d\'eterminer l'impact de la profondeur sur la formation de la glace nous allons encadrer la
+question des simplifications suivantes:
 
 \begin{enumerate}
-    \item Quoique la temp\'erature ext\'erieure va normalement varier suite \`a la contribution
-        en chaleur du lac, nous allons consid\'erer que les variations locales vont se distribuer
-        et traiter l'environnement ext\'erieur comme un puit de chaleur.
-    \item Similairement pour l'apport du lac et de l'air \`a la temp\'erature du sol et allons
-        donc traiter le sol comme une source de chaleur in\'epuisable;
+    \item Nous allons consid\'erer l'air ext\'erieur comme un puit de chaleur vaste dont la
+        temp\'erature ne sera pas affect\'ee par la chaleur du lac;
+    \item Similairement, nous allons traiter le sol comme une source de chaleur in\'epuisable;
     \item Nous n'allons \'evaluer que la perte d'\'energie du lac en terme de la conduction thermique
-        et consid\'erer les contributions en radiation et \'evaporation~\cite{Evap} des deux lacs
-        identique;
-    \item Nous allons supposer la temp\'erature ext\'erieure constante. (voir \ref{TempExt})
-    \item Nous allons supposer la temp\'erature du sol constante et uniform\'ement distribu\'ee;
-        (voir \ref{Conduc})
+        et ignorer les contributions en radiation et \'evaporation~\cite{Evap};
+    \item Nous supposons la temp\'erature ext\'erieure constante;
+    \item Nous supposons aussi la temp\'erature du sol constante et uniform\'ement distribu\'ee;
     \item Nous ne connaissons pas les conductivit\'e thermiques en surface et au fond du lac, mais
         nous allons les consid\'erer respectivement identiques pour nos deux lacs;
     \item Nous ne connaissons pas la nature de l'interface en surface et au fond du lac pour le
-        calcul de flux thermique et par cons\'equent nous en ignoront l'\'epaisseur. Nous allons
-        toutefois les consid\'erer respectivement identiques pour nos deux lacs.
+        calcul de flux thermique et son \'epaisseur. Nous allons toutefois les consid\'erer
+        identiques pour nos deux lacs.
 \end{enumerate}
 
-Nous tenterons donc de d\'eterminer, pour un plan d'eau d'une surface de superficie fixe, de quelle fa\c
-con une augmentation de la profondeur (et donc du volume d'eau) va prolonger la p\'eriode n\'ecessaire
-pour refroidir le lac. On comparera donc deux corps d'eau id\'ealis\'es et d\'elimit\'es par la m\^eme
-surface circulaire, l'un plus profond que l'autre.
-
-\subsubsection{Temp\'erature ext\'erieure constante}\label{TempExt}
+\subsubsection{Temp\'erature ext\'erieure constante}
 
 Pour obtenir une r\'eponse r\'ealiste une simulation ou une utilisation judicieuse de probabilit\'es
 nous permettrait d'inclure une fluctuation de temp\'erature. En particulier, nous savons que la
 chaleur transmise entre deux corps est proportionnelle \`a la diff\'erence de temp\'erature entre
 ces derniers~\cite{Fourier} et il serait pr\'eferable de ne pas n\'egliger cette composante.
 
-Notre intuition nous dit qu'un lac dont le volume d'eau est sup\'erieur verra sa temp\'erature
-varier plus lentement et que la diff\'erence de temp\'erature sera plus grande lorsque la
-temp\'erature ext\'erieure est basse. Toutefois, il est important d'appr\'ecier que si tel est le
-cas, lorsque la temp\'erature ext\'erieure passe au dessus de celle de nos deux lacs, la situation
-est renvers\'ee et le lac dont le volume est inf\'erieur verra sa temp\'erature remonter plus
-rapidement aussi.
+Toutefois, ce m\'ecanisme est identique pour la chaleur d\'egag\'ee en surface et celle re\c cue par
+le fond du lac. S'il y a une diff\'erence importante de variation de temp\'erature le lac plus
+profond recevra d'avantage de chaleur du sol et il n'est pas clair que d'ajouter une temp\'erature
+ext\'erieure variable va am\'eliorer le mod\`ele.
 
-Nous jugeons donc qu'il est raisonnable de supposer la temp\'erature ext\'erieure constante. Les
-composantes de gains et pertes en chaleur dues \`a la variation de temp\'erature vont possiblement
-s'annuler. Si ce n'est pas le cas et que le lac plus profond a une diff\'erence de temp\'erature
-avec l'ext\'erieure plus grande on aura tout de m\^eme une r\'eponse positive \`a la question (que
-le lac plus profond prends plus de temps \`a geler) en ayant possiblement surestim\'e l'impact de
-la profondeur.
+Puisque nous \'evaluerons la diminution de temp\'erature d'un lac par la chaleur d\'egag\'ee par le
+plan d'eau \`a l'air environnant il s'ensuit que la temp\'erature chutera en surface. La capacit\'e
+thermique~\cite{CapTherm} massique du sol est inf\'erieure a celle de l'eau, toutefois le volume de
+la terre est de loin sup\'erieur \`a celle d'un lac. Il semble que la temp\'erature ne varie que de
+\SI2{\celsius}~\cite{QuoraTemp} au cours d'une ann\'ee et de \SI{0.3}{\celsius} \`a tous les dix
+m\^etre de profondeur. Nous accepterons donc une temp\'erature constante en hiver de
+\SI{6}{\celsius}~\cite{GeoTemp}.
 
-\subsection{La convection thermique}\label{Convec}
+\subsection{La convection thermique}
 
-Puisque nous \'evaluerons la diminution de la temp\'erature d'un lac par la chaleur d\'egag\'ee par
-le plan d'eau \`a l'air environnant il s'ensuit que la temp\'erature chutera en surface. La
-capacit\'e thermique~\cite{CapTherm} massique du sol est inf\'erieure a celle de l'eau, toutefois le
-volume de la terre est de loin sup\'erieur \`a celle d'un lac. On pourra ainsi supposer que la
-temp\'erature du sol va demeurer sup\'erieure \`a celle de l'eau par temps froid ce qui justifie de
-traiter le sol comme une source de chaleur.
+Il est connu que la densit\'e de l'eau augmente avec une diminution de
+temp\'erature~\cite{WaterDensity} atteignant son maximum \`a \critical{} ce qui introduit un
+processus de convection thermique~\cite{ConvNat}.
 
-\begin{figure}[h]\label{water-density}
+\begin{figure}
     \centering
     \includegraphics[scale=0.7]{WaterDensity.png}
-    \caption{Densit\'e de l'eau}
+    \caption{Densit\'e de l'eau}\label{water-density}
 \end{figure}
 
-Une particularit\'e de l'eau est que sa densit\'e augmente avec une diminution de
-temp\'erature~\cite{WaterDensity} et atteint son maximum \`a \critical~(voir figure
-\ref{water-density}) ce qui introduit un processus de convection thermique~\cite{ConvNat}. Tant que
-la temp\'erature du lac est sup\'erieure \`a \critical, l'eau qui refroidit \`a la surface va
-sombrer et sera remplac\'ee par de l'eau plus chaude provenant pr\`es de la terre, l\`a o\`u la
-temp\'erature est plus \'elev\'ee.
+Nous allons donc consid\'erer qu'un lac dont la temp\'erature est sup\'erieure \`a \critical, va
+voir sa temp\'erature diminuer de fa\c con uniforme. D\'eterminer l'impact de la profondeur d'un
+lac pour diminuer sa temp\'erature \`a \critical{} revient donc \`a mesurer le temps n\'ecessaire
+pour obtenir les chaleurs respectives d\'egag\'ees.
 
-\begin{figure}[h]\label{water-convection}
+\begin{figure}
     \centering
     \begin{tikzpicture}[scale=0.7]
-        \shade[top color=blue!70,bottom color=brown] (0,5) -- (0,2) arc (180:360:3 and 0.5) -- (6,5)
+        \shade[top color=blue!70,bottom color=brown] (0,3) -- (0,2) arc (180:360:3 and 0.5) -- (6,3)
         arc (0:180:3 and 0.5);
-        \draw [<->] (3,5) -- (5.9,5) node [midway, above, scale=0.7] {$r$};
-        \draw [<->] (6.3,5) -- (6.3,2) node [midway, right, scale=0.7] {$p_1$};
-        \draw (3,5) ellipse (3 and 0.5);
-        \draw (0,5) -- (0,2);
-        \draw (6,5) -- (6,2);
+        \draw [<->] (3,3) -- (5.9,3) node [midway, above, scale=0.7] {$r$};
+        \draw [<->] (6.3,3) -- (6.3,2) node [midway, right, scale=0.7] {$p_1$};
+        \draw (3,3) ellipse (3 and 0.5);
+        \draw (0,3) -- (0,2);
+        \draw (6,3) -- (6,2);
         \draw [dashed] (0,2) arc (180:0:3 and 0.5);
         \draw (0,2) arc (180:360:3 and 0.5);
-        \draw[line width=0.5mm, ->] (1.8,4.1) arc (95:445:1cm and 1cm);
-        \draw[line width=0.5mm, ->] (4.2,4.1) arc (85:-260:1cm and 1cm);
+        \draw[line width=0.5mm, ->] (1.8,2.7) arc (95:445:1cm and 0.45cm);
+        \draw[line width=0.5mm, ->] (4.2,2.7) arc (85:-260:1cm and 0.45cm);
 
-        \shade[top color=blue!70,bottom color=brown] (7,5) -- (7,-4) arc (180:360:3 and 0.5) -- (13,5)
+        \shade[top color=blue!70,bottom color=brown] (7,3) -- (7,-1) arc (180:360:3 and 0.5) -- (13,3)
         arc (0:180:3 and 0.5);
-        \draw [<->] (10,5) -- (12.9,5) node [midway, above, scale=0.7] {$r$};
-        \draw [<->] (13.3,5) -- (13.3,-4) node [midway, right, scale=0.7] {$p_2$};
-        \draw (10,5) ellipse (3 and 0.5);
-        \draw (7,5) -- (7,-4);
-        \draw (13,5) -- (13,-4);
+        \draw [<->] (10,3) -- (12.9,3) node [midway, above, scale=0.7] {$r$};
+        \draw [<->] (13.3,3) -- (13.3,-1) node [midway, right, scale=0.7] {$p_2$};
+        \draw (10,3) ellipse (3 and 0.5);
+        \draw (7,3) -- (7,-1);
+        \draw (13,3) -- (13,-1);
         \draw [dashed] (7,2) arc (180:360:3 and 0.5);
-        \draw [dashed] (7,-4) arc (180:0:3 and 0.5);
-        \draw (7,-4) arc (180:360:3 and 0.5);
-        \draw[line width=0.5mm, ->] (8.8,4.1) arc (95:445:1cm and 4cm);
-        \draw[line width=0.5mm, ->] (11.2,4.1) arc (85:-260:1cm and 4cm);
+        \draw [dashed] (7,-1) arc (180:0:3 and 0.5);
+        \draw (7,-1) arc (180:360:3 and 0.5);
+        \draw[line width=0.5mm, ->] (8.8,2.7) arc (95:445:1cm and 2cm);
+        \draw[line width=0.5mm, ->] (11.2,2.7) arc (85:-260:1cm and 2cm);
     \end{tikzpicture}
-    \caption{Convection \`a plus de \critical}
+    \caption{Convection \`a plus de \critical}\label{water-convection}
 \end{figure}
 
-Nous allons donc consid\'erer qu'un lac dont la temp\'erature est sup\'erieur \`a \critical, va voir
-sa temp\'erature va diminuer de fa\c con \`a ce que l'eau demeure \`a temp\'erature uniforme.
-D\'eterminer l'impact de la profondeur d'un lac pour diminuer sa temp\'erature \`a \critical~revient
-donc \`a mesurer le temps n\'ecessaire pour obtenir les chaleurs respectives d\'egag\'ees.
-
-\subsection{La conduction thermique (ou diffusion)}\label{Conduc}
+\subsection{La conduction thermique (ou diffusion)}
 
 Le sol \'etant un solide il n'est pas sujet \`a la convection tel l'eau du lac. Nous aurions une
 meilleure approximation en consid\'erant le processus de diffusion qui, \`a un \'etat eventuel
@@ -331,11 +324,13 @@ m\^eme un impact. Toutefois, il n'est plus n\'ecessaire \`a cette \'etape de ref
 son ensemble pour obtenir une formation de glace \`a la surface. Le refroidissement du lac doit donc
 \^etre trait\'e diff\'eremment apr\`es l'atteinte de la temp\'erature uniforme de \critical.
 
-\subsection{Mod\'elisation}
+\subsection{Au dessus de \SI4\celsius}
 
-Nous introduisons les variables dont nous allons avoir besoin:
+Nous allons tenter de d\'eterminer l'\'evolution, au dessus de \SI4{\celsius}, de la temp\'erature
+de deux lacs id\'ealis\'es de profondeurs diff\'erentes. Nous appelerons ci-apr\`es les lac 1 et 2
+comme \'etant le lac de r\'ef\'erence et le lac excav\'e sujettes aux variables suivantes:
 
-\begin{table}[h]
+\begin{table}
     \centering
     \begin{tabular}{|l|l|l|}\hline
         Variable &Description &Unit\'e\\\hline
@@ -355,8 +350,8 @@ Nous introduisons les variables dont nous allons avoir besoin:
     \caption{Variables}
 \end{table}
 
-Lorsqu'un corps subit une variation de temp\'erature $\Delta T$ l'energie transf\'er\'ee (chaleur)~\cite{Q-equation}
-nous est donn\'e par:
+Lorsqu'un corps subit une variation de temp\'erature l'energie transf\'er\'ee
+(chaleur)~\cite{Q-equation} nous est donn\'ee par l'\'equation \eqref{eq:heat}.
 
 \begin{align}
     Q &= C\Delta T\label{eq:heat}\\
@@ -365,38 +360,35 @@ nous est donn\'e par:
     &= c_p\rho (p\pi r^2p)\Delta T &&\text{(pour un lac cylindrique)}\notag
 \end{align}
 
-En particulier, la capacit\'e thermique d'un corps $(C)$ est une propri\'et\'e
-extensive~\cite{Extensive} ce qui signifie que sa valeur est directement proportionnelle \`a la
-taille du syst\`eme. On voit donc que si la masse du second lac est le triple du premier, il devra
-perdre trois fois plus d'\'energie pour atteindre la m\^eme temp\'erature. Nous avons donc d\'ej\`a
-une excellente raison de croire qu'une augmentation de la profondeur d'un lac sans augmentation de
-sa surface aura un impact important sur le temps de refroidissement.
+La capacit\'e thermique d'un corps $(C)$ est une propri\'et\'e extensive~\cite{Extensive} sa valeur
+est directement proportionnelle \`a la masse du syst\`eme. Si la masse du second lac est le triple
+du premier, il devra perdre trois fois plus d'\'energie pour atteindre la m\^eme temp\'erature.
 
 La figure \ref{water-convection} nous montre un second lac expos\'e \`a la m\^eme surface
-ext\'erieure. Par contre, il est expos\'e \`a une plus grande superficie en contact avec le sol que
-nous consid\'erons comme une source de chaleur. Nous allons donc \'evaluer d'un premier temps le
-temps n\'ecessaire pour obtenir le d\'egagement de chaleur \`a l'atteinte de \critical.
+ext\'erieure. Sa superficie en contact avec le sol que est toutefois un peu plus importante. Nous
+allons d'abord \'evaluer la chaleur \`a perdre pour atteindre \critical{} et ensuite le temps requis
+pour perdre cette chaleur.
 
 Les donn\'ees officielles sur la superficie et la profondeur du Lac aux Castors semblent difficile
 \`a obtenir. Nous avons toutefois r\'eussi \`a estimer la superficie du lac \`a environ
-\SI{18500}{\square\meter} (voir figure \ref{google-castor}). On nous informe aussi qu'en vertu des travaux effectu\'es le lac est
-pass\'e d'une profondeur d'environ 2 \`a 7 m\^etres~\cite{Lac-Castor}.
+\SI{18500}{\square\meter} (voir figure \ref{google-castor}). On nous informe aussi qu'en vertu des
+travaux le lac est pass\'e d'une profondeur d'environ 2 \`a 7 m\^etres~\cite{Lac-Castor}.
 
-\begin{figure}\label{google-castor}
+\begin{figure}
     \centering
     \includegraphics[scale=0.5]{Superficie.png}
-    \caption{Superficie du Lac aux Castors}
+    \caption{Superficie du Lac aux Castors}\label{google-castor}
 \end{figure}
 
 En ramenant ces donn\'ees \`a un lac cylindrique de superficie et volumes respectifs on obtient
 les param\`etres ci-dessous pour effectuer nos calculs:
 
-\begin{table}[h]
+\begin{table}
     \centering
     \begin{tabular}{|l|l|r|}\hline
         Param\`etre &Description &Valeur\\\hline
         $c_p$ &Capacit\'e thermique massique de l'eau &\SI{4185.5}{\joule\per{\kelvin\,\kilogram}}\\\hline
-        $T_\text{sol}$ &Temp\'erature du sol &\SI{279.15}\kelvin\ (\SI8\celsius)\\\hline
+        $T_\text{sol}$ &Temp\'erature du sol &\SI{279.15}\kelvin\ (\SI6\celsius)\\\hline
         $T_\text{air}$ &Temp\'erature de l'air &\SI{261.15}\kelvin\ (\SI{-12}\celsius)\\\hline
         $T_\text{init}$ &Temp\'erature initiale de l'eau &\SI{285.15}\kelvin\ (\SI8\celsius)\\\hline
         $T_\text{cible}$ &Temp\'erature \`a hydrostabilit\'e &\SI{277.13}\kelvin\\\hline
@@ -409,7 +401,6 @@ les param\`etres ci-dessous pour effectuer nos calculs:
     \end{tabular}
     \caption{Param\`etres}
 \end{table}
-\clearpage
 
 On trouves les pertes de chaleur n\'ecessaire de nos deux lacs:
 
@@ -448,7 +439,7 @@ relative entre nos deux syst\`emes.
         -\alpha KA_1\frac{T_\text{fond}-T_1(t)}x}_{\tau = A_\text{lac}\frac Kxt}\notag\\
     \frac{dQ_1}{d\tau} &= T_\text{air} - T_1(\tau) - \alpha (T_\text{fond} -
         T_1(\tau))\label{eq:diff}\\
-    \text{o\`u } T_1(\tau) &= T_\text{cible} - \frac{Q_1(\tau)}{C_1} \label{eq:temp}&&\text{(par l'\'equation \ref{eq:heat})}
+    \text{o\`u } T_1(\tau) &= T_\text{cible} - \frac{Q_1(\tau)}{C_1} \label{eq:temp}&&\text{(par l'\'equation \eqref{eq:heat})}
 \end{align}
 
 En substituant \eqref{eq:temp} dans l'\'equation \eqref{eq:diff} on obtient une \'equation
@@ -482,6 +473,8 @@ temp\'eratures pour les deux lacs.
     \caption{Chutes de temp\'eratures pour $\alpha \in \{0.5, 3, 4\}$.}
 \end{figure}
 
+\subsection{De \SI4{\celsius} \`a \SI0\celsius}
+
 \subsection{Validit\'e des r\'esultats}
 
 \section{Analyse}
@@ -500,7 +493,7 @@ temp\'eratures pour les deux lacs.
     \bibitem{AvgTemp} \href{http://www.mddelcc.gouv.qc.ca/climat/surveillance/classification.htm}
         {Classification climatologique des temp\'eratures}
     \bibitem{MeteoTemp} \href{https://www.meteomedia.com/ca/api/sitewrapper/index?b=%2Fstatistics%2F&p=%2Fprevisions%2Fstatistiques%2Findex&url=%2Fstatistics%2Fcaqc0363%2Fmontreal%2F%2F%2F%3F}
-            {Statistiques: Montr\'eal, Que\'ebec - M\'et\'eoM\'edia}
+        {Statistiques: Montr\'eal, Que\'ebec - M\'et\'eoM\'edia}
     \bibitem{GlobalRaise} \href{https://www.independent.co.uk/environment/global-warming-temperature-rise-climate-change-end-century-science-a8095591.html}
         {Worst-case global warming predictions}
     \bibitem{CanadaRaise} \href{https://www.canada.ca/fr/environnement-changement-climatique/services/changements-climatiques/science.html}
@@ -537,6 +530,10 @@ temp\'eratures pour les deux lacs.
         {Rate of heat flow}
     \bibitem{Conductivity} \href{https://www.engineeringtoolbox.com/thermal-conductivity-d_429.html}
         {Thermal Conductivity of common Materials and Gases}
+    \bibitem{QuoraTemp} \href{https://fr.quora.com/Quelle-est-la-temp%C3%A9rature-de-la-terre-%C3%A0-10m-et-et-20m}
+        {Quelle est la temp\'erature de la terre}
+    \bibitem{GeoTemp} \href{http://www.sblais.com/default.asp?idpage=2377&idpageparent=2315}
+        {La g\'eothermie}
 \end{thebibliography}
 
 \end{document}
