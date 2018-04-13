@@ -36,17 +36,17 @@ Universit\'e de Montr\'eal
 
 Dans le cadre de travaux effectu\'es par la Ville de Montr\'eal au Lac aux Castors le probl\`eme de
 polif\'eration d'algues a \'et\'e r\'egl\'e. Toutefois, la patinoire hivernale naturelle est
-d\'esormais ferm\'ee en vertu d'un accident hivernale reli\'e \`a la qualit\'e de la gla\c ce. Les
+d\'esormais ferm\'ee en vertu d'un accident hivernale reli\'e \`a la qualit\'e de la glace. Les
 citoyens ne pourront d\'esormais plus jouir de cette activit\'e au Lac aux Castors.
 
 Le r\'echauffement plan\'etaire \'etant d\'esormais une r\'ealit\'e scientifiquement accept\'ee les
 gestionnaires ont bl\^am\'e la situation sur des temp\'eratures plus \'elev\'ees qu'autrefois.
 Toutefois, une cons\'equence directe des travaux est que la profondeur du lac a augment\'e de fa\c
 con significative. Il est donc possible qu'il soit tout simplement plus difficile d'obtenir une
-\'epaisseur de gla\c ce suffisante en raison du volume d'eau plus important \`a refroidir.
+\'epaisseur de glace suffisante en raison du volume d'eau plus important \`a refroidir.
 
 Nous avons donc construit certains mod\`eles permetant de v\'erifier l'impact des raisons
-ci-haut mentionn\'es sur la qualit\'e de la gla\c ce.
+ci-haut mentionn\'es sur la qualit\'e de la glace.
 
 \section{Impact de la temp\'erature}
 
@@ -55,37 +55,148 @@ r\'echauffement plan\'etaire. Nous pensons toutefois v\'erifier le bienfond\'e d
 Ville de Montr\'eal sur la cause ultime de l'accident de l'hiver 2016-2017 qui est survenu apr\`es
 les travaux de r\'efections.
 
-Nous allons d'abord d'\'eterminer si il y a une diff\'erence statistiquement significative dans les
-temp\'eratures enregistr\'ees aux cours des ann\'ees r\'ecentes \`a celle historique. Il est entendu
-que la condition de la gla\c ce d\'epend des temp\'eratures ext\'erieures et nous allons donc aussi
-tenter de mesurer le niveau de corr\'elation entre les temp\'eratures observ\'ees contre les
-donn\'es que nous avons pu trouv\'ees sur l'ouverture des patinoires de l'\^Ile de
-Montr\'eal~\cite{PatHist}.
+Nous allons d'abord d\'eterminer si il y a une diff\'erence statistiquement significative dans les
+temp\'eratures enregistr\'ees aux cours des ann\'ees r\'ecentes \`a celles historiques. Il est
+entendu que la condition de la glace d\'epend des temp\'eratures ext\'erieures et nous allons donc
+aussi tenter de mesurer le niveau de corr\'elation entre les temp\'eratures observ\'ees et les
+donn\'es d'ouverture des patinoires de l'\^Ile de Montr\'eal~\cite{PatHist}.
 
 \subsection{Hypoth\`eses}
+
+Nos hypoth\`eses sont principalement ax\'ees sur la nature des donn\'ees que nous avons recueillies:
+
+\begin{enumerate}
+    \item On suppose que nos donn\'ees sur les temp\'eratures recueillies sont uniform\'ement
+        distribu\'ees \`a Montr\'eal;
+    \item Lorsque les donn\'ees sont absentes en d\'ebut d\'ecembre et fin mars, nous supponsons que
+        les patinoires sont ferm\'ees et que nous sommes hors-saison;
+    \item Nous consid\'erons que les donn\'es accumul\'ees sur les conditions des patinoires sont
+        fiables;
+    \item Nous assumons que l'\'ecart-type de temp\'erature donn\'ee par le minist\`ere est
+        l'\'ecart-type r\'eel des temp\'eratures d'hivers avec lesquels nous comparons~\cite{AvgTemp};
+    \item On suppose que s'il y a effectivement r\'echauffement plan\'etaire que ce dernier
+        n'affecte pas significativement l'\'ecart-type.
+\end{enumerate}
 
 \subsection{Augmentation de la temp\'erature}
 
 En utilisant les donn\'es de temp\'eratures disponible~\cite{TempHist} nous avons effectu\'e un test
-d'hypoth\`ese pour d\'eterminer si les temp\'eratures moyennes des 10 derni\`eres ann\'ees sont
-sup\'erieures \`a celles des ann\'ees historique.
+d'hypoth\`ese pour d\'eterminer si les temp\'eratures moyennes des 10 derni\`eres ann\'ees \`a
+celles des 30 derni\`eres ann\'ees compil\'ees par M\'et\'eoM\'edia~\cite{MeteoTemp}.
 
-********************
+Notre test d'hypoth\`ese repose sur les variables suivantes:
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|l|l|r|}\hline
+        Variable &Description &Valeur\\\hline
+        $\mu_T$ &Moyenne de temp\'erature d\'ecembre-mars, 1981-2010 &-\SI{6.800}\celsius\\\hline
+        $\sigma_T^2$, $\sigma_t^2$ &\'Ecart-type donn\'e par le minist\`ere &\SI{2.25}\celsius\\\hline
+        $\mu_t$ &Moyenne \'echantillonnale d\'ecembre-mars, 2008-2017 &-\SI{5.062}\celsius\\\hline
+        $n_T$ &Ann\'ees de temp\'eratures historique enregistr\'ees &30\\\hline
+        $n_t$ &Ann\'ees de temp\'eratures r\'ecentes &10\\\hline
+    \end{tabular}
+\end{table}
+\begin{align*}
+    H_0&: \mu_T - \mu_t = 0\\
+    H_A&: \mu_T - \mu_t < 0\\
+    p_\text{valeur} &= \frac{\mu_T - \mu_t}{\sqrt{\frac{\sigma_T^2}{n_T} + \frac{\sigma_t^2}{n_t}}} = \frac{\mu_T - \mu_t}{\sigma_T\sqrt{\frac1{n_T}+\frac1{n_t}}}\\
+                    &= \frac{-6.8 + 5.062}{\sqrt{2.25}\sqrt{\frac1{30}+\frac1{10}}} = -3.17
+\end{align*}
+
+Notre statistique de test \'etant tr\`es faible nous devons \'ecarter l'hypoth\`ese que les
+temp\'eratures r\'ecentes ne sont pas sup\'erieures aux temp\'eratures historique.
 
 Nous avons aussi extrait les donn\'ees d'ouverture des patinoires de l'\^Ile de Montr\'eal. Nous
 avons concentr\'e nos efforts sur les donn\'ees des saisons 2008 \`a 2013, ann\'ees pour lesquels
 nous avions les donn\'ees les plus robustes et ce pour les mois de D\'ecembre \`a Mars.
 
 Nous avons \'etablis deux mesures pour v\'erifier la corr\'elation entre les temp\'eratures
-observ\'ees et l'ouverture des patinoire. Nos pr\'edicteurs de jours possible de patinage sont les
-deux suivants:
+observ\'ees et l'ouverture des patinoire. Notre premi\`ere pr\'ediction est le nombre de jours o\`u
+la temp\'erature maximale est au plus \SI0\celsius. La seconde est plus complexe, on
+ne comptabilisera une journ\'ee que si les crit\`eres suivants sont satisfaits:
 
 \begin{enumerate}
-    \item Le nombre de jours par ann\'ee o\`u la temp\'erature max
+    \item La temp\'erature moyenne de la journ\'ee est au plus \SI0\celsius;
+    \item Une surface n'est patinable que si la journ\'ee est indirectement pr\'ec\'ed\'ee de deux
+        nuits cons\'ecutives de temp\'eratures minimales d'au plus -\SI{10}\celsius;
+    \item Indirectement signifie que la journ\'ee n'est pas s\'epar\'ee des nuits froides par
+        trois jours cons\'ecutifs de temp\'erature moyenne sup\'erieure \`a \SI0\celsius.
 \end{enumerate}
 
-Condition 1: Nombres de jours par ann\'ee que la Temp Max est <= 0.
-Condition 2: 2 jours de suite -10 degr\'es, Temp Moyenne de la journ\'ee <= 0, si 3 jours d'affil\'es > 0
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|l|r|r|r|r|}\hline
+        Ann\'ee &Temp moyenne &Pr\'ediction 1 &Pr\'ediction 2 &Ouvertures\\
+                &(\si\celsius) & & &(nombre)\\\hline
+        2017 &-4.92 &59 &82 &\\\hline
+        2016 &-3.96 &52 &70 &\\\hline
+        2015 &-6.69 &74 &89 &\\\hline
+        2014 &-6.59 &72 &90 &\\\hline
+        2013 &-5.05 &58 &61 &\\\hline
+        2012 &-2.57 &50 &65 &57\\\hline
+        2011 &-4.78 &66 &69 &56\\\hline
+        2010 &-5.26 &65 &69 &55\\\hline
+        2009 &-5.53 &72 &77 &62\\\hline
+        2008 &-5.26 &61 &91 &62\\\hline
+        Moyenne &-5.06 &62.0 &76.3 &58.4\\\hline
+    \end{tabular}
+\end{table}
+
+On a trouv\'e une droite des moindres des moindres carr\'es entre nos deux pr\'edictions et les
+temp\'eratures moyennes saisonni\`eres pour trouver leur corr\'elations. En particulier, la pr\'ediction
+1 \`a une corr\'elation forte n\'egative $R = -0.892$.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{Prediction1.png}
+    \includegraphics[scale=0.5]{Prediction2.png}
+    \caption{Pr\'edictions 1 \& 2 contre les temp\'eratures moyennes saisonni\`eres}
+\end{figure}
+
+Nos pr\'edicteurs sont donc fortement reli\'es aux temp\'eratures moyennes saisonni\`eres, s'ils sont
+efficaces pour pr\'edire les jours d'ouverture r\'eels on aura une bonne mesure de l'impact des
+augmentations de temp\'eratures. On va v\'erifier si on doit rejeter la pr\'ediction 1 comme \'etant
+une bonne repr\'esentation du nombre de jours d'ouvertures r\'eel en effectuant un test
+d'hypoth\`ese d'une diff\'erence de moyenne. Puisque notre \'echantillon est petit nous allons
+effectuer un test de Student soumises aux variables suivantes:
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|l|l|r|}\hline
+        Variable &Description &Valeur\\\hline
+        $n_1$, $n_2$ &Ann\'ees de donn\'es de patinoires ouvertes &5\\\hline
+        $s$ &Estimateur de la diff\'erence de moyenne &\\\hline
+        $s_1$, $s_2$ &\'Ecart-type \'echantillonnal &\\\hline
+        $\overline{P_1}$ &Moyenne du pr\'edicteur 1 &\\\hline
+        $\overline O$ &Moyenne des jours d'ouvertures &\\\hline
+    \end{tabular}
+    \caption{Variables pour les ann\'ees de donn\'ees pertinentes 2008-2012}
+\end{table}
+
+\begin{align*}
+    s &= \sqrt{\frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1+n_2-2}}\\
+      &= \sqrt{39}\\
+    T_{\overline{P_1}-\overline O} &= \frac{\overline{P_1} - \overline O}{s\sqrt{\frac1{n_1}+\frac1{n_2}}}
+                                   = \frac{62.8-58.4}{\sqrt{39}\sqrt{\frac25}}\\
+                                   &= 1.114
+\end{align*}
+
+On ne peut donc pas \'ecarter la possibilit\'e que notre $1^\text{er}$ pr\'edicteur est
+repr\'esentatif des jours d'ouvertures r\'eel. L'\'equation de la droite des moindres carr\'es de la
+pr\'ediction 1 est la suivante:
+
+\[ y = -6.72x + 31.2 \]
+
+Nous donne l'impact q'une augmentation d'un \si\celsius~va diminuer le nombre de jours d'ouvertures
+d'environ 6.72 jours par ann\'ee. Les mod\`eles actuels nous disent que la temp\'erature globale
+devrait augmenter de \SI4\celsius~d'ici 2100~\cite{GlobalRaise} par rapport \`a la temp\'erature
+pr\'e-industrielle. Toutefois l'impact Canadien d'une telle augmentation serait le double de
+l'impact global~\cite{CanadaRaise}. Nous interpr\'etons cette derni\`ere comme repr\'esentant une
+augmentation d'environ \SI6\celsius~au cours des prochains 80 ans et donc une augmentation
+\si{0.75}\celsius~par d\'ec\'enie.
+
+\subsection{Validit\'e des r\'esultats}
 
 \section{Impact de la profondeur}
 
@@ -371,8 +482,10 @@ temp\'eratures pour les deux lacs.
     \caption{Chutes de temp\'eratures pour $\alpha \in \{0.5, 3, 4\}$.}
 \end{figure}
 
+\subsection{Validit\'e des r\'esultats}
+
 \section{Analyse}
-\subsection{Validit\'e}
+\subsection{Discussion des r\'esultats}
 \subsection{Forces et faiblesses}
 
 \section{Conclusion}
@@ -384,6 +497,14 @@ temp\'eratures pour les deux lacs.
         {M\'et\'eoM\'edia - Montr\'eal}
     \bibitem{PatHist} \href{http://donnees.ville.montreal.qc.ca/dataset/patinoires-historique}
         {Patinoire - historique des conditions}
+    \bibitem{AvgTemp} \href{http://www.mddelcc.gouv.qc.ca/climat/surveillance/classification.htm}
+        {Classification climatologique des temp\'eratures}
+    \bibitem{MeteoTemp} \href{https://www.meteomedia.com/ca/api/sitewrapper/index?b=%2Fstatistics%2F&p=%2Fprevisions%2Fstatistiques%2Findex&url=%2Fstatistics%2Fcaqc0363%2Fmontreal%2F%2F%2F%3F}
+            {Statistiques: Montr\'eal, Que\'ebec - M\'et\'eoM\'edia}
+    \bibitem{GlobalRaise} \href{https://www.independent.co.uk/environment/global-warming-temperature-rise-climate-change-end-century-science-a8095591.html}
+        {Worst-case global warming predictions}
+    \bibitem{CanadaRaise} \href{https://www.canada.ca/fr/environnement-changement-climatique/services/changements-climatiques/science.html}
+        {Science des changements climatiques}
     \bibitem{Lac} \href{https://www.ledevoir.com/politique/montreal/517828/patinoire-du-lac-aux-castors}
         {Montr\'eal abandonne la patinoire naturelle du lac aux Castors}
     \bibitem{Evap} \href{https://www.quora.com/How-does-evaporation-take-place-at-all-temperatures-whereas-boiling-takes-place-at-a-fixed-temperature-under-a-given-pressure}
