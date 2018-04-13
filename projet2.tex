@@ -35,7 +35,7 @@ Universit\'e de Montr\'eal
 \section{Introduction}
 
 Dans le cadre de travaux effectu\'es par la Ville de Montr\'eal au Lac aux Castors le probl\`eme de
-polif\'eration d'algues a \'et\'e r\'gl\'e. Toutefois, la patinoire hivernale naturelle est
+polif\'eration d'algues a \'et\'e r\'egl\'e. Toutefois, la patinoire hivernale naturelle est
 d\'esormais ferm\'ee en vertu d'un accident hivernale reli\'e \`a la qualit\'e de la gla\c ce. Les
 citoyens ne pourront d\'esormais plus jouir de cette activit\'e au Lac aux Castors.
 
@@ -248,29 +248,28 @@ Lorsqu'un corps subit une variation de temp\'erature $\Delta T$ l'energie transf
 nous est donn\'e par:
 
 \begin{align}
-    Q &= c_pm\Delta T\label{eq:heat}\\
+    Q &= C\Delta T\label{eq:heat}\\
+    &= c_pm\Delta T\notag\\
     &= c_p\rho V\Delta T\notag\\
-    &= c_p\rho (\pi r^2p)\Delta T &&\text{(pour un lac cylindrique)}\notag
+    &= c_p\rho (p\pi r^2p)\Delta T &&\text{(pour un lac cylindrique)}\notag
 \end{align}
 
-En particulier, la capacit\'e thermique d'un corps et une propri\'et\'e extensive~\cite{Extensive}
-ce qui signifie que sa valeur est directement proportionnelle \`a la taille du syst\`eme:
-
-\[ C = c_pm \]
-
-On voit donc que si la masse du second lac est le triple du premier, il devra perdre trois fois plus
-d'\'energie pour atteindre la m\^eme temp\'erature. Nous avons donc d\'ej\`a une excellente raison
-de croire qu'une augmentation de la profondeur d'un lac sans augmentation de sa surface aura un
-impact important sur le temps de refroidissement.
+En particulier, la capacit\'e thermique d'un corps $(C)$ est une propri\'et\'e
+extensive~\cite{Extensive} ce qui signifie que sa valeur est directement proportionnelle \`a la
+taille du syst\`eme. On voit donc que si la masse du second lac est le triple du premier, il devra
+perdre trois fois plus d'\'energie pour atteindre la m\^eme temp\'erature. Nous avons donc d\'ej\`a
+une excellente raison de croire qu'une augmentation de la profondeur d'un lac sans augmentation de
+sa surface aura un impact important sur le temps de refroidissement.
 
 La figure \ref{water-convection} nous montre un second lac expos\'e \`a la m\^eme surface
 ext\'erieure. Par contre, il est expos\'e \`a une plus grande superficie en contact avec le sol que
-nous consid\'erons comme une source de chaleur. Nous allons donc \'evaluer
+nous consid\'erons comme une source de chaleur. Nous allons donc \'evaluer d'un premier temps le
+temps n\'ecessaire pour obtenir le d\'egagement de chaleur \`a l'atteinte de \critical.
 
 Les donn\'ees officielles sur la superficie et la profondeur du Lac aux Castors semblent difficile
 \`a obtenir. Nous avons toutefois r\'eussi \`a estimer la superficie du lac \`a environ
 \SI{18500}{\square\meter} (voir figure \ref{google-castor}). On nous informe aussi qu'en vertu des travaux effectu\'es le lac est
-pass\'e d'une profondeur d'environ $\SI{2}\meter$ \`a \SI{7}\meter~\cite{Lac-Castor}.
+pass\'e d'une profondeur d'environ 2 \`a 7 m\^etres~\cite{Lac-Castor}.
 
 \begin{figure}\label{google-castor}
     \centering
@@ -278,7 +277,7 @@ pass\'e d'une profondeur d'environ $\SI{2}\meter$ \`a \SI{7}\meter~\cite{Lac-Cas
     \caption{Superficie du Lac aux Castors}
 \end{figure}
 
-En ramenant ces donn\'ees \`a un lac cylindrique de superficie et volumes respectifs on obtiendra
+En ramenant ces donn\'ees \`a un lac cylindrique de superficie et volumes respectifs on obtient
 les param\`etres ci-dessous pour effectuer nos calculs:
 
 \begin{table}[h]
@@ -286,7 +285,7 @@ les param\`etres ci-dessous pour effectuer nos calculs:
     \begin{tabular}{|l|l|r|}\hline
         Param\`etre &Description &Valeur\\\hline
         $c_p$ &Capacit\'e thermique massique de l'eau &\SI{4185.5}{\joule\per{\kelvin\,\kilogram}}\\\hline
-        $T_\text{sol}$ &Temp\'erature du sol &\SI{281.15}\kelvin\ (\SI8\celsius)\\\hline
+        $T_\text{sol}$ &Temp\'erature du sol &\SI{279.15}\kelvin\ (\SI8\celsius)\\\hline
         $T_\text{air}$ &Temp\'erature de l'air &\SI{261.15}\kelvin\ (\SI{-12}\celsius)\\\hline
         $T_\text{init}$ &Temp\'erature initiale de l'eau &\SI{285.15}\kelvin\ (\SI8\celsius)\\\hline
         $T_\text{cible}$ &Temp\'erature \`a hydrostabilit\'e &\SI{277.13}\kelvin\\\hline
@@ -295,7 +294,7 @@ les param\`etres ci-dessous pour effectuer nos calculs:
         $\rho$ &Densit\'e de l'eau &\SI1{\kilogram\per{\cubic\meter}}\\\hline
         $K$ &Conductivit\'e thermique de surface &inconnue\\\hline
         $x$ &\'Epaisseur de l'interface de surface &inconnue\\\hline
-        $\alpha$ &Ratio des constantes du fond contre surface &inconnue\\\hline
+        $\alpha$ &Ratio des constantes du fond contre surface &param\`etre\\\hline
     \end{tabular}
     \caption{Param\`etres}
 \end{table}
@@ -305,54 +304,72 @@ On trouves les pertes de chaleur n\'ecessaire de nos deux lacs:
 
 \begin{align*}
     r &= \sqrt{\frac{18500}\pi} = \SI{76.738}\meter\\
-    C_1 &= c_pm_1 = c_p\rho p_1\pi r^2 = \num{4.929e7}\si{\joule\per\kelvin}\\
-    C_2 &= c_pm_2 = c_p\rho p_2\pi r^2 = \num{1.725e8}\si{\joule\per\kelvin}\\
+    C_1 &= c_pm_1 = c_p\rho p_1\pi r^2 = \num{1.549e8}\si{\joule\per\kelvin}\\
+    C_2 &= c_pm_2 = c_p\rho p_2\pi r^2 = \num{5.420e8}\si{\joule\per\kelvin}\\
     \Delta T &= T_\text{cible} - T_\text{init} = \SI{-4.02}\kelvin\\
-    Q_1 &= C_1\Delta T = -\num{1.982e8}\si\joule\\
-    Q_2 &= C_2\Delta T = -\num{6.936e8}\si\joule
+    Q_1 &= C_1\Delta T = -\num{6.226e8}\si\joule\\
+    Q_2 &= C_2\Delta T = -\num{2.179e9}\si\joule
 \end{align*}
 
 On doit maintenant \'evaluer la chaleur \'emise par la surface et re\c cue par le fond du lac.
 L'\'equation du flux thermique \eqref{eq:flux} n'est normalement pas applicable
 directement~\cite{HeatFlow} puisqu'elle est typiquement utilis\'ee entre deux syst\`emes de masse et
-capacit\'e thermique massique identiques. Aussi, la structure de l'interface entre a surface de
-l'eau et l'air ambiante ainsi que celle du fond du lac nous sont inconnues. Nous ne pensons pas
+capacit\'e thermique massique identiques. Aussi, la structure des interfaces entre a surface de
+l'eau et l'air ambiant ainsi que celle du fond du lac nous sont inconnues. Nous ne pensons pas
 pouvoir trouver la conductivit\'e thermique appropri\'ee ainsi que le gradient de temp\'erature
-r\'eel. Pour simplifier les calculs nous allons exprimer les constantes pour le fond du lac comme le
-produit d'un nouveau param\^etre qu'on pourra faire varier.
+r\'eel.
 
 \begin{align}
     \frac{\Delta Q}{\Delta t} = -KA\frac{\Delta T}x \label{eq:flux}
 \end{align}
 
-Nous allons par contre \^etre en mesure d'\'evaluer la diff\'erence entre nos deux syst\`emes en
-terme de proportion. Pour ceci, nous allons absorber ces constante dans la variable d'int\'egration,
-cela va nous emp\^echer d'evaluer un temps r\'eel mais pr\'eserver la capacit\'e de comparer
-quantitativement les deux syst\`emes.
+Nous allons donc absorber ces constantes dans la variable d'int\'egration. Pour simplifier les
+calculs nous allons aussi absorber l'aire de la surface et exprimer les constantes pour le fond du
+lac comme le produit d'un nouveau param\`etre qu'on fera varier. Nous n'obtiendront donc pas une
+unit\'e de temps r\'eelle mais nous allons toutefois \^etre en mesure d'\'evaluer la diff\'erence
+relative entre nos deux syst\`emes.
 
 \begin{align}
     A_1 &= 2\pi r p_1 + \pi r^2 = \num{1.946e4}\si{\square\meter}\notag\\
     \frac{dQ_1}{dt} &=
-        -KA_\text{lac}\frac{T - T_\text{air}}x -\alpha KA_1\frac{T_\text{fond}-T}x\notag\\
-    dQ_1 &=
-        \underbrace{KA_\text{lac}\frac{T_\text{air}-T}x\,dt
-        -\alpha KA_1\frac{T_\text{fond}-T}x\,dt}_{\tau = \frac Kxt}\notag\\
-    &= A_\text{lac}(T_\text{air} - T)\ - \alpha A_1(T_\text{fond} - T)\,d\tau\label{eq:diff}\\
-    \text{o\`u } T(\tau) &= T_\text{cible} - \frac{Q_1(\tau)}{c_pm_1} \label{eq:temp}&&\text{(par l'\'equation \ref{eq:heat})}
+        -KA_\text{lac}\frac{T_1(t) - T_\text{air}}x -\alpha KA_1\frac{T_\text{fond}-T_1(t)}x\notag\\
+    &= \underbrace{KA_\text{lac}\frac{T_\text{air}-T_1(t)}x\
+        -\alpha KA_1\frac{T_\text{fond}-T_1(t)}x}_{\tau = A_\text{lac}\frac Kxt}\notag\\
+    \frac{dQ_1}{d\tau} &= T_\text{air} - T_1(\tau) - \alpha (T_\text{fond} -
+        T_1(\tau))\label{eq:diff}\\
+    \text{o\`u } T_1(\tau) &= T_\text{cible} - \frac{Q_1(\tau)}{C_1} \label{eq:temp}&&\text{(par l'\'equation \ref{eq:heat})}
 \end{align}
 
-On a utilis\'e Mathematica pour substituer \eqref{eq:temp} dans l'\'equation \eqref{eq:diff} et
-r\'esoudre l'\'equation diff\'erentielle avec les conditions initiales. On trouves ainsi une
-\'equation exponentielle assez charg\'ee $Q_1(\tau)$ et similairement pour $Q_2(\tau)$. Ces
-derni\`eres \'etant inversibles, on a pu trouver le ``temps'' $\tau$ pour atteindre la perte de
-chaleur recherch\'ee pour diverses valeurs de $\alpha$. En substituant les solutions $Q_1(\tau)$ et
-$Q_2(\tau)$ dans l\'equation~\ref{eq:heat} on obtient les \'equations de temp\'eratures. On montre
-ici l'\'equation r\'esultante pour $\alpha = 0.1$.
+En substituant \eqref{eq:temp} dans l'\'equation \eqref{eq:diff} on obtient une \'equation
+diff\'erentielle \`a variable s\'eparable qui n'est pas si difficile \`a r\'esoudre. En donnant les
+conditions initiales ($Q(0) = 0$) on trouves $Q_1(\tau)$ et $Q_2(\tau)$. Apr\`es substitution dans
+\eqref{eq:temp} on obtient les \'equations nous donnant l'\'evolution de la temp\'erature en fonction
+de notre temps $\tau$.
 
 \begin{align*}
-    T_1(\tau) &= 285.15\, -\num{7.599e-9} \left(\num{2.412e9} e^{\num{1.070e-4}}-\num{2.412e9}\right)\\
-    T_2(\tau) &= 285.15\, -\num{2.477e-9} \left(\num{7.536e9} e^{\num{3.012e-5}}-\num{7.536e9}\right)
+    T_1(\tau) &=
+        T_\text{init} +
+            \left(1-e^{\textstyle -t\frac{\alpha A_1-A_\text{lac}}{C_1}}\right)
+            \frac
+                {A_\text{lac} T_\text{air} + (\alpha A_1-A_\text{lac})T_\text{cible} - \alpha A_1 T_\text{fond}}
+                {\alpha A_1-A_\text{lac}}\\
+    T_2(\tau) &=
+        T_\text{init} +
+            \left(1-e^{\textstyle -t\frac{\alpha A_2-A_\text{lac}}{C_2}}\right)
+            \frac
+                {A_\text{lac} T_\text{air} + (\alpha A_2-A_\text{lac})T_\text{cible} - \alpha A_2 T_\text{fond}}
+                {\alpha A_2-A_\text{lac}}\\
 \end{align*}
+
+Ces derni\`eres \'etant inversibles, on a pu trouver le temps $\tau$ pour atteindre la perte de
+chaleur recherch\'ee pour diverses valeurs de $\alpha$. On trace ainsi les courbes des chutes de
+temp\'eratures pour les deux lacs.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.7]{Alpha.png}
+    \caption{Chutes de temp\'eratures pour $\alpha \in \{0.5, 3, 4\}$.}
+\end{figure}
 
 \section{Analyse}
 \subsection{Validit\'e}
