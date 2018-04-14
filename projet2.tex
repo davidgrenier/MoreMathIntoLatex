@@ -253,10 +253,11 @@ ext\'erieure variable va am\'eliorer le mod\`ele.
 Puisque nous \'evaluerons la diminution de temp\'erature d'un lac par la chaleur d\'egag\'ee par le
 plan d'eau \`a l'air environnant il s'ensuit que la temp\'erature chutera en surface. La capacit\'e
 thermique~\cite{CapTherm} massique du sol est inf\'erieure a celle de l'eau, toutefois le volume de
-la terre est de loin sup\'erieur \`a celle d'un lac. Il semble que la temp\'erature ne varie que de
-\SI2{\celsius}~\cite{QuoraTemp} au cours d'une ann\'ee et de \SI{0.3}{\celsius} \`a tous les dix
-m\^etre de profondeur. Nous accepterons donc une temp\'erature constante en hiver de
-\SI{6}{\celsius}~\cite{GeoTemp}.
+la terre est de loin sup\'erieur \`a celle d'un lac. Il semble que la temp\'erature du sol ne varie
+que de \SI2{\celsius}~\cite{QuoraTemp} au cours d'une ann\'ee et de \SI{0.3}{\celsius} \`a tous les
+dix m\^etre de profondeur. Dans le but de simplifier la formule et s'assurer que la temp\'erature de
+l'eau ne d\'epasse jamais celle du sol, nous choisissons \SI8{\celsius}~\cite{GeoTemp} comme
+temp\'erature du sol.
 
 \subsection{La convection thermique}
 
@@ -273,7 +274,7 @@ processus de convection thermique~\cite{ConvNat}.
 Nous allons donc consid\'erer qu'un lac dont la temp\'erature est sup\'erieure \`a \critical, va
 voir sa temp\'erature diminuer de fa\c con uniforme. D\'eterminer l'impact de la profondeur d'un
 lac pour diminuer sa temp\'erature \`a \critical{} revient donc \`a mesurer le temps n\'ecessaire
-pour obtenir les chaleurs respectives d\'egag\'ees.
+pour obtenir les pertes de chaleurs respectives.
 
 \begin{figure}
     \centering
@@ -388,12 +389,12 @@ les param\`etres ci-dessous pour effectuer nos calculs:
     \begin{tabular}{|l|l|r|}\hline
         Param\`etre &Description &Valeur\\\hline
         $c_p$ &Capacit\'e thermique massique de l'eau &\SI{4185.5}{\joule\per{\kelvin\,\kilogram}}\\\hline
-        $T_\text{sol}$ &Temp\'erature du sol &\SI{279.15}\kelvin\ (\SI6\celsius)\\\hline
+        $T_\text{sol}$ &Temp\'erature du sol &\SI{281.15}\kelvin\ (\SI8\celsius)\\\hline
         $T_\text{air}$ &Temp\'erature de l'air &\SI{261.15}\kelvin\ (\SI{-12}\celsius)\\\hline
-        $T_\text{init}$ &Temp\'erature initiale de l'eau &\SI{285.15}\kelvin\ (\SI8\celsius)\\\hline
+        $T_\text{init}$ &Temp\'erature initiale de l'eau &\SI{285.15}\kelvin\ (\SI12\celsius)\\\hline
         $T_\text{cible}$ &Temp\'erature \`a hydrostabilit\'e &\SI{277.13}\kelvin\\\hline
         $A_{lac}$ &Superficie du lac &\SI{18500}{\square\meter}\\\hline
-        $p_1,p_2$ &Profondeur du lac et lac excav\'e &\SI2\meter, \SI7\meter\\\hline
+        $p_1,p_2$ &Profondeur des lacs 1 et 2 &\SI2\meter, \SI7\meter\\\hline
         $\rho$ &Densit\'e de l'eau &\SI1{\kilogram\per{\cubic\meter}}\\\hline
         $K$ &Conductivit\'e thermique de surface &inconnue\\\hline
         $x$ &\'Epaisseur de l'interface de surface &inconnue\\\hline
@@ -434,12 +435,10 @@ relative entre nos deux syst\`emes.
 \begin{align}
     A_1 &= 2\pi r p_1 + \pi r^2 = \num{1.946e4}\si{\square\meter}\notag\\
     \frac{dQ_1}{dt} &=
-        -KA_\text{lac}\frac{T_1(t) - T_\text{air}}x -\alpha KA_1\frac{T_\text{fond}-T_1(t)}x\notag\\
-    &= \underbrace{KA_\text{lac}\frac{T_\text{air}-T_1(t)}x\
-        -\alpha KA_1\frac{T_\text{fond}-T_1(t)}x}_{\tau = A_\text{lac}\frac Kxt}\notag\\
-    \frac{dQ_1}{d\tau} &= T_\text{air} - T_1(\tau) - \alpha (T_\text{fond} -
-        T_1(\tau))\label{eq:diff}\\
-    \text{o\`u } T_1(\tau) &= T_\text{cible} - \frac{Q_1(\tau)}{C_1} \label{eq:temp}&&\text{(par l'\'equation \eqref{eq:heat})}
+        \underbrace{-KA_\text{lac}\frac{T_\text{air}-T_1(t)}x\
+            -\alpha KA_1\frac{T_\text{fond}-T_1(t)}x}_{\tau = \frac Kxt}\notag\\
+    \frac{dQ_1}{d\tau} &= -A_\text{lac}T_\text{air}-\alpha A_1 T_\text{fond} + T_1(\tau)(A_\text{lac}+ \alpha A_1)\label{eq:diff}\\
+    \text{o\`u } T_1(\tau) &= T_\text{init} - \frac{Q_1(\tau)}{C_1} \label{eq:temp}&&\text{(par l'\'equation \eqref{eq:heat})}
 \end{align}
 
 En substituant \eqref{eq:temp} dans l'\'equation \eqref{eq:diff} on obtient une \'equation
@@ -451,16 +450,16 @@ de notre temps $\tau$.
 \begin{align*}
     T_1(\tau) &=
         T_\text{init} +
-            \left(1-e^{\textstyle -t\frac{\alpha A_1-A_\text{lac}}{C_1}}\right)
+            \left(1-e^{\textstyle -t\frac{\alpha A_1+A_\text{lac}}{C_1}}\right)
             \frac
-                {A_\text{lac} T_\text{air} + (\alpha A_1-A_\text{lac})T_\text{cible} - \alpha A_1 T_\text{fond}}
-                {\alpha A_1-A_\text{lac}}\\
+                {(\alpha A_1+A_\text{lac})T_\text{init} - A_\text{lac} T_\text{air} - \alpha A_1 T_\text{fond}}
+                {\alpha A_1+A_\text{lac}}\\
     T_2(\tau) &=
         T_\text{init} +
-            \left(1-e^{\textstyle -t\frac{\alpha A_2-A_\text{lac}}{C_2}}\right)
+            \left(1-e^{\textstyle -t\frac{\alpha A_2+A_\text{lac}}{C_2}}\right)
             \frac
-                {A_\text{lac} T_\text{air} + (\alpha A_2-A_\text{lac})T_\text{cible} - \alpha A_2 T_\text{fond}}
-                {\alpha A_2-A_\text{lac}}\\
+                {(\alpha A_2+A_\text{lac})T_\text{init} - A_\text{lac} T_\text{air} - \alpha A_2 T_\text{fond}}
+                {\alpha A_2+A_\text{lac}}\\
 \end{align*}
 
 Ces derni\`eres \'etant inversibles, on a pu trouver le temps $\tau$ pour atteindre la perte de
@@ -480,6 +479,7 @@ temp\'eratures pour les deux lacs.
 \section{Analyse}
 \subsection{Discussion des r\'esultats}
 \subsection{Forces et faiblesses}
+\subsection{Am\'eliorations possible}
 
 \section{Conclusion}
 
