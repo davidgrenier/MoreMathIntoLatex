@@ -7,7 +7,6 @@
 *.snm
 *.dvi
 sample/
-scratch.tex
 fBasics/
 fGarch/
 gss/
@@ -15,3 +14,5 @@ gss/
 stabledist/
 timeDate/
 timeSeries/
+*.jpg
+*.png

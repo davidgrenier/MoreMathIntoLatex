@@ -1,0 +1,31 @@
+\documentclass[]{amsart}
+\usepackage[makeroom]{cancel}
+\usepackage[margin=3.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath,amsthm,esint}
+\usepackage{amssymb}
+\usepackage{hhline}
+\usepackage{lineno}
+\usepackage{siunitx}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage[super]{nth}
+\usepackage{centernot}
+\usepackage{stackengine}
+
+\newcommand\ph{\ensuremath{\mathrel{\boxed{\mathstrut\phantom{abc}}}}}
+\newcommand\opn[1]{\operatorname{#1}}
+\newcommand\var[1]{\opn{Var}\left(#1\right)}
+\newcommand\esp[1]{\opn E{\left[#1\right]}}
+\newcommand\esps[1]{\opn E^2{\left[#1\right]}}
+\newcommand\cov[2]{\opn{Cov}\left(#1,#2\right)}
+\newcommand\prob[1]{\opn{P}\!\left[#1\right]}
+\newcommand\ol[1]{\overline{#1}}
+\newcommand{\ubar}[1]{\text{\b{$#1$}}}
+\renewcommand\gcd[2]{\opn{pgcd}(#1,#2)}
+
+\begin{document}
+On doit montrer que $\overline{\vphantom ba} \cdot(\overline b + \overline{\vphantom bc}) =
+(\overline{\vphantom ba} \cdot \overline
+b)+(\overline a \cdot \overline c)$.
+\end{document}
