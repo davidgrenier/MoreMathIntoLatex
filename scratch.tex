@@ -1,4 +1,4 @@
-\documentclass[reqno]{amsart}
+\documentclass[leqno]{amsart}
 \usepackage[makeroom]{cancel}
 \usepackage[margin=3.5cm]{geometry}
 \usepackage{graphicx}
@@ -13,15 +13,18 @@
 \usepackage{centernot}
 \usepackage{stackengine}
 \usepackage{dcolumn}
+\usepackage{multicol}
+\usepackage{bbm}
 
 \newcolumntype{2}{D{.}{}{2.0}}
-\setlength\parskip{1.25\baselineskip}
+% \setlength\parskip{0.5\baselineskip}
 
 \def\Mline#1{\hspace*{-\leftmargin}\parbox{\textwidth}{\begin{align*}#1\end{align*}}}
 \NewDocumentCommand\overarrow{O{=} O{\uparrow} m}{%
     \overset{\makebox[0pt]{\begin{tabular}{@{}c@{}}\ensuremath{#3}\\[0pt]\ensuremath{#2}\end{tabular}}}{#1}
 }
-\newcommand\ringring[1]{{\mathop{\kern0pt #1}\limits^{\vbox to-1.85ex{\kern-2ex\hbox to 0pt{\hss\normalfont\kern.1em \r{}\kern-.45em \r{}\hss}\vss}}}}
+\newcommand\rring[1]{{\mathop{\kern0pt #1}\limits^{\vbox to-1.85ex{\kern-2ex\hbox to 0pt{\hss\normalfont\kern.1em \r{}\kern-.45em \r{}\hss}\vss}}}}
+\newcommand\rrring[1]{{\mathop{\kern0pt #1}\limits^{\vbox to-1.85ex{\kern-2ex\hbox to 0pt{\hss\normalfont\kern.3em \r{}\kern-.45em \r{}\kern-.45em \r{} \hss}\vss}}}}
 \newcommand\ph{\ensuremath{\mathrel{\boxed{\mathstrut\phantom{abc}}}}}
 \newcommand\opn[1]{\operatorname{#1}}
 \newcommand\var[1]{\opn{Var}\left(#1\right)}
@@ -34,16 +37,15 @@
 \renewcommand\gcd[2]{\opn{pgcd}(#1,#2)}
 \newcommand\ob[1]{\ol{\vphantom b#1}}
 \newcommand\fl[1]{\opn{fl}{(#1)}}
+\newcommand\sig[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand\sg[1]{\opn{sg}(#1)}
+\newcommand\llb[1]{\mathbbm{#1}}
 
 \begin{document}
+\centering
+Soit $x_1-x_0 = x_2-x_1 = h$ et le changement de variable $u=x-x_1$:
 \begin{align*}
-    \mathring\gamma(t) &= (1,\sinh t)\\
-    s(t) &= \int_0^t \|\mathring\gamma(x)\|\,dx = \int_0^t \sqrt{1+\sinh^2 x}\,dx= \int_0^t \cosh
-    x\,dx\\
-    &= \sinh t\\
-    &\implies \tan\varphi(s) = \frac{\sinh t}1 = s(t)\\
-    &\implies \frac{d\varphi}{ds}\sec^2\phi(s) = 1\\
-    &\implies \kappa_s(s) = \frac{d\varphi}{ds} = \frac1{\sec^2\varphi(s)} = \frac1{1+\tan^2\varphi(s)}\\
-    &\phantom{\implies \kappa_s(t)} = \frac1{1+s^2}
+    &\int_{x_0}^{x_2} (x-x_0)(x-x_1)(x-x_2)\,dx\\
+    &\qquad = \int_{-h}^h (u+h)u(u-h)\,du = 0
 \end{align*}
 \end{document}

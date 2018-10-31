@@ -1,0 +1,202 @@
+\documentclass[10pt,landscape]{article}
+\usepackage{multicol}
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage[landscape]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb}
+\usepackage{color,graphicx,overpic}
+\usepackage{hyperref}
+\usepackage{mathtools}
+
+
+\pdfinfo{
+  /Title (example.pdf)
+  /Creator (TeX)
+  /Producer (pdfTeX 1.40.0)
+  /Author (Seamus)
+  /Subject (Example)
+  /Keywords (pdflatex, latex,pdftex,tex)}
+
+% This sets page margins to .5 inch if using letter paper, and to 1cm
+% if using A4 paper. (This probably isn't strictly necessary.)
+% If using another size paper, use default 1cm margins.
+\ifthenelse{\lengthtest { \paperwidth = 11in}}
+    { \geometry{top=.5in,left=.5in,right=.5in,bottom=.5in} }
+    {\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
+        {\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+        {\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+    }
+
+% Turn off header and footer
+\pagestyle{empty}
+
+% Redefine section commands to use less space
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%x
+                                {\normalfont\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0mm}%
+                                {-1explus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%
+                                {\normalfont\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {1ex plus .2ex}%
+                                {\normalfont\small\bfseries}}
+\makeatother
+
+% Define BibTeX command
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+% Don't print section numbers
+\setcounter{secnumdepth}{0}
+
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt plus 0.5ex}
+
+%My Environments
+\newtheorem{example}[section]{Example}
+% -----------------------------------------------------------------------
+
+\begin{document}
+\raggedright
+\footnotesize
+\begin{multicols}{3}
+
+
+% multicol parameters
+% These lengths are set only within the two main columns
+%\setlength{\columnseprule}{0.25pt}
+\setlength{\premulticols}{1pt}
+\setlength{\postmulticols}{1pt}
+\setlength{\multicolsep}{1pt}
+\setlength{\columnsep}{2pt}
+
+\subsection{Machine}
+\begin{align*}
+    realmax &= 2^{1023}\times(2-2^{-52}) \approx 1.7977 \times 10^{308}\\
+    realmin &= 2^{-1022} \approx 2.2251 \times 10^{-308}
+\end{align*}
+    \subsection{Convergence}
+\begin{align*}
+    &f(h) = O(h^n) \Longleftrightarrow |h| < \varepsilon \implies |f(h)| < C|h^n|\\
+    &\lim_{k\to\infty} \left|\frac{x_{k+1}-x^*}{(x_k-x^*)^\alpha}\right| = \lambda\\
+    &\alpha = \frac{1+\sqrt 5}2 \qquad \lambda^\alpha = \left|\frac{f''(x^*)}{2f'(x^*)}\right|
+\end{align*}
+\subsection{Point-fixe}
+\begin{align*}
+    &g \in \mathcal C[a,b],\, g([a,b]) \subset [a,b]\\
+    &\forall x \in (a,b),\, |g'(x)|\leq k < 1\\
+    &g'(x) = \frac{f''(x)f(x)}{f'(x)^2}\\
+    &h(x_k) = \frac{f(x_k)x_{k-1}-f(x_{k-1})x_k}{f(x_k)-f(x_{k-1})}\\
+    &|x_n-x^*| \leq \frac{k^n}{1-k}|x_1-x_0|
+\end{align*}
+    \subsection{Z\'ero multiple}
+\begin{align*}
+    &f(x) = (x-x^*)^mq(x) \qquad \lim_{x\to x^*} q(x) \ne 0\\
+    &f^{(0\dots m-1)}(x^*) = 0,\, f^{(m)}(x^*) \ne 0\\
+    &\lambda = g'(x^*) = 1-\frac 1m\\
+    &g_\mu(x) = x - \frac{f(x)f'(x)}{f'(x)^2-f(x)f'(x)}
+\end{align*}
+    \subsection{Rolle-G\'en\'eralis\'e}
+\begin{align*}
+    \begin{rcases}
+        f \in \mathcal C^n[a,b]\\
+        f^{(n+1)} \text{ existe sur } (a,b)\\
+        f(x_0,\dots,x_{n+1}) = 0
+    \end{rcases} \implies f^{(n+1)}(\xi \in (a,b)) = 0
+\end{align*}
+
+\subsection{Newton}
+\begin{align*}
+    P_n(x) = \sum_{k=0}^na_k\prod_{i=0}^{k-1}(x-x_i) \qquad 
+    a_k = F[x_0,\dots,x_k]
+\end{align*}
+    \begin{tabular}{|c|c|c|c|c|}\hline
+        x &$f(x)$ &$f[x_i,x_{i+1}]$ &$f[x_i,x_{i+1},x_{i+2}]$ &$f[x_i,\dots,x_{i+3}]$\\\hline
+        0 &3 & & &\\\hline
+          &  &3 & &\\\hline
+        1 &6 & &-1/2 &\\\hline
+          &  &2 & &1/20\\\hline
+        2 &8 & &-1/5 &\\\hline
+         & &1 & &\\\hline
+        6 &12 & & &\\\hline
+    \end{tabular}
+    \[ P_3(x) = 3 + 3x -\frac12x(x-1) + \frac1{20}x(x-1)(x-2) \]
+    \[ \exists \xi \in (a,b) \text{ t.q. } f[x_0,\dots,x_n] = \frac{f^{(n)}(\xi)}{n!} \]
+\subsection{Richardson}
+\begin{tabular}{|c|c|c|c|}\hline
+    $O(h)$ &$O(h^2)$ &$O(h^3)$\\\hline
+    $N_1(h)$ & &\\\hline
+    $N_1(h/2)$ &$N_2(h)$ &\\\hline
+    $N_1(h/4)$ &$N_2(h/2)$ &$N_3(h)$\\\hline
+\end{tabular}
+\begin{align*}
+    O(h^1) \implies N_j(h) = N_{j-1}\left(\frac h2\right) + \frac{N_{j-1}\left(\frac h2\right)-N_{j-1}(h)}{2^{j-1}-1}\\
+    O(h^2) \implies N_j(h) = N_{j-1}\left(\frac h2\right) + \frac{N_{j-1}\left(\frac h2\right)-N_{j-1}(h)}{4^{j-1}-1}\\
+\end{align*}
+\subsection{Romberg}
+\begin{align*}
+    O(h^2) \implies R_{k,j} = R_{k,j-1} + \frac{R_{k,j-1}-R_{k-1,j-1}}{4^{j-1}-1}
+\end{align*}
+\subsection{Diff\'erences}
+    \begin{align*}
+        P_1(x) &= f(x_i) - f[x_i,x_{i+1}](x-x_i)\\
+        P_1'(x) &= f[x_i,x_{i+1}] = \frac{f(x_{i+1})-f(x_i)}h \approx f'(x_i)\\
+        P_2(x) &= f(x_{i-1}) + f[x_{i-1},x_i](x-x_{i-1})\\
+        &+ f[x_{i-1},x_i,x_{i+1}](x-x_{i-1})(x-x_i)\\
+        P_2'(x) &= \frac{f(x_{i+1})-f(x_{i-1})}{2h} \approx f'(x_i)
+    \end{align*}
+\subsection{Lin\'eaire par morceaux}
+\begin{align*}
+    f(x \in [x_i,x_{i+1}]) = P_{1,i}(x) + \frac{f''(\xi)(b-a)^2}{8n^2}
+\end{align*}
+
+
+\subsection{Trap\`eze/compos\'ee}
+\begin{align*}
+    \int_a^b f(x)\,dx &= \frac h2\bigl(f(a)+f(b)\bigr) - \frac{f''(\eta)h^3}{12}\\
+    \int_a^b f(x)\,dx &=\frac h2\biggl(f(a) + 2\sum_{k=1}^{n-1}f(x_k) + f(b)\biggr)\\
+    &\quad -\frac{(b-a)f''(\eta)}{12}h^2
+\end{align*}
+\subsection{Simpson/compos\'ee}
+\begin{align*}
+    \int_a^b f(x)\,dx &= \frac h3\bigl(f(x_0)+4f(x_1)+f(x_2)\bigr) - \frac{f^{(4)}(\eta)h^5}{90}\\
+    \int_a^b f(x)\,dx &=\frac h3\biggl(f(a) +2 \sum_{k=1}^{n-1}f(x_{2k}) + 4\sum_{k=0}^{n-1}f(x_{2k+1}) +
+    f(b)\biggr)\\
+    &\qquad - \frac{(b-a)f^{(4)}(\eta)h^4}{180}\\
+    \int_a^b f(x)\,dx &= \frac{3h}8\bigl(f(a) + 3f(x_1) + 3f(x_2) + f(x_3)\bigr) -
+    \frac{3h^5}{80}f^{(4)}(\xi)
+\end{align*}
+\subsection{Erreurs}
+\begin{align*}
+    f(x) &= P_n(x) + \frac{f^{(n+1)}(\xi)}{(n+1)!}\prod_{i=0}^n(x-x_i)\\
+    f'(x_i) &= P_n'(x_i) + \frac{f^{(n+1)}(\xi)}{(n+1)!}h^n\prod_{\substack{j=0\\j\ne i}}^n (i-k)\\
+    |\psi_n(x)| &= \left|\prod_{i=0}^n(x-x_i)\right| \leq \frac{n!h^{n+1}}4
+\end{align*}
+
+\end{multicols}
+\begin{multicols}{2}
+\setlength{\premulticols}{1pt}
+\setlength{\postmulticols}{1pt}
+\setlength{\multicolsep}{1pt}
+\setlength{\columnsep}{2pt}
+\subsection{Newton-Cotes Ferm\'e}
+\begin{align*}
+    \int_a^b f(x)\,dx &= \sum_{i=0}^n a_if(x_i) + \frac{h^{n+3}f^{(n+2)}(\xi)}{(n+2)!}\int_0^n
+    t^2(t-1)\dots(t-n)\,dt\\
+    \int_a^b f(x)\,dx &= \sum_{i=0}^na_if(x_i) + \frac{h^{n+2}f^{(n+1)}(\xi)}{(n+1)!}\int_0^n
+    t(t-1)\dots(t-n)\,dt
+\end{align*}
+\subsection{Newton-Cotes Ouvert}
+\begin{align*}
+    \int_a^b f(x)\,dx &= \sum_{i=0}^n a_if(x_i) +
+    \frac{h^{n+3}f^{(n+2)}(\xi)}{(n+2)!}\int_{-1}^{n+1}t^2(t-1)\dots(t-n)\,dt\\
+    \int_a^b f(x)\,dx &= \sum_{i=0}^n a_if(x_i) +
+    \frac{h^{n+2}f^{(n+1)}(\xi)}{(n+1)!}\int_{-1}^{n+1}t(t-1)\dots(t-n)\,dt
+\end{align*}
+\end{multicols}
+\end{document}
