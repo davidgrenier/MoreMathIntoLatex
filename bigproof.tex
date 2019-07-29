@@ -1,7 +1,7 @@
 % 7.50
 \documentclass[executivepaper,leqno]{amsart}
 \usepackage[makeroom]{cancel}
-\usepackage[margin=4.5cm]{geometry}
+\usepackage[margin=1.5cm]{geometry}
 \usepackage{graphicx}
 \usepackage{amsmath,amsthm,esint}
 \usepackage{amssymb}
@@ -62,7 +62,39 @@
 \newcommand\tn[1]{#1^\top}
 
 \begin{document}
-\noindent
-Sachant que $\beta'X'M_1\beta X \searrow 0 \implies \opn C_p \searrow p$, on cherche le
-choix de variable minimisant $\opn C_p$.
+\begin{align*}
+    X_{(i)}'X_{(i)} &= X'X - x_ix_i'\\
+    (P+UV)^{-1} &= P^{-1}-P^{-1}U(I+VP^{-1}U)^{-1}VP^{-1}\\
+    (X'X - x_ix_i')^{-1} &= (X'X)^{-1} + (X'X)^{-1}x_i(I -
+    x_i'(X'X)^{-1}x_i)^{-1}x_i'(X'X)^{-1}\\
+    &= (X'X)^{-1} + (X'X)^{-1}x_i\frac{x_i'(X'X)^{-1}}{1-h_{ii}}\\
+    X_{(i)}'y_{(i)} &= \sum_{\substack{1\leq j \leq n\\i \ne j}} x_jy_j
+        = \sum_{j=1}^n x_jy_j - x_iy_i = X'y - x_iy_i\\
+    \hat\beta_{(i)} &= (X_{(i)}'X_{(i)})^{-1}X_{(i)}'y_{(i)}\\
+    &= \Bigl((X'X)^{-1} + (X'X)^{-1}x_i\frac{x_i'(X'X)^{-1}}{1-h_{ii}}\Bigr)(X'y-x_iy_i)\\
+    &= \hat\beta - (X'X)^{-1}x_iy_i + (X'X)^{-1}x_i\biggl(
+    \frac{\overbrace{x_i'(X'X)^{-1}X'y}^{\hat y_i} -
+    \overbrace{x_i'(X'X)^{-1}x_i}^{h_{ii}}y_i}{1-h_{ii}}\biggr)\\
+    &= \hat\beta - (X'X)^{-1}x_i\frac{(1-h_{ii})y_i - \hat y_i + h_{ii}y_i}{1-h_{ii}}\\
+    &= \hat\beta -\frac{(X'X)^{-1}x_ie_i}{1-h_{ii}}\\
+    \hat\beta-\hat\beta_{(i)} &= \frac{(X'X)^{-1}x_ie_i}{1-h_{ii}}\\
+    \hat y_i &= x_i'[I + (X_{(i)}'X_{(i)})^{-1}x_ix_i']^{-1}\hat\beta_{(i)}+h_{ii}y_i\\
+    &= x_i'\left[I+\biggl((X'X)^{-1}+(X'X)^{-1}x_i\frac{x_i'(X'X)^{-1}}{1-h_{ii}}\biggr)x_ix_i'\right]^{-1}\hat\beta_{(i)} + h_{ii}y_i\\
+    &= x_i'\biggl[I+(X'X)^{-1}x_ix_i' + \frac1{1-h_{ii}}(X'X)^{-1}x_i\overbrace{x_i'(X'X)^{-1}x_i}^{h_{ii}}x_i'\biggr]^{-1}\hat\beta_{(i)}+h_{ii}y_i\\
+    &= x_i'\biggl[I+\frac{(1-h_{ii})(X'X)^{-1}x_ix_i'}{1-h_{ii}}+\frac{h_i(X'X)^{-1}x_ix_i'}{1-h_{ii}}\biggr]^{-1}\hat\beta_{(i)} +h_{ii}y_i\\
+    &=
+    x_i'\biggl(I+\frac{(X'X)^{-1}x_ix_i'}{1-h_{ii}}\biggr)^{-1}\hat\beta_{(i)} + h_{ii}y_i\\
+    &= x_i'\Bigl(\frac{(1-h_{ii})I+(X'X)^{-1}x_ix_i'}{1-h_{ii}}\Bigr)^{-1}\hat\beta_{(i)} + h_{ii}y_i\\
+    &\left(\substack{
+        \displaystyle (X'X-x_ix_i')^{-1} = (X'X)^{-1} - (X'X)^{-1}x_ix_i'\frac{(X'X)^{-1}}{1-h_{ii}}\\
+        \displaystyle\implies (X'X)^{-1}x_ix_i' =(1-h_{ii})\Bigl(I-(X'X-x_ix_i')^{-1}X'X\Bigr)
+    }\right)\\
+    \hat y_i &= -x_i'\Bigl((X'X-x_ix_i')^{-1}X'X\Bigr)^{-1}\hat\beta_{(i)} +
+    h_{ii}y_i\\
+    &= -x_i'((X'X)^{-1}x_ix_i'-I)\hat\beta_{(i)}+h_{ii}y_i\\
+    &= (1-h_{ii})x_i'\hat\beta_{(i)}+h_{ii}y_i\\
+    &= x_i'\Bigl((1-h_{ii})\hat\beta-(X'X)^{-1}x_ie_i\Bigr)+h_{ii}y_i\\
+    &= (1-h_{ii})\hat y_i - h_{ii}(y_i-\hat y_i) + h_{ii}y_i\\
+    &= \hat y_i
+\end{align*}
 \end{document}
