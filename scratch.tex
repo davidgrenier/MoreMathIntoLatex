@@ -1,7 +1,7 @@
 % 7.50
 \documentclass[executivepaper,leqno]{amsart}
 \usepackage[makeroom]{cancel}
-\usepackage[margin=4.5cm]{geometry}
+\usepackage[margin=3.5cm]{geometry}
 \usepackage{graphicx}
 \usepackage{amsmath,amsthm,esint}
 \usepackage{amssymb}
@@ -33,7 +33,7 @@
 \newcommand\esp[1]{\opn{\mathbb E}{\left[#1\right]}}
 \newcommand\esps[1]{\opn E^2{\left[#1\right]}}
 \newcommand\cov[2]{\opn{Cov}\left(#1,#2\right)}
-\newcommand\prob[1]{\opn{P}\!\left[#1\right]}
+\newcommand\prob[1]{\opn{\mathbb P}\!\left[#1\right]}
 \newcommand\indep[2]{#1\bot\!\!\!\bot #2}
 \newcommand\ol[1]{\overline{#1}}
 \newcommand{\ubar}[1]{\text{\b{$#1$}}}
@@ -62,7 +62,21 @@
 \newcommand\tn[1]{#1^\top}
 
 \begin{document}
-\noindent
-Sachant que $\beta'X'M_1\beta X \searrow 0 \implies \opn C_p \searrow p$, on cherche le
-choix de variable minimisant $\opn C_p$.
+\begin{itemize}
+    \item Soit $f(x) = x^n-1 \in \mathbb Q[x]$, montrer que $\mathbb C \supset \mathbb Q$ contient toutes les racines de $f$;
+    \item Montrer que le corps de d\'ecomposition de $f(x) = x^n-1 \in \mathbb Q[x]$ est $\mathbb Q(\zeta_n)$;
+    \item D\'efinir le corps cyclotomique d'ordre $n$;
+    \item Soit $p \in \mathbb P$, alors:
+    \begin{itemize}
+        \item Montrer que $[\mathbb Q(\zeta_p):\mathbb Q] = p-1$;
+        \item Montrer que $[\mathbb Q(\zeta_n):\mathbb Q] = \phi(n)$;
+        \item Montrer que le corps de d\'ecomposition de $f(x) = x^p-2$ est $\mathbb Q(\sqrt[p]2,\zeta_p)$;
+        \item Montrer que $[\mathbb Q(\sqrt[p]2,\zeta_p),\mathbb Q]=p(p-1)$;
+    \end{itemize}
+    \item Soit $\varphi\colon F \to F_1$ isomorphisme de corps et $f \in F[x]$, $f_1(x) = \tilde\varphi(f)$
+        induit par $\varphi$. Montrer que si $E$ et $E_1$ sont respectivement les corps de d\'ecompositions
+        sur de $f$ et $f_1$, alors $E \cong E_1$ tel que l'isomorphisme $\sigma \colon E \to E_1$ est tel que
+        $E|_\textsc f = \varphi$.
+    \item Montrer que tout deux corps de d\'ecomposition de $f \in F[x]$ sont isomorphes.
+\end{itemize}
 \end{document}
