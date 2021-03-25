@@ -1,7 +1,6 @@
-% 7.50
 \documentclass[executivepaper,leqno]{amsart}
 \usepackage[makeroom]{cancel}
-\usepackage[margin=1.5cm]{geometry}
+\usepackage[margin=3.5cm]{geometry}
 \usepackage{graphicx}
 \usepackage{amsmath,amsthm,esint}
 \usepackage{amssymb}
@@ -16,6 +15,7 @@
 \usepackage{dcolumn}
 \usepackage{multicol}
 \usepackage{bbm}
+\usepackage{mathdots}
 
 \newcolumntype{2}{D{.}{}{2.0}}
 % \setlength\parskip{1\baselineskip}
@@ -33,11 +33,11 @@
 \newcommand\esp[1]{\opn{\mathbb E}{\left[#1\right]}}
 \newcommand\esps[1]{\opn E^2{\left[#1\right]}}
 \newcommand\cov[2]{\opn{Cov}\left(#1,#2\right)}
-\newcommand\prob[1]{\opn{P}\!\left[#1\right]}
+\newcommand\prob[1]{\opn{\mathbb P}\!\left[#1\right]}
 \newcommand\indep[2]{#1\bot\!\!\!\bot #2}
 \newcommand\ol[1]{\overline{#1}}
 \newcommand{\ubar}[1]{\text{\b{$#1$}}}
-\renewcommand\gcd[2]{\opn{pgcd}(#1,#2)}
+\renewcommand\gcd[2]{(#1,#2)}
 \newcommand\ob[1]{\ol{\vphantom b#1}}
 \newcommand\fl[1]{\opn{fl}{(#1)}}
 \newcommand\sig[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
@@ -60,41 +60,45 @@
 \newcommand\moa{\Bigl(1+\frac{\delta_{i,k_i}}{\sqrt Np_i}\Bigr)}
 \newcommand\mob{\Bigl(1-\sum_{i=1}^d \frac{\delta_{i,k_i}}{\sqrt Nq}\Bigr)}
 \newcommand\tn[1]{#1^\top}
+\newcommand\isom{\overset{\smash\sim}\to}
+\newcommand\aut[1]{\opn{Aut}(#1)}
+\newcommand\la\leftarrow
+\newcommand\satsub{\mathbin{-}^{\hspace{-5pt}\cdot}\,}
+\newcommand\genprod[2]{\mathbin{\raisebox{-0.25em}{$\stackrel{#1}{#2}$}}}
+\newenvironment{mypar}{\setlength\hangindent\parindent}
 
 \begin{document}
 \begin{align*}
-    X_{(i)}'X_{(i)} &= X'X - x_ix_i'\\
-    (P+UV)^{-1} &= P^{-1}-P^{-1}U(I+VP^{-1}U)^{-1}VP^{-1}\\
-    (X'X - x_ix_i')^{-1} &= (X'X)^{-1} + (X'X)^{-1}x_i(I -
-    x_i'(X'X)^{-1}x_i)^{-1}x_i'(X'X)^{-1}\\
-    &= (X'X)^{-1} + (X'X)^{-1}x_i\frac{x_i'(X'X)^{-1}}{1-h_{ii}}\\
-    X_{(i)}'y_{(i)} &= \sum_{\substack{1\leq j \leq n\\i \ne j}} x_jy_j
-        = \sum_{j=1}^n x_jy_j - x_iy_i = X'y - x_iy_i\\
-    \hat\beta_{(i)} &= (X_{(i)}'X_{(i)})^{-1}X_{(i)}'y_{(i)}\\
-    &= \Bigl((X'X)^{-1} + (X'X)^{-1}x_i\frac{x_i'(X'X)^{-1}}{1-h_{ii}}\Bigr)(X'y-x_iy_i)\\
-    &= \hat\beta - (X'X)^{-1}x_iy_i + (X'X)^{-1}x_i\biggl(
-    \frac{\overbrace{x_i'(X'X)^{-1}X'y}^{\hat y_i} -
-    \overbrace{x_i'(X'X)^{-1}x_i}^{h_{ii}}y_i}{1-h_{ii}}\biggr)\\
-    &= \hat\beta - (X'X)^{-1}x_i\frac{(1-h_{ii})y_i - \hat y_i + h_{ii}y_i}{1-h_{ii}}\\
-    &= \hat\beta -\frac{(X'X)^{-1}x_ie_i}{1-h_{ii}}\\
-    \hat\beta-\hat\beta_{(i)} &= \frac{(X'X)^{-1}x_ie_i}{1-h_{ii}}\\
-    \hat y_i &= x_i'[I + (X_{(i)}'X_{(i)})^{-1}x_ix_i']^{-1}\hat\beta_{(i)}+h_{ii}y_i\\
-    &= x_i'\left[I+\biggl((X'X)^{-1}+(X'X)^{-1}x_i\frac{x_i'(X'X)^{-1}}{1-h_{ii}}\biggr)x_ix_i'\right]^{-1}\hat\beta_{(i)} + h_{ii}y_i\\
-    &= x_i'\biggl[I+(X'X)^{-1}x_ix_i' + \frac1{1-h_{ii}}(X'X)^{-1}x_i\overbrace{x_i'(X'X)^{-1}x_i}^{h_{ii}}x_i'\biggr]^{-1}\hat\beta_{(i)}+h_{ii}y_i\\
-    &= x_i'\biggl[I+\frac{(1-h_{ii})(X'X)^{-1}x_ix_i'}{1-h_{ii}}+\frac{h_i(X'X)^{-1}x_ix_i'}{1-h_{ii}}\biggr]^{-1}\hat\beta_{(i)} +h_{ii}y_i\\
-    &=
-    x_i'\biggl(I+\frac{(X'X)^{-1}x_ix_i'}{1-h_{ii}}\biggr)^{-1}\hat\beta_{(i)} + h_{ii}y_i\\
-    &= x_i'\Bigl(\frac{(1-h_{ii})I+(X'X)^{-1}x_ix_i'}{1-h_{ii}}\Bigr)^{-1}\hat\beta_{(i)} + h_{ii}y_i\\
-    &\left(\substack{
-        \displaystyle (X'X-x_ix_i')^{-1} = (X'X)^{-1} + (X'X)^{-1}x_ix_i'\frac{(X'X)^{-1}}{1-h_{ii}}\\
-        \displaystyle\implies (X'X)^{-1}x_ix_i' =(1-h_{ii})\Bigl((X'X-x_ix_i')^{-1}X'X-I\Bigr)
-    }\right)\\
-    \hat y_i &= -x_i'\Bigl((X'X-x_ix_i')^{-1}X'X\Bigr)^{-1}\hat\beta_{(i)} +
-    h_{ii}y_i\\
-    &= -x_i'((X'X)^{-1}x_ix_i'-I)\hat\beta_{(i)}+h_{ii}y_i\\
-    &= (1-h_{ii})x_i'\hat\beta_{(i)}+h_{ii}y_i\\
-    &= x_i'\Bigl((1-h_{ii})\hat\beta-(X'X)^{-1}x_ie_i\Bigr)+h_{ii}y_i\\
-    &= (1-h_{ii})\hat y_i - h_{ii}(y_i-\hat y_i) + h_{ii}y_i\\
-    &= \hat y_i
+    g(z) &= \frac1{1-z} \qquad g(0) = 1\\
+    g'(z) &= \frac1{(1-z)^2} = g^2(z)\\
+    g^{(n-1)}(z) &= \frac{(n-1)!}{(1-z)^n} = (n-1)!g^n(z) &&\text{(hyp.)}\\
+    g^{(n)}(z) &= \frac d{dz}\bigl((n-1)!g^n(z)\bigr) = n!g^{n-1}(z)1!g^{2}(z) =
+    n!g^{n+1}(z)\\
+    g^{(n)}(0) &= 1\\
+    u(z) &= \frac{-xz}{1-z} = -xzg(z) \qquad u(0) = 1\\
+    u'(z) &= -xg(z)-xzg'(z) = -xg(z)-xzg^2(z) = g(z)(u(z)-x)\\
+    u'(0) &= -x\\
+    u''(z) &= g^2(z)u(z)+g^2(z)(u(z)-x) = g^2(z)(2u(z)-x)\\
+    u^{(3)}(z) &= 2g^3(z)(2u(z)-x)+2g^3(z)(u(z)-x) = 2g^3(z)(3u(z)-2x)\\
+    u^{(4)}(z) &= 6g^{4}(z)(3u(z)-2x)+6g^{4}(z)(u(z)-x) = 6g^{4}(z)(4u(z)-3x)\\
+    u^{(n-1)}(z) &= (n-2)!g^{n-1}(z)((n-1)u(z)-(n-2)x) &&\text{(hyp.)}\\
+    u^{(n)}(z) &= (n-2)!\frac d{dz}\bigl(g^{n-1}(z)((n-1)u(z)-(n-2)x)\bigr)\\
+    &= (n-1)!\bigl(g^n(z)((n-1)u(z)-(n-2)x) +g^n(z)(u(z)-x)\bigr)\\
+    &= (n-1)!g^n(z)(nu(z)-(n-1)x)\\
+    u^{(n)}(0) &= -(n-1)!(n-1)x &&(n>1)\\
+\end{align*}\\
+
+\begin{align*}
+    f(z) &= e^{-xz/(1-z)} = e^{u(z)}\\
+    f'(z) &= u'(z)e^{u(z)} = u'(z)f(z)\\
+    f''(z) &= u''(z)f(z)+u'(z)^2f(z) = (u''(z)+u'(z)^2)f(z)\\
+    f^{(3)}(z) &= (u^{(3)}(z)+2u'(z)u''(z))f(z) + (u''(z)u'(z)+u'(z)^3)f(z)\\
+    &= (u^{(3)}(z)+3u'(z)u''(z)+u'(z)^3)f(z)\\
+    f^{(4)}(z) &= \bigl(u^{(4)}(z) +3u''(z)^2+3u'(z)u^{(3)}(z)+3u'(z)^2u''(z)\\
+    &\phantom\implies+ u^{(3)}(z)u'(z)+3u'(z)^2u''(z)+u'(z)^3u'(z)\bigr)f(z)\\
+    f^{(n)}(z) &= \frac{d^{n-1}}{dz^{n-1}}\bigl(u'(z)f(z)\bigr)
+    = \sum_{k=0}^{n-1}\binom {n-1}k u^{(k+1)}f^{n-1-k}(z)\\
+    g(z) &= \frac{f(z)}{u(z)} = \frac{e^{-xz/(1-z)}}{1-z}\\
+    g'(z) &= \frac{\frac{x^2z}{(1-z)^3}e^{-xz/(1-z)}+x\frac{e^{-xz/(1-z)}}{(1-z)^2}}{(1-z)^2}
 \end{align*}
 \end{document}
