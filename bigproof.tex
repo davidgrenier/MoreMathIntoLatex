@@ -86,8 +86,8 @@
     x_i'\biggl(I+\frac{(X'X)^{-1}x_ix_i'}{1-h_{ii}}\biggr)^{-1}\hat\beta_{(i)} + h_{ii}y_i\\
     &= x_i'\Bigl(\frac{(1-h_{ii})I+(X'X)^{-1}x_ix_i'}{1-h_{ii}}\Bigr)^{-1}\hat\beta_{(i)} + h_{ii}y_i\\
     &\left(\substack{
-        \displaystyle (X'X-x_ix_i')^{-1} = (X'X)^{-1} + (X'X)^{-1}x_ix_i'\frac{(X'X)^{-1}}{1-h_{ii}}\\
-        \displaystyle\implies (X'X)^{-1}x_ix_i' =(1-h_{ii})\Bigl((X'X-x_ix_i')^{-1}X'X-I\Bigr)
+        \displaystyle (X'X-x_ix_i')^{-1} = (X'X)^{-1} - (X'X)^{-1}x_ix_i'\frac{(X'X)^{-1}}{1-h_{ii}}\\
+        \displaystyle\implies (X'X)^{-1}x_ix_i' =(1-h_{ii})\Bigl(I-(X'X-x_ix_i')^{-1}X'X\Bigr)
     }\right)\\
     \hat y_i &= -x_i'\Bigl((X'X-x_ix_i')^{-1}X'X\Bigr)^{-1}\hat\beta_{(i)} +
     h_{ii}y_i\\

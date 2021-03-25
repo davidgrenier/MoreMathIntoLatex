@@ -1,22 +1,33 @@
+% 7.50
 \documentclass[executivepaper,leqno]{amsart}
 \usepackage[makeroom]{cancel}
-\usepackage[margin=3.75cm]{geometry}
+\usepackage[margin=3.5cm]{geometry}
 \usepackage{graphicx}
 \usepackage{amsmath,amsthm,esint}
 \usepackage{amssymb}
 \usepackage{hhline}
 \usepackage{lineno}
+\usepackage{siunitx}
 \usepackage{mathtools}
+\usepackage{tikz}
+\usepackage[super]{nth}
 \usepackage{centernot}
 \usepackage{stackengine}
 \usepackage{dcolumn}
 \usepackage{multicol}
 \usepackage{bbm}
-\usepackage{mathdots}
-\usepackage{diagrams}
+
+\newcolumntype{2}{D{.}{}{2.0}}
+% \setlength\parskip{1\baselineskip}
 
 \def\Mline#1{\hspace*{-\leftmargin}\parbox{\textwidth}{\begin{align*}#1\end{align*}}}
+\NewDocumentCommand\overarrow{O{=} O{\uparrow} m}{%
+    \overset{\makebox[0pt]{\begin{tabular}{@{}c@{}}\ensuremath{#3}\\[0pt]\ensuremath{#2}\end{tabular}}}{#1}
+}
 \newcommand\nunlhd{\mathrel{\ooalign{$\lneq$\cr\raise.22ex\hbox{$\lhd$}\cr}}}
+\newcommand\rring[1]{{\mathop{\kern0pt #1}\limits^{\vbox to-1.85ex{\kern-2ex\hbox to 0pt{\hss\normalfont\kern.1em \r{}\kern-.45em \r{}\hss}\vss}}}}
+\newcommand\rrring[1]{{\mathop{\kern0pt #1}\limits^{\vbox to-1.85ex{\kern-2ex\hbox to 0pt{\hss\normalfont\kern.3em \r{}\kern-.45em \r{}\kern-.45em \r{} \hss}\vss}}}}
+\newcommand\ph{\ensuremath{\mathrel{\boxed{\mathstrut\phantom{abc}}}}}
 \newcommand\opn[1]{\operatorname{#1}}
 \newcommand\var[1]{\opn{Var}\left(#1\right)}
 \newcommand\esp[1]{\opn{\mathbb E}{\left[#1\right]}}
@@ -25,10 +36,14 @@
 \newcommand\prob[1]{\opn{\mathbb P}\!\left[#1\right]}
 \newcommand\indep[2]{#1\bot\!\!\!\bot #2}
 \newcommand\ol[1]{\overline{#1}}
+\newcommand{\ubar}[1]{\text{\b{$#1$}}}
+\renewcommand\gcd[2]{\opn{pgcd}(#1,#2)}
+\newcommand\ob[1]{\ol{\vphantom b#1}}
 \newcommand\fl[1]{\opn{fl}{(#1)}}
 \newcommand\sig[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand\sg[1]{\opn{sg}(#1)}
 \newcommand\llb[1]{\mathbbm{#1}}
-\newcommand\J[1]{\opn J_{#1}}
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\!\!\left/\!\!\raisebox{-.2em}{$#2$}\right.}}
 \newcommand\im[1]{\opn{Im}\left(#1\right)}
 \newcommand\surj\twoheadrightarrow
 \newcommand\inj{\xhookrightarrow{}}
@@ -39,11 +54,29 @@
 \newcommand\del[2]{\frac{\partial#1}{\partial#2}}
 \newcommand\pp[1]{\frac{\partial}{\partial#1}}
 \newcommand\ppp[1]{\frac{\partial^2}{\partial{#1}^2}}
+\DeclareMathOperator*\argmax{arg\,max}
 \newcommand\nn[1]{\|\mathbf #1\|_1}
 \newcommand\stirling[1]{\frac12\log(2\pi#1) + #1\log #1-#1+\frac1{12#1} + O(#1^{-3})}
-\newcommand\genprod[2]{\mathbin{\raisebox{-0.25em}{$\stackrel{#1}{#2}$}}}
-\newenvironment{mypar}{\setlength\hangindent\parindent}
+\newcommand\moa{\Bigl(1+\frac{\delta_{i,k_i}}{\sqrt Np_i}\Bigr)}
+\newcommand\mob{\Bigl(1-\sum_{i=1}^d \frac{\delta_{i,k_i}}{\sqrt Nq}\Bigr)}
+\newcommand\tn[1]{#1^\top}
 
 \begin{document}
-Define what is a free monoid $\opn M(A)$ on $A$.
+\begin{itemize}
+    \item Soit $f(x) = x^n-1 \in \mathbb Q[x]$, montrer que $\mathbb C \supset \mathbb Q$ contient toutes les racines de $f$;
+    \item Montrer que le corps de d\'ecomposition de $f(x) = x^n-1 \in \mathbb Q[x]$ est $\mathbb Q(\zeta_n)$;
+    \item D\'efinir le corps cyclotomique d'ordre $n$;
+    \item Soit $p \in \mathbb P$, alors:
+    \begin{itemize}
+        \item Montrer que $[\mathbb Q(\zeta_p):\mathbb Q] = p-1$;
+        \item Montrer que $[\mathbb Q(\zeta_n):\mathbb Q] = \phi(n)$;
+        \item Montrer que le corps de d\'ecomposition de $f(x) = x^p-2$ est $\mathbb Q(\sqrt[p]2,\zeta_p)$;
+        \item Montrer que $[\mathbb Q(\sqrt[p]2,\zeta_p),\mathbb Q]=p(p-1)$;
+    \end{itemize}
+    \item Soit $\varphi\colon F \to F_1$ isomorphisme de corps et $f \in F[x]$, $f_1(x) = \tilde\varphi(f)$
+        induit par $\varphi$. Montrer que si $E$ et $E_1$ sont respectivement les corps de d\'ecompositions
+        sur de $f$ et $f_1$, alors $E \cong E_1$ tel que l'isomorphisme $\sigma \colon E \to E_1$ est tel que
+        $E|_\textsc f = \varphi$.
+    \item Montrer que tout deux corps de d\'ecomposition de $f \in F[x]$ sont isomorphes.
+\end{itemize}
 \end{document}

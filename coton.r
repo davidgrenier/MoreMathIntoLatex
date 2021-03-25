@@ -1,8 +1,0 @@
-coton <- rep(3:7*5,ea=5)
-perm <- sample(1:25)
-force <- c(7,7,15,11,9,12,17,12,18,18,14,18,18,19,19,19,25,22,19,23,7,10,11,15,11)
-data <- data.frame(coton=factor(coton[perm]),force = force)
-aov0 <- aov(force~coton)
-N <- length(coton)
-plot(qnorm(0.5:N/N),sort(resid(aov0)))
-qqnorm(resid(aov0))
