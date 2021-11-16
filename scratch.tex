@@ -1,7 +1,7 @@
-% 7.50
 \documentclass[executivepaper,leqno]{amsart}
+\usepackage[utf8x]{inputenc}
 \usepackage[makeroom]{cancel}
-\usepackage[margin=3.5cm]{geometry}
+\usepackage[margin=4.5cm]{geometry}
 \usepackage{graphicx}
 \usepackage{amsmath,amsthm,esint}
 \usepackage{amssymb}
@@ -16,6 +16,7 @@
 \usepackage{dcolumn}
 \usepackage{multicol}
 \usepackage{bbm}
+\usepackage{diagrams}
 
 \newcolumntype{2}{D{.}{}{2.0}}
 % \setlength\parskip{1\baselineskip}
@@ -24,7 +25,7 @@
 \NewDocumentCommand\overarrow{O{=} O{\uparrow} m}{%
     \overset{\makebox[0pt]{\begin{tabular}{@{}c@{}}\ensuremath{#3}\\[0pt]\ensuremath{#2}\end{tabular}}}{#1}
 }
-\newcommand\nunlhd{\mathrel{\ooalign{$\lneq$\cr\raise.22ex\hbox{$\lhd$}\cr}}}
+\newcommand\runlhd{\mathrel{\ooalign{$\lneq$\cr\raise.22ex\hbox{$\lhd$}\cr}}}
 \newcommand\rring[1]{{\mathop{\kern0pt #1}\limits^{\vbox to-1.85ex{\kern-2ex\hbox to 0pt{\hss\normalfont\kern.1em \r{}\kern-.45em \r{}\hss}\vss}}}}
 \newcommand\rrring[1]{{\mathop{\kern0pt #1}\limits^{\vbox to-1.85ex{\kern-2ex\hbox to 0pt{\hss\normalfont\kern.3em \r{}\kern-.45em \r{}\kern-.45em \r{} \hss}\vss}}}}
 \newcommand\ph{\ensuremath{\mathrel{\boxed{\mathstrut\phantom{abc}}}}}
@@ -60,23 +61,14 @@
 \newcommand\moa{\Bigl(1+\frac{\delta_{i,k_i}}{\sqrt Np_i}\Bigr)}
 \newcommand\mob{\Bigl(1-\sum_{i=1}^d \frac{\delta_{i,k_i}}{\sqrt Nq}\Bigr)}
 \newcommand\tn[1]{#1^\top}
+\newarrow{DashTo}{}{dash}{}{dash}>
+\DeclareMathOperator*{\argmin}{arg\,min}
+\renewcommand\arraystretch{1.25}
+
+\diagramstyle[nohug]
 
 \begin{document}
-\begin{itemize}
-    \item Soit $f(x) = x^n-1 \in \mathbb Q[x]$, montrer que $\mathbb C \supset \mathbb Q$ contient toutes les racines de $f$;
-    \item Montrer que le corps de d\'ecomposition de $f(x) = x^n-1 \in \mathbb Q[x]$ est $\mathbb Q(\zeta_n)$;
-    \item D\'efinir le corps cyclotomique d'ordre $n$;
-    \item Soit $p \in \mathbb P$, alors:
-    \begin{itemize}
-        \item Montrer que $[\mathbb Q(\zeta_p):\mathbb Q] = p-1$;
-        \item Montrer que $[\mathbb Q(\zeta_n):\mathbb Q] = \phi(n)$;
-        \item Montrer que le corps de d\'ecomposition de $f(x) = x^p-2$ est $\mathbb Q(\sqrt[p]2,\zeta_p)$;
-        \item Montrer que $[\mathbb Q(\sqrt[p]2,\zeta_p),\mathbb Q]=p(p-1)$;
-    \end{itemize}
-    \item Soit $\varphi\colon F \to F_1$ isomorphisme de corps et $f \in F[x]$, $f_1(x) = \tilde\varphi(f)$
-        induit par $\varphi$. Montrer que si $E$ et $E_1$ sont respectivement les corps de d\'ecompositions
-        sur de $f$ et $f_1$, alors $E \cong E_1$ tel que l'isomorphisme $\sigma \colon E \to E_1$ est tel que
-        $E|_\textsc f = \varphi$.
-    \item Montrer que tout deux corps de d\'ecomposition de $f \in F[x]$ sont isomorphes.
-\end{itemize}
+\noindent
+Sachant qu'on cherche $\Delta x \in \ker A$ tel que $c^\top \Delta x \leq 0$, donner le
+syst\`eme optimisant la direction.
 \end{document}
